@@ -1,10 +1,11 @@
 ###
 
+
 #### Prologue 
-I am a person of conservative by nature *not* by age. But when it comes to direct experiments, I am rather proactive to new technology. The motto is we must get merits and demerits of both ends so as to compromise an optimal solution whenever necessary. 
+I am a man of conservative by nature *not* by age. But when it comes to direct experiments, I am rather proactive to new technology. The motto is we have to get merits and demerits of both ends so that an optimal solution is orchestrated whenever necessary. 
 
 
-#### [MariaDB Vectors (MariaDB.org)](https://mariadb.org/projects/mariadb-vector)
+#### I. [MariaDB Vectors (MariaDB.org)](https://mariadb.org/projects/mariadb-vector)
 - A project guided by the MariaDB Foundation, built with the MariaDB Server community. Main contributors – MariaDB Corporation, MariaDB Foundation, Amazon
 - Enables fast vector search in a relational database.
 - Keep your technology stack simple, no need for specialised datastores.
@@ -75,10 +76,16 @@ A full benchmark set is available at:
 [How Fast Is MariaDB Vector?](https://mariadb.com/resources/blog/how-fast-is-mariadb-vector/)
 
 
-#### [MariaDB Vectors (MariaDB.com)](https://mariadb.com/kb/en/vectors/)
+#### II. [MariaDB Vectors (MariaDB.com)](https://mariadb.com/kb/en/vectors/)
 
 
-#### Bibliography
+#### III. 
+
+
+#### IV. 
+
+
+#### V. Bibliography
 1. [MariaDB Vectors (MariaDB.org)](https://mariadb.org/projects/mariadb-vector)
 1. [MariaDB Vectors (MariaDB.com)](https://mariadb.com/kb/en/vectors/)
 1. [AI first applications with MariaDB Vector - Vicentiu Ciorbaru](https://youtu.be/vp126N1QOws)
@@ -88,4 +95,4 @@ A full benchmark set is available at:
 #### Epilogue 
 
 
-### EOF (2025/04/01)
+### EOF (2025/04/11)
