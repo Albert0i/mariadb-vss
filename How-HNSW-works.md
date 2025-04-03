@@ -3,7 +3,7 @@
 Hierarchical Navigable Small Worlds (HNSW) is a graph-based algorithm designed for efficient approximate nearest neighbor search in high-dimensional spaces. Here's a detailed explanation of how it works:
 
 
-#### Overview
+#### I. Overview
 HNSW constructs a multi-layered graph where each layer represents a simplified, navigable network of connections. This hierarchical structure allows for quick and accurate searches even in large, high-dimensional datasets[1](https://www.datastax.com/guides/hierarchical-navigable-small-worlds)[2](https://en.wikipedia.org/wiki/Hierarchical_navigable_small_world).
 
 In Hierarchical Navigable Small Worlds (HNSW), the number of data nodes in each layer varies based on the structure of the graph:
@@ -24,7 +24,7 @@ In Hierarchical Navigable Small Worlds (HNSW), the number of data nodes in each 
 This hierarchical structure allows HNSW to efficiently balance between broad, fast navigation and detailed, accurate search.
 
 
-#### Key Components
+#### II. Key Components
 1. **Graph Structure**:
    - **Layers**: The graph consists of multiple layers, with each layer providing different levels of connectivity. The top layers have fewer connections, while the bottom layers have more detailed connections.
    - **Nodes and Edges**: Each node represents a data point, and edges represent connections between nodes. The number of connections per node is controlled by the parameter **M**.
@@ -39,26 +39,26 @@ This hierarchical structure allows HNSW to efficiently balance between broad, fa
    - **efSearch**: This parameter controls the size of the priority queue during the search, affecting recall and speed[2](https://en.wikipedia.org/wiki/Hierarchical_navigable_small_world).
 
 
-#### How It Works
+#### III, How It Works
 1. **Initialization**: The algorithm begins by creating an initial graph with a few data points.
 2. **Layer Construction**: As more data points are added, the graph is expanded layer by layer. Each new point is inserted starting from the top layer, navigating down to the appropriate level.
 3. **Search**: To find the nearest neighbors of a query point, the algorithm starts at the top layer and uses the entry points to navigate through the graph. It uses the priority queue (controlled by efSearch) to keep track of the best candidates found so far.
 
 
-#### Advantages
+#### IV. Advantages
 - **Efficiency**: HNSW significantly reduces the time and computational resources needed for nearest neighbor searches.
 - **Scalability**: It scales logarithmically, making it suitable for large-scale applications.
 - **Accuracy**: Provides high recall and precision, essential for applications like recommendation systems, image recognition, and natural language processing[1](https://www.datastax.com/guides/hierarchical-navigable-small-worlds)[2](https://en.wikipedia.org/wiki/Hierarchical_navigable_small_world).
 
 
-#### Applications
+#### V. Applications
 HNSW is widely used in vector databases for tasks such as:
 - **Image and Video Retrieval**: Finding similar images or videos.
 - **Recommendation Systems**: Suggesting relevant items based on user preferences.
 - **Natural Language Processing**: Searching for similar text embeddings[2](https://en.wikipedia.org/wiki/Hierarchical_navigable_small_world)[3](https://myscale.com/blog/hnsw-algorithm-exploration/).
 
 
-#### Impact of M and ef on Performance
+#### IV. Impact of M and ef on Performance
 ##### 1. **M (Maximum Connections per Node)**
 - **Definition**: M determines the maximum number of edges each node can have in the graph layers.
 - **Impact**:
@@ -82,7 +82,7 @@ HNSW is widely used in vector databases for tasks such as:
   - **Trade-offs**: Higher efSearch values enhance recall but at the cost of slower query speeds[2](https://zilliz.com/ai-faq/what-are-the-key-configuration-parameters-for-an-hnsw-index-such-as-m-and-efconstructionefsearch-and-how-does-each-influence-the-tradeoff-between-index-size-build-time-query-speed-and-recall).
 
 
-#### Practical Example
+##### 3. Practical Example
 For a recommendation system requiring high recall, you might set:
 - **M = 24**
 - **efConstruction = 400**
