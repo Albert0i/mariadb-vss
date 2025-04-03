@@ -58,7 +58,7 @@ LIMIT 10
 
 ---
 
-The graph typically indicates the relationship between the accuracy of a search or retrieval system and its performance in terms of speed.
+When recall is on the x-axis and queries per second (QPS) is on the y-axis, the graph typically indicates the relationship between the accuracy of a search or retrieval system and its performance in terms of speed. The recall values are:0.9, 0.99, 0.999 and 0.9999 here. 
 
 - **Recall**: Measures the proportion of relevant items that are successfully retrieved. Higher recall means more relevant items are found.
 - **Queries Per Second (QPS)**: Indicates the number of queries the system can handle per second. Higher QPS means the system can process more queries in a given time.
