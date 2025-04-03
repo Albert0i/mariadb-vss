@@ -58,7 +58,7 @@ HNSW is widely used in vector databases for tasks such as:
 - **Natural Language Processing**: Searching for similar text embeddings[2](https://en.wikipedia.org/wiki/Hierarchical_navigable_small_world)[3](https://myscale.com/blog/hnsw-algorithm-exploration/).
 
 
-#### IV. Impact of M and ef on Performance
+#### VI. Impact of M and ef on Performance
 ##### 1. **M (Maximum Connections per Node)**
 - **Definition**: M determines the maximum number of edges each node can have in the graph layers.
 - **Impact**:
@@ -96,7 +96,7 @@ This configuration would yield a large, well-optimized index with slower build t
 This would reduce memory usage and latency at the cost of lower recall[2](https://zilliz.com/ai-faq/what-are-the-key-configuration-parameters-for-an-hnsw-index-such-as-m-and-efconstructionefsearch-and-how-does-each-influence-the-tradeoff-between-index-size-build-time-query-speed-and-recall).
 
 
-#### V. Resources
+#### VII. Resources
 For more in-depth information, you can explore these resources:
 1. [Hierarchical Navigable Small Worlds (HNSW) Guide](https://www.datastax.com/guides/hierarchical-navigable-small-worlds)
 2. [Hierarchical Navigable Small World - Wikipedia](https://en.wikipedia.org/wiki/Hierarchical_navigable_small_world)
