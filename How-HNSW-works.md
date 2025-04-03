@@ -6,6 +6,23 @@ Hierarchical Navigable Small Worlds (HNSW) is a graph-based algorithm designed f
 #### Overview
 HNSW constructs a multi-layered graph where each layer represents a simplified, navigable network of connections. This hierarchical structure allows for quick and accurate searches even in large, high-dimensional datasets[1](https://www.datastax.com/guides/hierarchical-navigable-small-worlds)[2](https://en.wikipedia.org/wiki/Hierarchical_navigable_small_world).
 
+In Hierarchical Navigable Small Worlds (HNSW), the number of data nodes in each layer varies based on the structure of the graph:
+
+##### Layer Structure
+- **Top Layers**: The uppermost layers have fewer nodes and longer connections. These layers provide a broad overview and help in quickly navigating to the general vicinity of the nearest neighbors[1](https://www.datastax.com/guides/hierarchical-navigable-small-worlds)[2](https://www.pinecone.io/learn/series/faiss/hnsw/).
+- **Bottom Layers**: The bottommost layer contains all the data nodes and has the shortest connections. This layer provides detailed and precise navigation to the nearest neighbors[3](https://zilliz.com/learn/hierarchical-navigable-small-worlds-HNSW).
+
+##### Node Distribution
+- **Upper Layers**: As you move up the layers, the number of nodes decreases. These layers act as a coarse filter, allowing the algorithm to skip large portions of the dataset quickly.
+- **Bottom Layer**: The bottom layer includes all the data points, ensuring that the search can be refined to find the exact nearest neighbors.
+
+##### Example
+- **Layer 0 (Bottom Layer)**: Contains all the data nodes.
+- **Layer 1**: Contains a subset of nodes from Layer 0.
+- **Layer 2**: Contains an even smaller subset of nodes from Layer 1, and so on.
+
+This hierarchical structure allows HNSW to efficiently balance between broad, fast navigation and detailed, accurate search.
+
 
 #### Key Components
 1. **Graph Structure**:
