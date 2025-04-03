@@ -72,7 +72,7 @@ This graph helps in understanding the trade-offs between the accuracy of the sea
 ---
 
 A full benchmark set is available at:
-[https://mariadb.com/resources/blog/how-fast-is-mariadb-vector/](https://mariadb.com/resources/blog/how-fast-is-mariadb-vector/)
+[How Fast Is MariaDB Vector?](https://mariadb.com/resources/blog/how-fast-is-mariadb-vector/)
 
 
 #### [MariaDB Vectors (MariaDB.com)](https://mariadb.com/kb/en/vectors/)
