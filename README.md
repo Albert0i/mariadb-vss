@@ -90,7 +90,8 @@ A full benchmark set is available at:
 1. [MariaDB Vectors (MariaDB.com)](https://mariadb.com/kb/en/vectors/)
 1. [AI first applications with MariaDB Vector - Vicentiu Ciorbaru](https://youtu.be/vp126N1QOws)
 1. [Get to know MariaDB’s Rocket-Fast Native Vector Search - Sergei Golubchyk](https://youtu.be/gNyzcy_6qJM)
-
+1. [MariaDB Vector, a new Open Source vector database that you are already familiar by Sergei Golubchik](https://youtu.be/r9af4bvF7jI)
+1. [Try RAG with MariaDB Vector on your own MariaDB data!](https://mariadb.org/rag-with-mariadb-vector/)
 
 #### Epilogue 
 
