@@ -1,0 +1,503 @@
+[
+    { 
+      "full_name": "William Shakespeare", 
+      "notable_works": ["Hamlet", "Romeo and Juliet"], 
+      "description": "The most celebrated playwright in history, known for his tragedies and comedies." 
+    },
+    { 
+      "full_name": "Jane Austen", 
+      "notable_works": ["Pride and Prejudice"], 
+      "description": "Renowned for her sharp observations of 19th-century society and romance." 
+    },
+    { 
+      "full_name": "Charles Dickens", 
+      "notable_works": ["Oliver Twist"], 
+      "description": "A Victorian novelist celebrated for his social commentary and vivid characters." 
+    },
+    { 
+      "full_name": "George Orwell", 
+      "notable_works": ["1984"], 
+      "description": "Known for his dystopian novels critiquing political oppression." 
+    },
+    { 
+      "full_name": "Virginia Woolf", 
+      "notable_works": ["Mrs. Dalloway"], 
+      "description": "A modernist pioneer exploring identity and consciousness." 
+    },
+    { 
+      "full_name": "Emily Brontë", 
+      "notable_works": ["Wuthering Heights"], 
+      "description": "Famous for her tragic tale of love and vengeance." 
+    },
+    { 
+      "full_name": "Charlotte Brontë", 
+      "notable_works": ["Jane Eyre"], 
+      "description": "Known for her deeply personal exploration of independence." 
+    },
+    { 
+      "full_name": "Oscar Wilde", 
+      "notable_works": ["The Picture of Dorian Gray"], 
+      "description": "Master of wit and satire in Victorian society." 
+    },
+    { 
+      "full_name": "Mary Shelley", 
+      "notable_works": ["Frankenstein"], 
+      "description": "Pioneered science fiction with her gothic masterpiece." 
+    },
+    { 
+      "full_name": "Thomas Hardy", 
+      "notable_works": ["Tess of the d'Urbervilles"], 
+      "description": "Wrote poignant rural dramas filled with tragedy." 
+    },
+    { 
+      "full_name": "John Milton", 
+      "notable_works": ["Paradise Lost"], 
+      "description": "Known for his epic poetry on religion and morality." 
+    },
+    { 
+      "full_name": "Geoffrey Chaucer", 
+      "notable_works": ["The Canterbury Tales"], 
+      "description": "The 'Father of English Literature,' famous for his narrative poetry." 
+    },
+    { 
+      "full_name": "Lewis Carroll", 
+      "notable_works": ["Alice's Adventures in Wonderland"], 
+      "description": "Famous for his whimsical and surreal children’s tales." 
+    },
+    { 
+      "full_name": "Agatha Christie", 
+      "notable_works": ["Murder on the Orient Express"], 
+      "description": "The queen of mystery novels with ingenious plots." 
+    },
+    { 
+      "full_name": "Arthur Conan Doyle", 
+      "notable_works": ["Sherlock Holmes series"], 
+      "description": "Creator of the world’s most famous detective." 
+    },
+    { 
+      "full_name": "William Wordsworth", 
+      "notable_works": ["The Prelude"], 
+      "description": "A Romantic poet celebrating nature and emotion." 
+    },
+    { 
+      "full_name": "T.S. Eliot", 
+      "notable_works": ["The Waste Land"], 
+      "description": "A modernist poet exploring despair and modernity." 
+    },
+    { 
+      "full_name": "J.R.R. Tolkien", 
+      "notable_works": ["The Lord of the Rings"], 
+      "description": "The father of modern fantasy, creating rich epic worlds." 
+    },
+    { 
+      "full_name": "C.S. Lewis", 
+      "notable_works": ["The Chronicles of Narnia"], 
+      "description": "A fantasy novelist blending allegory and imagination." 
+    },
+    { 
+      "full_name": "Roald Dahl", 
+      "notable_works": ["Charlie and the Chocolate Factory"], 
+      "description": "Beloved for his imaginative children’s stories." 
+    },
+    { 
+      "full_name": "Rudyard Kipling", 
+      "notable_works": ["The Jungle Book"], 
+      "description": "Captured British-Indian culture with tales of adventure." 
+    },
+    { 
+      "full_name": "H.G. Wells", 
+      "notable_works": ["The War of the Worlds"], 
+      "description": "A science fiction pioneer exploring human progress." 
+    },
+    { 
+      "full_name": "Aldous Huxley", 
+      "notable_works": ["Brave New World"], 
+      "description": "Critiqued technological excess in dystopian fiction." 
+    },
+    { 
+      "full_name": "E.M. Forster", 
+      "notable_works": ["A Passage to India"], 
+      "description": "Explored themes of human connection and colonialism." },
+    { 
+      "full_name": "Kazuo Ishiguro", 
+      "notable_works": ["Never Let Me Go"], 
+      "description": "Mastered understated prose exploring memory and loss." 
+    },
+    { 
+      "full_name": "Zadie Smith", 
+      "notable_works": ["White Teeth"], 
+      "description": "A contemporary novelist showcasing multicultural Britain." 
+    },
+    { 
+      "full_name": "Hilary Mantel", 
+      "notable_works": ["Wolf Hall"], 
+      "description": "Famed for her detailed historical fiction." 
+    },
+    { 
+      "full_name": "Margaret Atwood", 
+      "notable_works": ["The Handmaid's Tale"], 
+      "description": "Known for feminist dystopian literature." 
+    },
+    { 
+      "full_name": "Harper Lee", 
+      "notable_works": ["To Kill a Mockingbird"], 
+      "description": "Explored racial justice in a classic American novel." 
+    },
+    { 
+      "full_name": "Philip Pullman", 
+      "notable_works": ["His Dark Materials series"], 
+      "description": "Crafted a philosophical and imaginative fantasy trilogy." 
+    },
+    { 
+      "full_name": "Dan Brown", 
+      "notable_works": ["The Da Vinci Code"], 
+      "description": "Created thrillers mixing history, art, and suspense." 
+    },
+    { 
+      "full_name": "Rachel Carson", 
+      "notable_works": ["Silent Spring"], 
+      "description": "Spurred the environmental movement with her work." 
+    },
+    { 
+      "full_name": "Sylvia Plath", 
+      "notable_works": ["The Bell Jar"], 
+      "description": "Explored themes of identity and mental health in her writing." 
+    },
+    { 
+      "full_name": "Edgar Allan Poe", 
+      "notable_works": ["The Raven"], 
+      "description": "A master of Gothic fiction and poetry." 
+    },
+    { 
+      "full_name": "Franz Kafka", 
+      "notable_works": ["The Metamorphosis"], 
+      "description": "Pioneered existential and surreal literature." 
+    },
+    { 
+      "full_name": "Graham Hancock", 
+      "notable_works": ["Fingerprints of the Gods"], 
+      "description": "Explores ancient civilizations and mysteries." 
+    },
+    { 
+      "full_name": "Erich von Däniken", 
+      "notable_works": ["Chariots of the Gods"], 
+      "description": "Challenged history with ancient astronaut theories." 
+    },
+    { 
+      "full_name": "Albert Camus", 
+      "notable_works": ["The Stranger"], 
+      "description": "Explored absurdism and existentialism in philosophy and fiction." 
+    },
+    { 
+      "full_name": "Fyodor Dostoevsky", 
+      "notable_works": ["Crime and Punishment"], 
+      "description": "Delved into psychology, morality, and existential themes." },
+
+    {
+      "full_name": "F. Scott Fitzgerald",
+      "notable_works": ["The Great Gatsby", "Tender Is the Night"],
+      "description": "A chronicler of the Jazz Age, exploring themes of wealth and disillusionment."
+    },
+    {
+      "full_name": "Ernest Hemingway",
+      "notable_works": ["The Old Man and the Sea", "A Farewell to Arms"],
+      "description": "Known for his concise prose and themes of courage and endurance."
+    },
+    {
+      "full_name": "John Steinbeck",
+      "notable_works": ["The Grapes of Wrath", "Of Mice and Men"],
+      "description": "Celebrated for his sympathetic depictions of the struggles of working-class Americans."
+    },
+    {
+      "full_name": "Mark Twain (Samuel Langhorne Clemens)",
+      "notable_works": ["Adventures of Huckleberry Finn", "The Adventures of Tom Sawyer"],
+      "description": "A humorist and social critic exploring life along the Mississippi River."
+    },
+    {
+      "full_name": "Henry James",
+      "notable_works": ["The Turn of the Screw", "The Portrait of a Lady"],
+      "description": "Known for his detailed psychological narratives and exploration of social class."
+    },
+    {
+      "full_name": "William Faulkner",
+      "notable_works": ["The Sound and the Fury", "As I Lay Dying"],
+      "description": "A Nobel laureate who captured the complexities of the American South."
+    },
+    {
+      "full_name": "Jack London",
+      "notable_works": ["The Call of the Wild", "White Fang"],
+      "description": "An adventurer and novelist known for his tales of survival in nature."
+    },
+    {
+      "full_name": "Ray Bradbury",
+      "notable_works": ["Fahrenheit 451", "The Martian Chronicles"],
+      "description": "A science fiction writer who explored human nature and dystopian futures."
+    },
+    {
+      "full_name": "Toni Morrison",
+      "notable_works": ["Beloved", "Song of Solomon"],
+      "description": "A Nobel Prize-winning author who explored African-American heritage and identity."
+    },
+    {
+      "full_name": "Kurt Vonnegut",
+      "notable_works": ["Slaughterhouse-Five", "Cat's Cradle"],
+      "description": "A satirist known for his dark humor and exploration of humanity’s absurdity."
+    },
+    {
+      "full_name": "Louisa May Alcott",
+      "notable_works": ["Little Women", "Jo's Boys"],
+      "description": "A writer who depicted family, independence, and coming-of-age themes."
+    },
+    {
+      "full_name": "Alice Walker",
+      "notable_works": ["The Color Purple", "Meridian"],
+      "description": "An acclaimed novelist exploring race, gender, and societal norms."
+    },
+    {
+      "full_name": "Charlotte Perkins Gilman",
+      "notable_works": ["The Yellow Wallpaper", "Herland"],
+      "description": "A feminist writer addressing mental health and gender roles."
+    },
+    {
+      "full_name": "Ralph Waldo Emerson",
+      "notable_works": ["Self-Reliance", "Nature"],
+      "description": "A transcendentalist advocating individuality and the spiritual connection to nature."
+    },
+    {
+      "full_name": "Walt Whitman",
+      "notable_works": ["Leaves of Grass"],
+      "description": "A revolutionary poet celebrating democracy, individuality, and humanity."
+    },
+    {
+      "full_name": "George Eliot (Mary Ann Evans)",
+      "notable_works": ["Middlemarch", "Silas Marner"],
+      "description": "A Victorian novelist acclaimed for her realism and deep character exploration."
+    },
+    {
+      "full_name": "Samuel Taylor Coleridge",
+      "notable_works": ["The Rime of the Ancient Mariner", "Kubla Khan"],
+      "description": "A Romantic poet celebrated for his imagination and supernatural themes."
+    },
+    {
+      "full_name": "Alfred Lord Tennyson",
+      "notable_works": ["The Charge of the Light Brigade", "In Memoriam"],
+      "description": "A Victorian poet renowned for his narrative and lyrical depth."
+    },
+    {
+      "full_name": "Percy Bysshe Shelley",
+      "notable_works": ["Ozymandias", "Prometheus Unbound"],
+      "description": "A Romantic poet admired for his revolutionary ideas and lyricism."
+    },
+    {
+      "full_name": "John Keats",
+      "notable_works": ["Ode to a Nightingale", "Ode on a Grecian Urn"],
+      "description": "A Romantic poet focused on themes of beauty and mortality."
+    },
+    {
+      "full_name": "William Blake",
+      "notable_works": ["Songs of Innocence and of Experience"],
+      "description": "A poet and artist exploring spirituality and human emotion."
+    },
+    {
+      "full_name": "Emily Dickinson",
+      "notable_works": ["Hope Is the Thing with Feathers"],
+      "description": "A reclusive poet known for her unique and introspective style."
+    },
+    {
+      "full_name": "Joseph Conrad",
+      "notable_works": ["Heart of Darkness", "Lord Jim"],
+      "description": "A modernist writer famous for his psychological and moral complexity."
+    },
+    {
+      "full_name": "J.D. Salinger",
+      "notable_works": ["The Catcher in the Rye"],
+      "description": "An influential post-war novelist capturing youth and alienation."
+    },
+    {
+      "full_name": "Nathaniel Hawthorne",
+      "notable_works": ["The Scarlet Letter", "The House of the Seven Gables"],
+      "description": "A Gothic novelist exploring sin and redemption."
+    },
+    {
+      "full_name": "Anne Brontë",
+      "notable_works": ["The Tenant of Wildfell Hall", "Agnes Grey"],
+      "description": "A Victorian novelist known for her socially progressive themes."
+    },
+    {
+      "full_name": "James Baldwin",
+      "notable_works": ["Giovanni's Room", "Go Tell It on the Mountain"],
+      "description": "A leading voice in literature addressing race, identity, and societal challenges."
+    },
+    {
+      "full_name": "Doris Lessing",
+      "notable_works": ["The Golden Notebook", "The Grass Is Singing"],
+      "description": "A Nobel laureate exploring psychological and social themes."
+    },
+    {
+      "full_name": "Angela Carter",
+      "notable_works": ["The Bloody Chamber", "Nights at the Circus"],
+      "description": "A writer who reimagined fairy tales with feminist and gothic perspectives."
+    },
+    {
+      "full_name": "P.D. James",
+      "notable_works": ["The Children of Men", "Cover Her Face"],
+      "description": "A crime novelist known for her depth of character and suspenseful plots."
+    },
+    {
+      "full_name": "Graham Greene",
+      "notable_works": ["The Power and the Glory", "The End of the Affair"],
+      "description": "A novelist who combined literary depth with compelling moral narratives."
+    },
+    {
+      "full_name": "Alan Moore",
+      "notable_works": ["Watchmen", "V for Vendetta"],
+      "description": "A groundbreaking graphic novelist exploring complex themes."
+    },
+    {
+      "full_name": "Terry Pratchett",
+      "notable_works": ["Discworld series"],
+      "description": "A fantasy writer known for his satirical and humorous approach."
+    },
+    {
+      "full_name": "Neil Gaiman",
+      "notable_works": ["American Gods", "Coraline"],
+      "description": "A versatile writer blending mythology, fantasy, and horror."
+    },
+    {
+      "full_name": "G.K. Chesterton",
+      "notable_works": ["The Man Who Was Thursday", "Father Brown series"],
+      "description": "A witty and philosophical writer tackling moral and religious themes."
+    },
+    {
+      "full_name": "Christopher Marlowe",
+      "notable_works": ["Doctor Faustus", "Tamburlaine"],
+      "description": "A playwright and poet of the Elizabethan era, known for his blank verse dramas."
+    },
+    {
+      "full_name": "John Bunyan",
+      "notable_works": ["The Pilgrim's Progress"],
+      "description": "Best known for his allegorical journey of Christian salvation."
+    },
+
+    {
+      "full_name": "Herman Melville",
+      "notable_works": ["Moby-Dick", "Billy Budd"],
+      "description": "A profound novelist and poet known for his complex exploration of humanity and obsession."
+    },
+    {
+      "full_name": "Zora Neale Hurston",
+      "notable_works": ["Their Eyes Were Watching God"],
+      "description": "A celebrated figure of the Harlem Renaissance who captured African-American life and folklore."
+    },
+    {
+      "full_name": "Flannery O'Connor",
+      "notable_works": ["A Good Man Is Hard to Find", "Wise Blood"],
+      "description": "A master of Southern Gothic fiction, exploring morality and religion."
+    },
+    {
+      "full_name": "Richard Wright",
+      "notable_works": ["Native Son", "Black Boy"],
+      "description": "An influential writer exposing the struggles of African-Americans in the 20th century."
+    },
+    {
+      "full_name": "Truman Capote",
+      "notable_works": ["In Cold Blood", "Breakfast at Tiffany's"],
+      "description": "A trailblazer of non-fiction novels and a keen observer of human behavior."
+    },
+    {
+      "full_name": "John Updike",
+      "notable_works": ["Rabbit, Run", "The Witches of Eastwick"],
+      "description": "A chronicler of middle-class America and its moral complexities."
+    },
+    {
+      "full_name": "Sherman Alexie",
+      "notable_works": ["The Absolutely True Diary of a Part-Time Indian", "Reservation Blues"],
+      "description": "An essential voice in Native American literature, blending humor and tragedy."
+    },
+    {
+      "full_name": "Paul Auster",
+      "notable_works": ["The New York Trilogy", "Moon Palace"],
+      "description": "An innovative novelist blending metafiction and existential themes."
+    },
+    {
+      "full_name": "Eudora Welty",
+      "notable_works": ["The Optimist's Daughter", "Delta Wedding"],
+      "description": "A key Southern writer known for her evocative sense of place."
+    },
+    {
+      "full_name": "Carson McCullers",
+      "notable_works": ["The Heart Is a Lonely Hunter", "The Ballad of the Sad Café"],
+      "description": "A distinctive voice in Southern Gothic literature, exploring loneliness and love."
+    },
+    {
+      "full_name": "Saul Bellow",
+      "notable_works": ["Herzog", "Humboldt's Gift"],
+      "description": "A Nobel laureate celebrated for his vibrant characters and philosophical reflections."
+    },
+    {
+      "full_name": "Philip Roth",
+      "notable_works": ["American Pastoral", "Portnoy's Complaint"],
+      "description": "A leading novelist known for his introspection and cultural commentary."
+    },
+    {
+      "full_name": "Tennessee Williams",
+      "notable_works": ["A Streetcar Named Desire", "The Glass Menagerie"],
+      "description": "One of America's most significant playwrights, capturing raw human emotion."
+    },
+    {
+      "full_name": "Arthur Miller",
+      "notable_works": ["The Crucible", "Death of a Salesman"],
+      "description": "A playwright who delved into moral dilemmas and societal struggles."
+    },
+    {
+      "full_name": "Chimamanda Ngozi Adichie",
+      "notable_works": ["Americanah", "Half of a Yellow Sun"],
+      "description": "A novelist of Nigerian-American descent exploring identity and migration."
+    },
+    {
+      "full_name": "Lillian Hellman",
+      "notable_works": ["The Little Foxes", "The Children's Hour"],
+      "description": "A playwright who illuminated corruption, greed, and human fallibility."
+    },
+    {
+      "full_name": "Amy Tan",
+      "notable_works": ["The Joy Luck Club", "The Kitchen God's Wife"],
+      "description": "A novelist exploring mother-daughter relationships and cultural identity."
+    },
+    {
+      "full_name": "James Fenimore Cooper",
+      "notable_works": ["The Last of the Mohicans", "The Deerslayer"],
+      "description": "Famous for his historical novels and tales of frontier life."
+    },
+    {
+      "full_name": "Stephen King",
+      "notable_works": ["The Shining", "It"],
+      "description": "The master of modern horror and suspense fiction."
+    },
+    {
+      "full_name": "Anne Tyler",
+      "notable_works": ["Dinner at the Homesick Restaurant", "The Accidental Tourist"],
+      "description": "Known for her insightful explorations of family and human relationships."
+    },
+    {
+      "full_name": "Maya Angelou",
+      "notable_works": ["I Know Why the Caged Bird Sings"],
+      "description": "A poet, memoirist, and activist who celebrated resilience and identity."
+    },
+    {
+      "full_name": "Cormac McCarthy",
+      "notable_works": ["The Road", "Blood Meridian"],
+      "description": "A novelist with stark and poetic depictions of human struggle and survival."
+    },
+    
+    {
+      "full_name": "Victor Hugo",
+      "notable_works": ["Les Misérables", "The Hunchback of Notre-Dame"],
+      "description": "A literary giant of the Romantic era, celebrated for his masterful storytelling and social justice themes."
+    },
+    {
+      "full_name": "Marcel Proust",
+      "notable_works": ["In Search of Lost Time"],
+      "description": "Known for his introspective and monumental exploration of memory, time, and identity."
+    }
+]
