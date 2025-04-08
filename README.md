@@ -4,6 +4,8 @@
 #### Prologue 
 I am a man of conservative by nature *not* by age. When it comes to experiments, I am rather proactive to new technology. The motto is we have to get merits and demerits of both ends so that an optimal solution can be orchestrated to the maximum extend. 
 
+IMHO, both SQL and NoSQL databases have their roles in modern data processing. Currently, RDBMS dominates the market because-of it's popularity and ease-of-use. However, NoSQL database evinces tremendous flexibility in certain application scenario. It's the emerging menace NoSQL which brings about new challenge and evolution to traditional SQL database. Examples are JSON data types in relational database which began in the early 2010s and VECTOR datatype in relatively recent. milestones:
+
 
 #### I. [What is HNSW?](https://towardsdatascience.com/similarity-search-part-4-hierarchical-navigable-small-world-hnsw-2aad4fe87d37/) (TL;DR)
 > **Similarity search** is a problem where given a query the goal is to find the most similar documents to it among all the database documents. 
