@@ -129,9 +129,9 @@ The underlaying data structures of HNSW are [Skip lists](https://en.wikipedia.or
 > The insertion process works very similarly, compared to the search procedure, without any significant differences which could require a non-constant number of operations. Thus, the insertion of a single vertex imposes *O(logn)* of time. To estimate the total complexity, the number of all inserted nodes *n* in a given dataset should be considered. Ultimately, HNSW construction requires *O(n * logn)* time.
 
 ---
-- *efSearch*: number of nearest neighbours to explore in finding the query; 
-- *efConstruction*: number of nearest neighbours are chosen and edges from the inserted node to them are built; 
-- *M*: number of linked edges to the M nearest neighbours.
+- *efSearch*: number of nearest neighbours to explore in running the query; 
+- *efConstruction*: number of nearest neighbours are chosen to built edges from the inserted node; 
+- *M*: number of linked edges to the nearest neighbours.
 
 
 #### I. [MariaDB Vectors (MariaDB.org)](https://mariadb.org/projects/mariadb-vector)
