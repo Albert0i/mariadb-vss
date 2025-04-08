@@ -14,7 +14,7 @@ I am a man of conservative by nature *not* by age. When it comes to experiments,
 
 The underlaying data structures of HNSW are [Skip lists](https://en.wikipedia.org/wiki/Skip_list) and [Navigable Small World](https://en.wikipedia.org/wiki/Small-world_network). 
 
-**Skip lists**
+##### **Skip lists**
 > [Skip list](https://en.wikipedia.org/wiki/Skip_list) is a probabilistic data structure that allows inserting and searching elements within a sorted list for *O(logn)* on average. A skip list is constructed by several layers of linked lists. The lowest layer has the original linked list with all the elements in it. When moving to higher levels, the number of skipped elements increases, thus decreasing the number of connections.
 
 ![alt Finding-element-20-in-skip-list](img/Finding-element-20-in-skip-list.jpg)
@@ -25,7 +25,7 @@ The underlaying data structures of HNSW are [Skip lists](https://en.wikipedia.or
 
 > As we can see, this process is much faster than the normal linear search in the linked list. In fact, HNSW inherits the same idea but instead of linked lists, it uses graphs.
 
-**Navigable Small World**
+##### **Navigable Small World**
 > [Navigable small world](https://en.wikipedia.org/wiki/Small-world_network) is a graph with polylogarithmic *T = O(logᵏn)* search complexity which uses greedy routing. **Routing** refers to the process of starting the search process from low-degree vertices and ending with high-degree vertices. Since low-degree vertices have very few connections, the algorithm can rapidly move between them to efficiently navigate to the region where the nearest neighbour is likely to be located. Then the algorithm gradually zooms in and switches to high-degree vertices to find the nearest neighbour among the vertices in that region.
 
 > Vertex is sometimes also referred to as a **node**.
