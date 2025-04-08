@@ -86,6 +86,13 @@ A full benchmark set is available at:
 
 
 #### V. Bibliography
+1. [What is a vector database?](https://youtu.be/Yhv19le0sBw)
+1. [MariaDB Vector: Why your AI data should be in an RDBMS | Kaj Arnö](https://youtu.be/y2OkGu_jO8I)
+
+1. [What is a Hierarchical Navigable Small World?](https://www.mongodb.com/resources/basics/hierarchical-navigable-small-world)
+1. [Understand Hierarchical Navigable Small World Indexes](https://docs.oracle.com/en/database/oracle/oracle-database/23/vecse/understand-hierarchical-navigable-small-world-indexes.html)
+1. [Similarity Search, Part 4: Hierarchical Navigable Small World (HNSW)](https://towardsdatascience.com/similarity-search-part-4-hierarchical-navigable-small-world-hnsw-2aad4fe87d37/)
+
 1. [MariaDB Vectors (MariaDB.org)](https://mariadb.org/projects/mariadb-vector)
 1. [MariaDB Vectors (MariaDB.com)](https://mariadb.com/kb/en/vectors/)
 1. [AI first applications with MariaDB Vector - Vicentiu Ciorbaru](https://youtu.be/vp126N1QOws)
