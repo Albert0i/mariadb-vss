@@ -30,7 +30,7 @@ The underlaying data structures of HNSW are [Skip lists](https://en.wikipedia.or
 
 > Vertex is sometimes also referred to as a **node**.
 
-**Search**
+###### **Search**
 > In the first place, search is proceeded by choosing an entry point. To determine the next vertex (or vertices) to which the algorithm makes a move, it calculates the distances from the query vector to the current vertex’s neighbours and moves to the closest one. At some point, the algorithm terminates the search procedure when it cannot find a neighbour node that is closer to the query than the current node itself. This node is returned as the response to the query.
 
 ![alt Greedy-search-process-in-a-navigable-small-world](img/Greedy-search-process-in-a-navigable-small-world.jpg)
@@ -45,7 +45,7 @@ The underlaying data structures of HNSW are [Skip lists](https://en.wikipedia.or
 
 > The search accuracy can be improved by using several entry points.
 
-**Construction**
+###### **Construction**
 > The NSW graph is built by shuffling dataset points and inserting them one by one in the current graph. When a new node is inserted, it is then linked by edges to the *M* nearest vertices to it.
 
 ![alt Sequential-insertion-of-nodes](img/Sequential-insertion-of-nodes.jpg)
@@ -58,21 +58,20 @@ The underlaying data structures of HNSW are [Skip lists](https://en.wikipedia.or
 
 > As the number of vertices in the graph increases, it increases the probability that the lengths of newly connected edges to a new node will be smaller.
 
-**HNSW**
+##### **HNSW**
 > [HNSW](https://arxiv.org/pdf/1603.09320.pdf) is based on the same principles as skip list and navigable small world. Its structure represents a multi-layered graph with fewer connections on the top layers and more dense regions on the bottom layers.
 
-**Search**
+###### **Search**
 > The search starts from the highest layer and proceeds to one level below every time the local nearest neighbour is greedily found among the layer nodes. Ultimately, the found nearest neighbour on the lowest layer is the answer to the query.
 
 ![alt Search-in-HNSW](img/Search-in-HNSW.jpg)
 
 > Similarly to NSW, the search quality of HNSW can be improved by using several entry points. Instead of finding only one nearest neighbour on each layer, the *efSearch* (a hyperparameter) __ closest nearest neighbours to the query vector are found and each of these neighbours is used as the entry point on the next layer.
 
-**Complexity**
+###### **Complexity**
 > The authors of the [original paper](https://arxiv.org/pdf/1603.09320.pdf) claim that the number of operations required to find the nearest neighbour on any layer is bounded by a constant. Taking into consideration that the number of all layers in a graph is logarithmic, we get the total search complexity which is *O(logn)*.
 
-**Construction**
-
+###### **Construction**
 **Choosing the maximum layer**
 > Nodes in HNSW are inserted sequentially one by one. Every node is randomly assigned an integer *l* indicating the maximum layer at which this node can present in the graph. For example, if *l = 1*, then the node can only be found on layers 0 and 1. The authors select *l* randomly for each node with an *exponentially decaying probability distribution* normalized by the non-zero multiplier *mL* (*mL* = 0 results in a single layer in HNSW and non-optimized search complexity). Normally, the majority of *l* values should be equal to 0, so most of the nodes are present only on the lowest level. The larger values of *mL* increase the probability of a node appearing on higher layers.
 
@@ -84,7 +83,7 @@ The underlaying data structures of HNSW are [Skip lists](https://en.wikipedia.or
 
 > The authors of the paper propose choosing the optimal value of *mL* which is equal to *1 / ln(M)*. This value corresponds to the parameter *p = 1 / M* of the skip list being an average single element overlap between the layers.
 
-**Insertion**
+###### **Insertion**
 > After a node is assigned the value l, there are two phases of its insertion:
 
 1. The algorithm starts from the upper layer and greedily finds the nearest node. The found node is then used as an entry point to the next layer and the search process continues. Once the layer l is reached, the insertion proceeds to the second step.
@@ -94,14 +93,14 @@ The underlaying data structures of HNSW are [Skip lists](https://en.wikipedia.or
 
 > Insertion of a node (in blue) in HNSW. The maximum layer for a new node was randomly chosen as l = 2. Therefore, the node will be inserted on layers 2, 1 and 0. On each of these layers, the node will be connected to its M = 2 nearest neighbours.
 
-**Choosing values for construction parameters**
+###### **Choosing values for construction parameters**
 > The original paper provides several useful insights on how to choose hyperparameters:
 
 - According to simulations, good values for *M* lie between 5 and 48. Smaller values of *M* tend to be better for lower recalls or low-dimensional data while higher values of *M* are suited better for high recalls or high-dimensional data.
 - Higher values of *efConstruction* imply a more profound search as more candidates are explored. However, it requires more computations. Authors recommend choosing such an *efConstruction* value that results at recall being close to 0.95–1 during training.
 - Additionally, there is another important parameter *Mₘₐₓ* – the maximum number of edges a vertex can have. Apart from it, there exists the same parameter *Mₘₐₓ₀* but separately for the lowest layer. It is recommended to choose a value for *Mₘₐₓ* close to *2 * M*. Values greater than *2 * M* can lead to performance degradation and excessive memory usage. At the same time, *Mₘₐₓ = M* results in poor performance at high recall.
 
-**Candidate selection heuristic**
+###### **Candidate selection heuristic**
 > It was noted above that during node insertion, *M* out of *efConstruction* candidates are chosen to build edges to them. Let us discuss possible ways of choosing these *M* nodes.
 
 > The naïve approach takes *M* closest candidates. Nevertheless, it is not always the optimal choice. Below is an example demonstrating it.
@@ -124,7 +123,7 @@ The underlaying data structures of HNSW are [Skip lists](https://en.wikipedia.or
 
 > The example on the left uses the naïve approach. The example on the right uses the selection heuristic which results in two initial disjoint regions being connected to each other.
 
-**Complexity**
+###### **Complexity**
 > The insertion process works very similarly, compared to the search procedure, without any significant differences which could require a non-constant number of operations. Thus, the insertion of a single vertex imposes *O(logn)* of time. To estimate the total complexity, the number of all inserted nodes *n* in a given dataset should be considered. Ultimately, HNSW construction requires *O(n * logn)* time.
 
 
