@@ -486,6 +486,11 @@ mhnsw_max_cache_size
 
 
 #### IV. Limitations 
+![alt Limitations](img/Limitations.JPG)
+
+![alt currently-implemented](img/currently-implemented.JPG)
+
+![alt currently-implemented-more](img/currently-implemented-more.JPG)
 
 
 #### IV. Special Purpose Database 
