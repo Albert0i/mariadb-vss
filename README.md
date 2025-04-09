@@ -8,7 +8,7 @@ IMHO, both SQL and NoSQL databases have their roles in modern data processing. C
 
 
 #### I. [What is HNSW?](https://towardsdatascience.com/similarity-search-part-4-hierarchical-navigable-small-world-hnsw-2aad4fe87d37/) (TL;DR)
-> [Hierarchical Navigable Small World](https://arxiv.org/pdf/1603.09320.pdf) (HNSW) is a state-of-the-art algorithm used for an approximate search of nearest neighbours.
+> [Hierarchical Navigable Small World](https://arxiv.org/pdf/1603.09320.pdf) (HNSW) is a state-of-the-art algorithm used for an approximate search of nearest neighbours. Under the hood, HNSW constructs optimized graph structures making it very different from other approaches that were discussed in previous parts of this article series.
 
 > **Similarity search** is a problem where given a query the goal is to find the most similar documents to it among all the database documents. 
 
