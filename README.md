@@ -284,7 +284,7 @@ MariaDB uses int16 for indexes, which gives 15 bits to store the value, rather t
 
 
 #### Epilogue 
-Between [MySQL Community Server 9.2.0 Innovation](https://dev.mysql.com/downloads/mysql/) and [MariaDB Community Server Version 11.7.2-GA](https://mariadb.com/downloads/), I opt MariaDB... To be honest I am using MySQL Community Server 8.0.30 and quite satisfied on every aspect. The only reason drives me away is that one should not work under the shadow of being blackmailed in huge bucks by some one some day... It is just psychologically unwholesome... 
+Between [MySQL Community Server 9.2.0 Innovation](https://dev.mysql.com/downloads/mysql/) and [MariaDB Community Server Version 11.7.2-GA](https://mariadb.com/downloads/), I opt the later... Currently, I am using MySQL Community Server 8.0.30 and so far so good, the only reason drives me away is that one should not develop under the shadow of blackmailed in huge bucks by some guy some day... It is just psychologically unwholesome... 
 
 
 ### EOF (2025/04/17)
