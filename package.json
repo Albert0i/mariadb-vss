@@ -1,0 +1,12 @@
+{
+  "name": "mariadb-vss",
+  "version": "1.0.0",
+  "description": "I am a person of conservative by nature *not* by age. But when it comes to direct experiments, I am rather proactive to new technology. The motto is we must get merits and demerits of both ends so as to compromise an optimal solution whenever necessary.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
