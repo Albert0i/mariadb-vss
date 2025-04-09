@@ -279,7 +279,8 @@ MariaDB uses int16 for indexes, which gives 15 bits to store the value, rather t
 6. [AI first applications with MariaDB Vector - Vicentiu Ciorbaru](https://youtu.be/vp126N1QOws)
 7. [Get to know MariaDB’s Rocket-Fast Native Vector Search - Sergei Golubchyk](https://youtu.be/gNyzcy_6qJM)
 8. [MariaDB Vector, a new Open Source vector database that you are already familiar by Sergei Golubchik](https://youtu.be/r9af4bvF7jI)
-10. [Try RAG with MariaDB Vector on your own MariaDB data!](https://mariadb.org/rag-with-mariadb-vector/)
+9. [Try RAG with MariaDB Vector on your own MariaDB data!](https://mariadb.org/rag-with-mariadb-vector/)
+10. [The Trial by Franz Kafka](https://www.gutenberg.org/cache/epub/7849/pg7849-images.html)
 
 
 #### Epilogue 
