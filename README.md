@@ -267,13 +267,106 @@ CREATE TABLE embeddings (
 ```
 
 **Inserting**
-Vector columns store 32-bit IEEE 754 floating point numbers.
+> Vector columns store [32-bit IEEE 754 floating point numbers](https://en.wikipedia.org/wiki/Single-precision_floating-point_format).
+```
+INSERT INTO v VALUES 
+     (1, x'e360d63ebe554f3fcdbc523f4522193f5236083d'),
+     (2, x'f511303f72224a3fdd05fe3eb22a133ffae86a3f'),
+     (3,x'f09baa3ea172763f123def3e0c7fe53e288bf33e'),
+     (4,x'b97a523f2a193e3eb4f62e3f2d23583e9dd60d3f'),
+     (5,x'f7c5df3e984b2b3e65e59d3d7376db3eac63773e'),
+     (6,x'de01453ffa486d3f10aa4d3fdd66813c71cb163f'),
+     (7,x'76edfc3e4b57243f10f8423fb158713f020bda3e'),
+     (8,x'56926c3fdf098d3e2c8c5e3d1ad4953daa9d0b3e'),
+     (9,x'7b713f3e5258323f80d1113d673b2b3f66e3583f'),
+     (10,x'6ca1d43e9df91b3fe580da3e1c247d3f147cf33e');
 ```
 
+Alternatively one can use `VEC_FromText()` function:
+```
+INSERT INTO v VALUES
+  (1,Vec_FromText('[0.418708,0.809902,0.823193,0.598179,0.0332549]')),
+  (2,Vec_FromText('[0.687774,0.789588,0.496138,0.57487,0.917617]')),
+  (3,Vec_FromText('[0.333221,0.962687,0.467263,0.448235,0.475671]')),
+  (4,Vec_FromText('[0.822185,0.185643,0.683452,0.211072,0.554056]')),
+  (5,Vec_FromText('[0.437057,0.167281,0.0770977,0.428638,0.241591]')),
+  (6,Vec_FromText('[0.76956,0.926895,0.803376,0.0157961,0.589042]')),
+  (7,Vec_FromText('[0.493999,0.641957,0.761598,0.94276,0.425865]')),
+  (8,Vec_FromText('[0.924108,0.275466,0.0543329,0.0731585,0.136344]')),
+  (9,Vec_FromText('[0.186956,0.69666,0.0356002,0.668875,0.84722]')),
+  (10,Vec_FromText('[0.415294,0.609278,0.426765,0.988832,0.475556]'));
 ```
 
+**Querying**
+> For vector indexes built with the `euclidean` function, [VEC_DISTANCE_EUCLIDEAN](https://mariadb.com/kb/en/vec_distance_euclidean/) can be used. It calculates a Euclidean (L2) distance between two points.
+```
+SELECT id FROM v ORDER BY 
+  VEC_DISTANCE_EUCLIDEAN(v, x'6ca1d43e9df91b3fe580da3e1c247d3f147cf33e');
++----+
+| id |
++----+
+| 10 |
+|  7 |
+|  3 |
+|  9 |
+|  2 |
+|  1 |
+|  5 |
+|  4 |
+|  6 |
+|  8 |
++----+
+```
 
+Most commonly, this kind of query is done with a limit, for example to return vectors that are closest to a given vector, such as from a user search query, image or a song fragment.
+```
+SELECT id FROM v 
+  ORDER BY VEC_DISTANCE_EUCLIDEAN(v, x'6ca1d43e9df91b3fe580da3e1c247d3f147cf33e') LIMIT 2;
++----+
+| id |
++----+
+| 10 |
+|  7 |
++----+
+```
 
+> For vector indexes built with the `cosine` function, [VEC_DISTANCE_COSINE](https://mariadb.com/kb/en/vec_distance_cosine/) can be used. It calculates a [Cosine distance](https://en.wikipedia.org/wiki/Cosine_similarity#Cosine_distance) between two vectors
+```
+SELECT VEC_DISTANCE_COSINE(VEC_FROMTEXT('[1,2,3]'), VEC_FROMTEXT('[3,5,7]'));
+```
+
+> The [VEC_DISTANCE](https://mariadb.com/kb/en/vector-functions-vec_distance/) function is a generic function that behaves either as [VEC_DISTANCE_EUCLIDEAN](https://mariadb.com/kb/en/vec_distance_euclidean/) or [VEC_DISTANCE_COSINE](https://mariadb.com/kb/en/vec_distance_cosine/), depending on the underlying index type.
+```
+SELECT id FROM v 
+  ORDER BY VEC_DISTANCE(v, x'6ca1d43e9df91b3fe580da3e1c247d3f147cf33e');
++----+
+| id |
++----+
+| 10 |
+|  7 |
+|  3 |
+|  9 |
+|  2 |
+|  1 |
+|  5 |
+|  4 |
+|  6 |
+|  8 |
++----+
+```
+
+**System Variables**
+> There are a number of system variables used for vectors. See [Vector System Variables](https://mariadb.com/kb/en/vector-system-variables/).
+
+**Vector Framework Integrations**
+> MariaDB Vector is integrated in several frameworks, see [Vector Framework Integrations](https://mariadb.com/kb/en/vector-framework-integrations/).
+
+**See Also**
+- [Get to know MariaDB’s Rocket-Fast Native Vector Search - Sergei Golubchyk](https://www.youtube.com/watch?v=gNyzcy_6qJM) (video)
+- [MariaDB Vector, a new Open Source vector database that you are already familiar by Sergei Golubchik](https://www.youtube.com/watch?v=r9af4bvF7jI) (video)
+- [AI first applications with MariaDB Vector - Vicentiu Ciorbaru](https://www.youtube.com/watch?v=vp126N1QOws) (video)
+- [MariaDB Vector: A storage engine for LLMs - Kaj Arnö and Jonah Harris](https://www.youtube.com/watch?v=3y-yWoH-CF8) (video)
+- [Try RAG with MariaDB Vector on your own MariaDB data!](https://mariadb.org/rag-with-mariadb-vector/)
 
 ##### [CREATE TABLE with Vectors](https://mariadb.com/kb/en/create-table-with-vectors/)
 
