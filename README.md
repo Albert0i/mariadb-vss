@@ -86,7 +86,7 @@ A skip list is constructed by several layers of linked lists. The lowest layer h
 > Nodes in HNSW are inserted sequentially one by one. Every node is randomly assigned an integer *l* indicating the maximum layer at which this node can present in the graph. For example, if *l = 1*, then the node can only be found on layers 0 and 1. The authors select *l* randomly for each node with an *exponentially decaying probability distribution* normalized by the non-zero multiplier *mL* (*mL* = 0 results in a single layer in HNSW and non-optimized search complexity). Normally, the majority of *l* values should be equal to 0, so most of the nodes are present only on the lowest level. The larger values of *mL* increase the probability of a node appearing on higher layers.
 
 ---
-**A note from copilot**
+**Note from copilot**
 
 An **exponentially decaying probability distribution** is a type of probability distribution where the probability of an event decreases exponentially as the event moves further away from a certain point. This is often used to model the time between events in a Poisson process, such as the time between arrivals at a service point or the time until the next failure of a machine.
 
@@ -125,9 +125,13 @@ Some key properties of this distribution include:
 ###### **Choosing values for construction parameters**
 > The original paper provides several useful insights on how to choose hyperparameters:
 
-- According to simulations, good values for *M* lie between 5 and 48. Smaller values of *M* tend to be better for lower [recalls](https://milvus.io/ai-quick-reference/what-is-recall-in-the-context-of-vector-search-results-and-how-is-recall-typically-calculated-when-evaluating-an-ann-algorithm-against-groundtruth-neighbors) (In vector search, recall measures how well an approximate nearest neighbor (ANN) algorithm retrieves the true closest matches (ground-truth neighbors) for a query.)  or low-dimensional data while higher values of *M* are suited better for high recalls or high-dimensional data.
+- According to simulations, good values for *M* lie between 5 and 48. Smaller values of *M* tend to be better for lower [recalls](https://milvus.io/ai-quick-reference/what-is-recall-in-the-context-of-vector-search-results-and-how-is-recall-typically-calculated-when-evaluating-an-ann-algorithm-against-groundtruth-neighbors) or low-dimensional data while higher values of *M* are suited better for high recalls or high-dimensional data.
 - Higher values of *efConstruction* imply a more profound search as more candidates are explored. However, it requires more computations. Authors recommend choosing such an *efConstruction* value that results at recall being close to 0.95–1 during training.
 - Additionally, there is another important parameter *Mₘₐₓ* – the maximum number of edges a vertex can have. Apart from it, there exists the same parameter *Mₘₐₓ₀* but separately for the lowest layer. It is recommended to choose a value for *Mₘₐₓ* close to *2 * M*. Values greater than *2 * M* can lead to performance degradation and excessive memory usage. At the same time, *Mₘₐₓ = M* results in poor performance at high recall.
+
+**Note**
+
+In vector search, recall measures how well an approximate nearest neighbor (ANN) algorithm retrieves the true closest matches (ground-truth neighbors) for a query.
 
 ###### **Candidate selection heuristic**
 > It was noted above that during node insertion, *M* out of *efConstruction* candidates are chosen to build edges to them. Let us discuss possible ways of choosing these *M* nodes.
