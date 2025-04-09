@@ -495,11 +495,11 @@ mhnsw_max_cache_size
 ![alt Future-plans](img/Future-plans.JPG)
 
 
-#### IV. Special Purpose Database 
+#### V. Special Purpose Database 
 (TBC)
 
 
-#### V. Bibliography
+#### VI. Bibliography
 1. [What is a vector database?](https://youtu.be/Yhv19le0sBw)
 2. [MariaDB Vector: Why your AI data should be in an RDBMS | Kaj Arnö](https://youtu.be/y2OkGu_jO8I)
 3. [Similarity Search, Part 4: Hierarchical Navigable Small World (HNSW)](https://towardsdatascience.com/similarity-search-part-4-hierarchical-navigable-small-world-hnsw-2aad4fe87d37/)
