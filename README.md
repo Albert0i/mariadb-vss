@@ -492,6 +492,8 @@ mhnsw_max_cache_size
 
 ![alt currently-implemented-more](img/currently-implemented-more.JPG)
 
+![alt Future-plans](img/Future-plans.JPG)
+
 
 #### IV. Special Purpose Database 
 
