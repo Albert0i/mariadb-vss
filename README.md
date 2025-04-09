@@ -496,7 +496,8 @@ mhnsw_max_cache_size
 
 
 #### V. Special Purpose Database 
-(TBC)
+- [Redis as a vector database quick start guide](https://redis.io/docs/latest/develop/get-started/vector-database/)
+- [Vectors](https://redis.io/docs/latest/develop/interact/search-and-query/advanced-concepts/vectors/)
 
 
 #### VI. Bibliography
@@ -513,7 +514,7 @@ mhnsw_max_cache_size
 
 
 #### Epilogue 
-Between [MySQL Community Server 9.2.0 Innovation](https://dev.mysql.com/downloads/mysql/) and [MariaDB Community Server Version 11.7.2-GA](https://mariadb.com/downloads/), I opt the later... Currently, I am using MySQL Community Server 8.0.30 and so far so good, the only reason drives me away is that one should not develop under the shadow of blackmailed in huge bucks by some guy some day... It is just psychologically unwholesome... 
+Between [MySQL Community Server 9.2.0 Innovation](https://dev.mysql.com/downloads/mysql/) and [MariaDB Community Server Version 11.7.2-GA](https://mariadb.com/downloads/), I opt the later... Currently, I am using MySQL Community Server 8.0.30 and so far so good, the only reason drives me away is that one should not develop under the shadow of being blackmailed in huge bucks by some guy some day... It is just psychologically unwholesome... 
 
 [![alt 8.0.30](img/8.0.30.JPG)](https://www.heidisql.com/#google_vignette)
 
