@@ -167,7 +167,7 @@ In vector search, recall measures how well an approximate nearest neighbor (ANN)
 - *M*: number of linked edges to the nearest neighbours.
 
 
-#### I. [MariaDB Vectors (MariaDB.org)](https://mariadb.org/projects/mariadb-vector)
+#### II. [MariaDB Vectors (MariaDB.org)](https://mariadb.org/projects/mariadb-vector)
 - A project guided by the MariaDB Foundation, built with the MariaDB Server community. Main contributors – MariaDB Corporation, MariaDB Foundation, Amazon
 - Enables fast vector search in a relational database.
 - Keep your technology stack simple, no need for specialised datastores.
@@ -239,10 +239,21 @@ A full benchmark set is available at:
 [How Fast Is MariaDB Vector?](https://mariadb.com/resources/blog/how-fast-is-mariadb-vector/)
 
 
-#### II. [MariaDB Vectors (MariaDB.com)](https://mariadb.com/kb/en/vectors/)
+#### III. [MariaDB Vectors (MariaDB.com)](https://mariadb.com/kb/en/vectors/)
+##### [Vector Overview](https://mariadb.com/kb/en/vector-overview/)
+
+##### [CREATE TABLE with Vectors](https://mariadb.com/kb/en/create-table-with-vectors/)
+
+##### [Vector System Variables](https://mariadb.com/kb/en/vector-system-variables/)
+
+##### [Vector Functions](https://mariadb.com/kb/en/vector-functions/)
+
+##### [VECTOR](https://mariadb.com/kb/en/vector/)
+
+##### [Vector Framework Integrations](https://mariadb.com/kb/en/vector-framework-integrations/)
 
 
-#### III. 
+#### IV. 
 
 
 #### IV. 
