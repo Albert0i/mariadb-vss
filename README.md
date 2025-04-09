@@ -220,6 +220,7 @@ LIMIT 10
 ![alt Multi-threaded-query-performance](img/Multi-threaded-query-performance.JPG)
 
 ---
+**Note from copilot**
 
 When recall is on the x-axis and queries per second (QPS) is on the y-axis, the graph typically indicates the relationship between the accuracy of a search or retrieval system and its performance in terms of speed. The recall values are:0.9, 0.99, 0.999 and 0.9999 here. 
 
