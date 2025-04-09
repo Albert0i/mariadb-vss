@@ -401,6 +401,27 @@ CREATE TABLE embeddings (
 ```
 
 ##### [Vector System Variables](https://mariadb.com/kb/en/vector-system-variables/)
+> This page documents system variables related to [Vectors](https://mariadb.com/kb/en/vectors/).
+
+> See [Server System Variables](https://mariadb.com/kb/en/server-system-variables/) for a complete list of system variables and instructions on setting them.
+
+> Also see the [Full list of MariaDB options, system and status variables](https://mariadb.com/kb/en/full-list-of-mariadb-options-system-and-status-variables/).
+
+mhnsw_default_distance
+- **Description**: Specifies the default distance metric for MHNSW vector indexing. This is used when the DISTANCE option is not explicitly defined during index creation.
+- **Commandline**: `--mhnsw-default-distance=val`
+- **Scope**: Global, Session
+- **Dynamic**: Yes
+- **Data Type**: `enum`
+- **Default Value**: `euclidean`
+- **Valid Values**:
+1. `euclidean` Calculates straight-line distance between vectors. Best for spatial data, images, etc, when absolute magnitude matters.
+2. `cosine` Measures directional similarity between vectors. Ideal for text embeddings, semantic search, and when vector magnitude is less important.
+**Introduced**: [MariaDB 11.7.1](https://mariadb.com/kb/en/mariadb-11-7-1-release-notes/)
+
+
+
+
 
 
 ##### [Vector Functions](https://mariadb.com/kb/en/vector-functions/)
