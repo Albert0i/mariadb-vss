@@ -17,7 +17,7 @@ IMHO, both SQL and NoSQL databases have their roles in modern data processing. C
 The underlaying data structures of HNSW are [Skip lists](https://en.wikipedia.org/wiki/Skip_list) and [Navigable Small World](https://en.wikipedia.org/wiki/Small-world_network). 
 
 ##### **Skip lists**
-> [Skip list](https://en.wikipedia.org/wiki/Skip_list) is a probabilistic data structure that allows inserting and searching elements within a sorted list for *O(logn)* on average. A skip list is constructed by several layers of linked lists. The lowest layer has the original linked list with all the elements in it. When moving to higher levels, the number of skipped elements increases, thus decreasing the number of connections.
+> [Skip list](https://en.wikipedia.org/wiki/Skip_list) is a [probabilistic data structure](https://www.sciencedirect.com/topics/computer-science/probabilistic-data-structure) that allows inserting and searching elements within a sorted list for *O(logn)* on average. A skip list is constructed by several layers of linked lists. The lowest layer has the original linked list with all the elements in it. When moving to higher levels, the number of skipped elements increases, thus decreasing the number of connections.
 
 ![alt Finding-element-20-in-skip-list](img/Finding-element-20-in-skip-list.jpg)
 
