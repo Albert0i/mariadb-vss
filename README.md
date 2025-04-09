@@ -16,7 +16,7 @@ IMHO, both SQL and NoSQL databases have their roles in modern data processing. C
 
 > In data science, similarity search often appears in the NLP domain, search engines or recommender systems where the most relevant documents or items need to be retrieved for a query. There exists a large variety of different ways to improve search performance in massive volumes of data.
 
-The underlaying data structures of HNSW are [Skip lists](https://en.wikipedia.org/wiki/Skip_list) and [Navigable Small World](https://en.wikipedia.org/wiki/Small-world_network). 
+The crucial data structures used inside the HNSW implementation are [Skip lists](https://en.wikipedia.org/wiki/Skip_list) and [Navigable Small World](https://en.wikipedia.org/wiki/Small-world_network). 
 
 ##### **Skip lists**
 > [Skip list](https://en.wikipedia.org/wiki/Skip_list) is a [probabilistic data structure](https://www.sciencedirect.com/topics/computer-science/probabilistic-data-structure) that allows inserting and searching elements within a sorted list for *O(logn)* on average. 
