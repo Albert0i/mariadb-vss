@@ -85,6 +85,25 @@ A skip list is constructed by several layers of linked lists. The lowest layer h
 **Choosing the maximum layer**
 > Nodes in HNSW are inserted sequentially one by one. Every node is randomly assigned an integer *l* indicating the maximum layer at which this node can present in the graph. For example, if *l = 1*, then the node can only be found on layers 0 and 1. The authors select *l* randomly for each node with an *exponentially decaying probability distribution* normalized by the non-zero multiplier *mL* (*mL* = 0 results in a single layer in HNSW and non-optimized search complexity). Normally, the majority of *l* values should be equal to 0, so most of the nodes are present only on the lowest level. The larger values of *mL* increase the probability of a node appearing on higher layers.
 
+---
+**A note from copilot**
+
+An **exponentially decaying probability distribution** is a type of probability distribution where the probability of an event decreases exponentially as the event moves further away from a certain point. This is often used to model the time between events in a Poisson process, such as the time between arrivals at a service point or the time until the next failure of a machine.
+
+The probability density function (PDF) of an exponentially decaying distribution is given by:
+
+$$ f(x; \lambda) = \lambda e^{-\lambda x} $$
+
+where:
+- \( x \) is the variable (e.g., time),
+- \( \lambda \) is the rate parameter, which is the inverse of the mean.
+
+Some key properties of this distribution include:
+- **Memorylessness**: The probability of an event occurring in the future is independent of the past.
+- **Mean and Variance**: Both are equal to \( \frac{1}{\lambda} \).
+
+---
+
 ![alt The-number-of-layers-l-for-every-node-is-chosen-randomly-with-exponentially-decaying-probability-distribution](img/The-number-of-layers-l-for-every-node-is-chosen-randomly-with-exponentially-decaying-probability-distribution.jpg)
 
 > The number of layers l for every node is chosen randomly with exponentially decaying probability distribution.
