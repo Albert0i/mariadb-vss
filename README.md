@@ -452,10 +452,14 @@ mhnsw_max_cache_size
 - **Introduced**: [MariaDB 11.7.1](https://mariadb.com/kb/en/mariadb-11-7-1-release-notes/)
 
 ##### [Vector Functions](https://mariadb.com/kb/en/vector-functions/)
-1. [VEC_DISTANCE](https://mariadb.com/kb/en/vector-functions-vec_distance/): `VEC_DISTANCE` is a generic function that will behave either as [VEC_DISTANCE_EUCLIDEAN](https://mariadb.com/kb/en/vec_distance_euclidean/), calculating the Euclidean (L2) distance between two points. or [VEC_DISTANCE_COSINE](https://mariadb.com/kb/en/vec_distance_cosine/), calculating the Cosine distance between two vectors, depending on the underlying index type.
-2. [VEC_DISTANCE_COSINE](https://mariadb.com/kb/en/vec_distance_cosine/): `VEC_Distance_Cosine` is an SQL function that calculates a [Cosine distance](https://en.wikipedia.org/wiki/Cosine_similarity#Cosine_distance) between two vectors.
-3. [VEC_DISTANCE_EUCLIDEAN](https://mariadb.com/kb/en/vec_distance_euclidean/): `VEC_Distance_Euclidean` is an SQL function that calculates a Euclidean (L2) distance between two points.
+1. [VEC_DISTANCE](https://mariadb.com/kb/en/vector-functions-vec_distance/): `VEC_DISTANCE` is a generic function that will behave either as [VEC_DISTANCE_EUCLIDEAN](https://mariadb.com/kb/en/vec_distance_euclidean/), calculating the Euclidean (L2) distance between two points. or [VEC_DISTANCE_COSINE](https://mariadb.com/kb/en/vec_distance_cosine/), calculating the Cosine distance between two vectors, depending on the underlying index type. If the underlying index cannot be determined, an [error 4206](https://mariadb.com/kb/en/e4206/) is returned:
+
+2. [VEC_DISTANCE_COSINE](https://mariadb.com/kb/en/vec_distance_cosine/): `VEC_Distance_Cosine` is an SQL function that calculates a [Cosine distance](https://en.wikipedia.org/wiki/Cosine_similarity#Cosine_distance) between two vectors. If the vector index was not built for the cosine function (see [CREATE TABLE with Vectors](https://mariadb.com/kb/en/create-table-with-vectors/)), the index will not be used, and a full table scan performed instead. The [VEC_DISTANCE](https://mariadb.com/kb/en/vector-functions-vec_distance/) function is a generic function that behaves either as [VEC_DISTANCE_EUCLIDEAN](https://mariadb.com/kb/en/vec_distance_euclidean/) or VEC_DISTANCE_COSINE, depending on the underlying index type.
+
+3. [VEC_DISTANCE_EUCLIDEAN](https://mariadb.com/kb/en/vec_distance_euclidean/): `VEC_Distance_Euclidean` is an SQL function that calculates a Euclidean (L2) distance between two points. If the vector index was not built for the euclidean function (see [CREATE TABLE with Vectors](https://mariadb.com/kb/en/create-table-with-vectors/)), the index will not be used, and a full table scan performed instead. The [VEC_DISTANCE](https://mariadb.com/kb/en/vector-functions-vec_distance/) function is a generic function that behaves either as VEC_DISTANCE_EUCLIDEAN or [VEC_DISTANCE_COSINE](https://mariadb.com/kb/en/vec_distance_cosine/), depending on the underlying index type.
+
 4. [VEC_FromText](https://mariadb.com/kb/en/vec_fromtext/): `VEC_FromText` converts a text representation of the vector (json array of numbers) to a vector (little-endian IEEE float sequence of bytes, 4 bytes per float).
+
 5. [VEC_ToText](https://mariadb.com/kb/en/vec_totext/): `VEC_ToText` converts a binary vector into a json array of numbers (floats). Returns NULL and throws a warning [4201](https://mariadb.com/kb/en/e4201/) if given an invalid vector.
 
 ##### [VECTOR](https://mariadb.com/kb/en/vector/)
