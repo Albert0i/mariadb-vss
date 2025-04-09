@@ -19,11 +19,13 @@ IMHO, both SQL and NoSQL databases have their roles in modern data processing. C
 The underlaying data structures of HNSW are [Skip lists](https://en.wikipedia.org/wiki/Skip_list) and [Navigable Small World](https://en.wikipedia.org/wiki/Small-world_network). 
 
 ##### **Skip lists**
-> [Skip list](https://en.wikipedia.org/wiki/Skip_list) is a [probabilistic data structure](https://www.sciencedirect.com/topics/computer-science/probabilistic-data-structure) that allows inserting and searching elements within a sorted list for *O(logn)* on average. A skip list is constructed by several layers of linked lists. The lowest layer has the original linked list with all the elements in it. When moving to higher levels, the number of skipped elements increases, thus decreasing the number of connections.
+> [Skip list](https://en.wikipedia.org/wiki/Skip_list) is a [probabilistic data structure](https://www.sciencedirect.com/topics/computer-science/probabilistic-data-structure) that allows inserting and searching elements within a sorted list for *O(logn)* on average. 
 
 > A probabilistic data structure is defined as a structure that allows the insertion of data and a check function, such as Bloom Filter (BF) and Cuckoo Filter (CF), which enable a rate of *false positives* but not *false negatives* by using hash functions to map elements and determine their presence with high probability.
 - *False Positives*: This occurs when a test incorrectly indicates the presence of a condition (such as a disease) when it is not actually present. For example, a medical test might show that a person has a disease when they do not. This is also known as a "Type I error."
 - *False Negatives*: This happens when a test fails to detect a condition that is actually present. For example, a medical test might show that a person does not have a disease when they actually do. This is also known as a "Type II error."
+
+A skip list is constructed by several layers of linked lists. The lowest layer has the original linked list with all the elements in it. When moving to higher levels, the number of skipped elements increases, thus decreasing the number of connections.
 
 ![alt Finding-element-20-in-skip-list](img/Finding-element-20-in-skip-list.jpg)
 
