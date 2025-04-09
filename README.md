@@ -452,15 +452,15 @@ mhnsw_max_cache_size
 - **Introduced**: [MariaDB 11.7.1](https://mariadb.com/kb/en/mariadb-11-7-1-release-notes/)
 
 ##### [Vector Functions](https://mariadb.com/kb/en/vector-functions/)
-[VEC_DISTANCE](https://mariadb.com/kb/en/vector-functions-vec_distance/)
+1. [VEC_DISTANCE](https://mariadb.com/kb/en/vector-functions-vec_distance/): `VEC_DISTANCE` is a generic function that will behave either as [VEC_DISTANCE_EUCLIDEAN](https://mariadb.com/kb/en/vec_distance_euclidean/), calculating the Euclidean (L2) distance between two points. or [VEC_DISTANCE_COSINE](https://mariadb.com/kb/en/vec_distance_cosine/), calculating the Cosine distance between two vectors, depending on the underlying index type.
 
-[VEC_DISTANCE_COSINE](https://mariadb.com/kb/en/vec_distance_cosine/)
+2. [VEC_DISTANCE_COSINE](https://mariadb.com/kb/en/vec_distance_cosine/): 
 
-[VEC_DISTANCE_EUCLIDEAN](https://mariadb.com/kb/en/vec_distance_euclidean/)
+3. [VEC_DISTANCE_EUCLIDEAN](https://mariadb.com/kb/en/vec_distance_euclidean/): 
 
-[VEC_FromText](https://mariadb.com/kb/en/vec_fromtext/)
+4. [VEC_FromText](https://mariadb.com/kb/en/vec_fromtext/): 
 
-[VEC_ToText](https://mariadb.com/kb/en/vec_totext/)
+5. [VEC_ToText](https://mariadb.com/kb/en/vec_totext/): 
 
 ##### [VECTOR](https://mariadb.com/kb/en/vector/)
 
