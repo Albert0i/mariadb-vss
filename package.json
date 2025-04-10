@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Vector Semantic Search using MariaDB",
   "main": "index.js",
+  "type": "module", 
   "scripts": {
+    "check": "node src/checkDuplicateNames.js", 
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
