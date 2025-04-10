@@ -1,5 +1,7 @@
 ### Vector Semantic Search using MariaDB (Part 1/3)
 
+[![alt In Search Of Bigfoot Leonard Nimoy! 1976](https://img.youtube.com/vi/2uEya6luzug/0.jpg)](https://youtu.be/2uEya6luzug)
+
 
 #### Prologue 
 I am a man of conservative by nature *not* by age. When it comes to experiments, I am rather proactive to new technology. The motto is we have to get merits and demerits of both ends so that an optimal solution can be orchestrated to the maximum extend. 
