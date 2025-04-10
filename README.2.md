@@ -5,6 +5,13 @@ The first instalment uncovers most of the technical details of [Vector](https://
 
 
 #### I. 
+```
+  { 
+      "full_name": "William Shakespeare", 
+      "notable_works": ["Hamlet", "Romeo and Juliet"], 
+      "description": "The most celebrated playwright in history, known for his tragedies and comedies." 
+  }
+```
 
 #### II. 
 
