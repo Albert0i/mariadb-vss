@@ -425,6 +425,8 @@ mhnsw_default_distance
 2. `cosine` Measures directional similarity between vectors. Ideal for text embeddings, semantic search, and when vector magnitude is less important.
 **Introduced**: [MariaDB 11.7.1](https://mariadb.com/kb/en/mariadb-11-7-1-release-notes/)
 
+![alt mhnsw_default_distance](img/mhnsw_default_distance.JPG)
+
 mhnsw_default_m
 - **Description**: Defines the default value for the M parameter in MHNSW vector indexing. The `M` parameter controls the number of connections per layer in the graph structure, influencing the balance between search performance and index size.
 1. Larger `M` → Better search accuracy, but larger index size and slower updates and searches.
@@ -447,6 +449,8 @@ mhnsw_ef_search
 - **Range**: `1` to `10000`
 - **Introduced**: [MariaDB 11.7.1](https://mariadb.com/kb/en/mariadb-11-7-1-release-notes/)
 
+![alt mhnsw_ef_search_and_M](img/mhnsw_ef_search_and_M.JPG)
+
 mhnsw_max_cache_size
 - **Description**: Upper limit for one MHNSW vector index cache. This limits the amount of memory that can be used for caching the index, ensuring efficient memory utilization.
 - **Commandline**: `--mhnsw-max-cache-size=#`
@@ -456,6 +460,8 @@ mhnsw_max_cache_size
 - **Default Value**: `16777216` (16 MB)
 - **Range**: `1048576` to `18446744073709551615`
 - **Introduced**: [MariaDB 11.7.1](https://mariadb.com/kb/en/mariadb-11-7-1-release-notes/)
+
+![alt mhnsw_max_cache_size](img/mhnsw_max_cache_size.JPG)
 
 ##### [Vector Functions](https://mariadb.com/kb/en/vector-functions/)
 1. [VEC_DISTANCE](https://mariadb.com/kb/en/vector-functions-vec_distance/): `VEC_DISTANCE` is a generic function that will behave either as [VEC_DISTANCE_EUCLIDEAN](https://mariadb.com/kb/en/vec_distance_euclidean/), calculating the Euclidean (L2) distance between two points. or [VEC_DISTANCE_COSINE](https://mariadb.com/kb/en/vec_distance_cosine/), calculating the Cosine distance between two vectors, depending on the underlying index type. If the underlying index cannot be determined, an [error 4206](https://mariadb.com/kb/en/e4206/) is returned:
