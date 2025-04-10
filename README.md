@@ -411,6 +411,8 @@ CREATE TABLE embeddings (
 
 ![alt Turning-is-hard](img/Turning-is-hard.JPG)
 
+![alt MHNSW](img/MHNSW.JPG)
+
 mhnsw_default_distance
 - **Description**: Specifies the default distance metric for MHNSW vector indexing. This is used when the `DISTANCE` option is not explicitly defined during index creation.
 - **Commandline**: `--mhnsw-default-distance=val`
