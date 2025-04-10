@@ -1,3 +1,24 @@
+### Vector Semantic Search using MariaDB (Part 2/3)
+
+#### Prologue 
+
+#### I. 
+
+#### II. 
+
+#### III. 
+
+#### IV. 
+
+#### V. 
+
+#### VI. Bibliography
+
+#### Epilogue 
+
+### EOF (2025/04/25)
+
+
 Sure! Here's a step-by-step tutorial on using the MariaDB vector datatype and vector index with Prisma, along with sample code in Node.js using ES6 syntax.
 
 ### Step 1: Set Up Your MariaDB Database
@@ -126,3 +147,4 @@ main()
 This code connects to the MariaDB database, inserts sample data, and performs a vector search using the `VEC_DISTANCE_EUCLIDEAN` function[1](https://mariadb.com/kb/en/vector-overview/)[2](https://mariadb.org/projects/mariadb-vector/).
 
 Feel free to ask if you have any questions or need further assistance!
+
