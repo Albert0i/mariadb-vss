@@ -1,7 +1,7 @@
 ### Vector Semantic Search using MariaDB (Part 2/3)
 
 #### Prologue 
-The first instalment uncovers most of the technical details of [Vector](https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)) [Semantic Search](https://en.wikipedia.org/wiki/Semantic_search) capability regarding to a general purpose relational database, aka [MariaDB](https://mariadb.org/), and a specisl purpose [NoSQL](https://en.wikipedia.org/wiki/NoSQL) database, aka [Redis](https://redis.io/). It's time to delve into coding featuring [Prisma](https://www.prisma.io/) ── an ORM supporting many popular [databases](https://www.prisma.io/docs/orm/reference/supported-databases), [node-llama-cpp](https://www.npmjs.com/package/node-llama-cpp) ── a tool to run AI models locally on local machine to test drive the new search power. 
+The first instalment uncovers most of the technical details of [Vector](https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)) [Semantic Search](https://en.wikipedia.org/wiki/Semantic_search) capability regarding to a general purpose relational database, aka [MariaDB](https://mariadb.org/), and a specisl purpose [NoSQL](https://en.wikipedia.org/wiki/NoSQL) database, aka [Redis](https://redis.io/). It's time to delve into coding featuring [Prisma](https://www.prisma.io/) ─ an ORM supporting many popular [databases](https://www.prisma.io/docs/orm/reference/supported-databases), [node-llama-cpp](https://www.npmjs.com/package/node-llama-cpp) ─ a tool to run AI models locally on local machine to test drive the new search power. 
 
 
 #### I. 
