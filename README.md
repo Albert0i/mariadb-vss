@@ -511,6 +511,10 @@ mhnsw_max_cache_size
 
 Redis includes a [high-performance vector database](https://redis.io/blog/benchmarking-results-for-vector-databases/) that lets you perform semantic searches over vector embeddings. You can augment these searches with filtering over text, numerical, geospatial, and tag metadata.
 
+![alt definition-of-vector-database](img/definition-of-vector-database.JPG)
+
+![alt definition-of-embedding-models](img/definition-of-embedding-models.JPG)
+
 ##### **Create a vector index**
 
 ```
