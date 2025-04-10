@@ -409,6 +409,8 @@ CREATE TABLE embeddings (
 
 > Also see the [Full list of MariaDB options, system and status variables](https://mariadb.com/kb/en/full-list-of-mariadb-options-system-and-status-variables/).
 
+![alt Turning-is-hard](img/Turning-is-hard.JPG)
+
 mhnsw_default_distance
 - **Description**: Specifies the default distance metric for MHNSW vector indexing. This is used when the `DISTANCE` option is not explicitly defined during index creation.
 - **Commandline**: `--mhnsw-default-distance=val`
