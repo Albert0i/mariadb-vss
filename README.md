@@ -1,4 +1,4 @@
-### Vector Semantic Search using MariaDB (Part 1/2)
+### Vector Semantic Search using MariaDB (Part 1/3)
 
 
 #### Prologue 
@@ -897,4 +897,4 @@ Between [MySQL Community Server 9.2.0 Innovation](https://dev.mysql.com/download
 
 [![alt 8.0.30](img/8.0.30.JPG)](https://www.heidisql.com/#google_vignette)
 
-### EOF (2025/04/17)
+### EOF (2025/04/11)
