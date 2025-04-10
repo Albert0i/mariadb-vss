@@ -564,7 +564,7 @@ FT.CREATE documents
 
 - The lowest layer contains all data points, and each higher layer contains a subset, forming a hierarchy.
 
-- At runtime, the search traverses the graph on each layer from top to bottom, finding the local minima before dropping to the subsequent layer.
+- At runtime, the search traverses the graph on each layer from top to bottom, finding the local minimal before dropping to the subsequent layer.
 
 > Choose the HNSW index type when you have larger datasets (> 1M documents) or when search performance and scalability are more important than perfect search accuracy.
 
