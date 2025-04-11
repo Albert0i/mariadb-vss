@@ -150,7 +150,7 @@
     },
     { 
       "full_name": "Dan Brown", 
-      "notable_works": ["The Da Vinci Code"], 
+      "notable_works": ["The Da Vinci Code", "The Holy Blood and the Holy Grail"], 
       "description": "Created thrillers mixing history, art, and suspense." 
     },
     { 
@@ -165,12 +165,12 @@
     },
     { 
       "full_name": "Edgar Allan Poe", 
-      "notable_works": ["The Raven"], 
+      "notable_works": ["The Raven", "The Narrative of Arthur Gordon Pym of Nantucket", "The Mystery of Marie Rogêt", "The Murders in the Rue Morgue"], 
       "description": "A master of Gothic fiction and poetry." 
     },
     { 
       "full_name": "Franz Kafka", 
-      "notable_works": ["The Metamorphosis"], 
+      "notable_works": ["The Metamorphosis", "The Trial", "The Castle"], 
       "description": "Pioneered existential and surreal literature." 
     },
     { 
@@ -190,7 +190,7 @@
     },
     { 
       "full_name": "Fyodor Dostoevsky", 
-      "notable_works": ["Crime and Punishment"], 
+      "notable_works": ["Notes from Underground", "White Nights", "Crime and Punishment", "The Adolescent", "The Brothers Karamazov"], 
       "description": "Delved into psychology, morality, and existential themes." },
 
     {
@@ -275,7 +275,7 @@
     },
     {
       "full_name": "Samuel Taylor Coleridge",
-      "notable_works": ["The Rime of the Ancient Mariner", "Kubla Khan"],
+      "notable_works": ["The Rime of the Ancient Mariner", "Christabel"],
       "description": "A Romantic poet celebrated for his imagination and supernatural themes."
     },
     {
@@ -471,7 +471,7 @@
     },
     {
       "full_name": "Stephen King",
-      "notable_works": ["The Shining", "It"],
+      "notable_works": ["The Shining", "It", "Mist"],
       "description": "The master of modern horror and suspense fiction."
     },
     {

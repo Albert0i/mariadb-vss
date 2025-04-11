@@ -85,7 +85,7 @@ SELECT * FROM writers WHERE MATCH(description) AGAINST('political');
 #### V. 
 
 [Continue to Part 3](README.3.md)
-
+canonical
 
 #### VI. Bibliography
 1. ["The Myth and Riddle of ORM"](https://github.com/Albert0i/prisma-planetscale/blob/main/ORM.md)
