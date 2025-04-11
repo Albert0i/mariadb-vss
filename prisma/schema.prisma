@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model writers {
+  id            Int                      @id @default(autoincrement())
+  full_name     String?                  @db.VarChar(128)
+  notable_works String?                  @db.LongText
+  description   String?                  @db.Text
+  embedding     Unsupported("vector(5)")
+
+  @@index([embedding], map: "idx_writers_vss")
+  @@fulltext([description], map: "idx_writers_fts")
+}

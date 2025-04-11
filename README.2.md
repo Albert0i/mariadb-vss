@@ -77,6 +77,58 @@ SELECT * FROM writers WHERE MATCH(description) AGAINST('political');
 ```
 
 #### II. The ORM way 
+```
+npm install prisma --save-dev
+npm install @prisma/client
+
+npx prisma init
+```
+
+schema.prisma
+```
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+```
+
+```
+npx prisma db pull 
+```
+
+schema.prisma
+```
+model writers {
+  id            Int                      @id @default(autoincrement())
+  full_name     String?                  @db.VarChar(128)
+  notable_works String?                  @db.LongText
+  description   String?                  @db.Text
+  embedding     Unsupported("vector(5)")
+
+  @@index([embedding], map: "idx_writers_vss")
+  @@fulltext([description], map: "idx_writers_fts")
+}
+```
+
+```
+npx prisma generate
+```
+
+package.json
+```
+"prisma": {
+  "seed": "node prisma/seed.js"
+},
+```
+
+```
+npx prisma db seed 
+```
 
 #### III. 
 
@@ -91,9 +143,16 @@ canonical
 1. ["The Myth and Riddle of ORM"](https://github.com/Albert0i/prisma-planetscale/blob/main/ORM.md)
 2. [JSON Data Type](https://mariadb.com/kb/en/json/)
 3. [Full-Text Indexes](https://mariadb.com/kb/en/full-text-indexes/)
-2. [MySQL/MariaDB](https://www.prisma.io/docs/orm/overview/databases/mysql)
+4. [MySQL/MariaDB](https://www.prisma.io/docs/orm/overview/databases/mysql)
+5. [Seeding](https://www.prisma.io/docs/orm/prisma-migrate/workflows/seeding)
+6. [CRUD](https://www.prisma.io/docs/orm/prisma-client/queries/crud)
+7. [Full-text search](https://www.prisma.io/docs/orm/prisma-client/queries/full-text-search)
+8. [Raw queries](https://www.prisma.io/docs/orm/prisma-client/using-raw-sql/raw-queries)
+9. [Unsupported database features](https://www.prisma.io/docs/orm/prisma-schema/data-model/unsupported-database-features)
 10. [The Trial by Franz Kafka](https://www.gutenberg.org/cache/epub/7849/pg7849-images.html)
 
+
+[Prisma Client API reference](https://www.prisma.io/docs/orm/reference/prisma-client-reference)
 
 #### Epilogue 
 
