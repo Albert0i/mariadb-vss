@@ -6,17 +6,17 @@
     },
     { 
       "full_name": "Jane Austen", 
-      "notable_works": ["Pride and Prejudice"], 
+      "notable_works": ["Pride and Prejudice", "Sense and Sensibility"], 
       "description": "Renowned for her sharp observations of 19th-century society and romance." 
     },
     { 
       "full_name": "Charles Dickens", 
-      "notable_works": ["Oliver Twist"], 
+      "notable_works": ["A Tale of Two Cities", "The Mystery of Edwin Drood"], 
       "description": "A Victorian novelist celebrated for his social commentary and vivid characters." 
     },
     { 
       "full_name": "George Orwell", 
-      "notable_works": ["1984"], 
+      "notable_works": ["1984", "Animal Farm"], 
       "description": "Known for his dystopian novels critiquing political oppression." 
     },
     { 
@@ -66,7 +66,7 @@
     },
     { 
       "full_name": "Agatha Christie", 
-      "notable_works": ["Murder on the Orient Express"], 
+      "notable_works": ["The Murder of Roger Ackroyd", "The Mysterious Affair at Styles", "The A.B.C. Murders", "Curtain: Poirot's Last Case"], 
       "description": "The queen of mystery novels with ingenious plots." 
     },
     { 
