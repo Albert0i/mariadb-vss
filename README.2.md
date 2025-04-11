@@ -5,6 +5,21 @@ The first instalment uncovers most of the technical details of [Vector](https://
 
 
 #### I. The SQL way 
+Not all database functions and features of [Prisma ORM](https://www.prisma.io/docs/orm/prisma-schema/data-model/unsupported-database-features)'s supported databases have a Prisma Schema Language equivalent. As of this writing, VECTOR datatype is one of them... To begin with, our data model is like this: 
+```
+  {
+    "full_name": "Agatha Christie",
+    "notable_works": [
+                      "The Murder of Roger Ackroyd",
+                      "The Mysterious Affair at Styles",
+                      "The A.B.C. Murders",
+                      "Curtain: Poirot's Last Case"
+                     ],
+    "description": "The queen of mystery novels with ingenious plots."
+  }
+```
+
+According to canonical RDBMS design principle, the first step is to *normalize* the `writers` table by splitting the `notable_works` into separate table, but we are going to store array of string using JSON datatype here: 
 ```
 CREATE OR REPLACE TABLE writers (
     id        INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -18,6 +33,8 @@ ENGINE=InnoDB;
 CREATE OR REPLACE FULLTEXT INDEX idx_writers_fts ON writers(description); 
 CREATE OR REPLACE VECTOR INDEX idx_writers_vss ON writers(embedding) M=8 DISTANCE=cosine; 
 ```
+
+We create `writers` table, fulltext index `idx_writers_fts` and vector index `idx_writers_vss`. The next step is to insert testing data: 
 ```
 -- 1 William Shakespeare
 INSERT INTO writers (full_name, notable_works, description, embedding) 
@@ -55,6 +72,8 @@ VALUES( 'Virginia Woolf',
         VEC_FromText('[0.51, 0.52, 0.53, 0.54, 0.55]')
       );
 ```
+
+By means of `VEC_FromText`, we create some *fake* vectors and play with SELECT statement: 
 ```
 SELECT VEC_DISTANCE_COSINE(
 	(SELECT embedding FROM writers WHERE id=1),
@@ -70,9 +89,14 @@ FROM writers
 ORDER BY 1 
 LIMIT 3;
 ```
+
+By the way, JSON data can be queried like this: 
 ```
 SELECT * FROM writers WHERE JSON_CONTAINS(notable_works, '"1984"');
+```
 
+Fulltext search can be queried like this: 
+```
 SELECT * FROM writers WHERE MATCH(description) AGAINST('political');
 ```
 
