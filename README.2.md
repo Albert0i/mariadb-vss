@@ -5,7 +5,7 @@ The first instalment uncovers most of the technical details of [Vector](https://
 
 
 #### I. The SQL way 
-Not all database functions and features of [Prisma ORM](https://www.prisma.io/docs/orm/prisma-schema/data-model/unsupported-database-features)'s supported databases have a Prisma Schema Language equivalent. As of this writing, VECTOR datatype is one of them... To begin with, our data model is like this: 
+To begin with, our data model is like this: 
 ```
   {
     "full_name": "Agatha Christie",
@@ -102,14 +102,23 @@ SELECT * FROM writers WHERE MATCH(description) AGAINST('political');
 
 
 #### II. The ORM way 
+Not all database functions and features of [Prisma ORM](https://www.prisma.io/docs/orm/prisma-schema/data-model/unsupported-database-features)'s supported databases have a Prisma Schema Language equivalent. As of this writing, VECTOR datatype is one of them. Let start by installing the packages: 
 ```
 npm install prisma --save-dev
-npm install @prisma/client
+npm install @prisma/client mariadb
+```
 
+Initialize prisma: 
+```
 npx prisma init
 ```
 
-schema.prisma
+Setup `DATABASE_URL` in `.env`: 
+```
+DATABASE_URL="mysql://username:password@localhost:3306/test"
+```
+
+In `schema.prisma`, change provider to `mysql`: 
 ```
 generator client {
   provider = "prisma-client-js"
@@ -122,11 +131,12 @@ datasource db {
 }
 ```
 
+Pull the model out of database via introspection: 
 ```
 npx prisma db pull 
 ```
 
-schema.prisma
+Check `schema.prisma`:
 ```
 model writers {
   id            Int                      @id @default(autoincrement())
@@ -140,20 +150,24 @@ model writers {
 }
 ```
 
+Generate client code for the model: 
 ```
 npx prisma generate
 ```
 
-package.json
+Add a fragment to `package.json`: 
 ```
 "prisma": {
   "seed": "node prisma/seed.js"
 },
 ```
 
+Create `prisma/seed.js`, empty the `writers` table and to seed the database with: 
 ```
 npx prisma db seed 
 ```
+![alt prisma-db-seed](img/prisma-db-seed.JPG)
+
 
 #### III. 
 
