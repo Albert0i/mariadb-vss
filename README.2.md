@@ -169,7 +169,7 @@ npx prisma db seed
 ```
 ![alt prisma-db-seed](img/prisma-db-seed.JPG)
 
-Yeah! 
+![alt yeah](img/yeah.JPG)
 
 
 #### III. 
