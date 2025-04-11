@@ -92,7 +92,7 @@ LIMIT 3;
 
 By the way, JSON data can be queried like this: 
 ```
-SELECT * FROM writers WHERE JSON_CONTAINS(notable_works, '"1984"');
+SELECT * FROM writers WHERE JSON_CONTAINS(notable_works, '1984');
 ```
 
 Fulltext search can be queried like this: 
