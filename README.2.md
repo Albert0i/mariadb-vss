@@ -19,7 +19,7 @@ Not all database functions and features of [Prisma ORM](https://www.prisma.io/do
   }
 ```
 
-According to canonical RDBMS design principle, the first step is to *normalize* the `writers` table by splitting the `notable_works` into separate table, but we are going to store array of string using JSON datatype here: 
+According to *canonical* RDBMS design principle, the first step is to *normalize* the `writers` table by splitting the `notable_works` into separate table, but we are going to store array of string using JSON datatype here: 
 ```
 CREATE OR REPLACE TABLE writers (
     id        INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -99,6 +99,7 @@ Fulltext search can be queried like this:
 ```
 SELECT * FROM writers WHERE MATCH(description) AGAINST('political');
 ```
+
 
 #### II. The ORM way 
 ```
