@@ -168,7 +168,6 @@ Create `prisma/seed.js`, empty the `writers` table and seed the database with:
 npx prisma db seed 
 ```
 ![alt prisma-db-seed](img/prisma-db-seed.JPG)
-
 ![alt yeah](img/yeah.JPG)
 
 
