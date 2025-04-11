@@ -135,6 +135,7 @@ Pull the model out of database via *introspection*:
 ```
 npx prisma db pull 
 ```
+![alt prisma-db-pull-generate](img/prisma-db-pull-generate.JPG)
 
 Check `schema.prisma` again:
 ```
