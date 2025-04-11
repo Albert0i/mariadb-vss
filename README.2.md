@@ -131,12 +131,12 @@ datasource db {
 }
 ```
 
-Pull the model out of database via introspection: 
+Pull the model out of database via *introspection*: 
 ```
 npx prisma db pull 
 ```
 
-Check `schema.prisma`:
+Check `schema.prisma` again:
 ```
 model writers {
   id            Int                      @id @default(autoincrement())
@@ -162,11 +162,13 @@ Add a fragment to `package.json`:
 },
 ```
 
-Create `prisma/seed.js`, empty the `writers` table and to seed the database with: 
+Create `prisma/seed.js`, empty the `writers` table and seed the database with: 
 ```
 npx prisma db seed 
 ```
 ![alt prisma-db-seed](img/prisma-db-seed.JPG)
+
+Yeah! 
 
 
 #### III. 
