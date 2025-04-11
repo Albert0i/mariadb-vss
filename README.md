@@ -894,6 +894,8 @@ FT.SEARCH products "(@type:{shirt} @year:[2020 2022]) | @description_vector:[VEC
 - [Retrieval augmented generation from scratch](https://github.com/redis-developer/redis-ai-resources/blob/main/python-recipes/RAG/01_redisvl.ipynb)
 - [Semantic caching](https://github.com/redis-developer/redis-ai-resources/blob/main/python-recipes/semantic-cache/semantic_caching_gemini.ipynb)
 
+[Continue to Part 2](README.2.md)
+
 
 #### VI. Bibliography
 1. [What is a vector database?](https://youtu.be/Yhv19le0sBw)

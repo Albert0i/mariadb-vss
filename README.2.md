@@ -4,13 +4,24 @@
 The first instalment uncovers most of the technical details of [Vector](https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)) [Semantic Search](https://en.wikipedia.org/wiki/Semantic_search) capability regarding to a general purpose relational database, aka [MariaDB](https://mariadb.org/), and a specisl purpose [NoSQL](https://en.wikipedia.org/wiki/NoSQL) database, aka [Redis](https://redis.io/). It's time to delve into coding featuring [Prisma](https://www.prisma.io/) ─ an [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) supporting many popular [databases](https://www.prisma.io/docs/orm/reference/supported-databases), [node-llama-cpp](https://www.npmjs.com/package/node-llama-cpp) ─ a tool to run AI models locally on local machine to test drive the new search power. 
 
 
-#### I. 
+#### I. Object model 
 ```
   { 
+      "id": 1, 
       "full_name": "William Shakespeare", 
       "notable_works": ["Hamlet", "Romeo and Juliet"], 
       "description": "The most celebrated playwright in history, known for his tragedies and comedies." 
   }
+```
+```
+INSERT INTO writers (full_name, notable_works, description, embedding) 
+VALUES( 'William Shakespeare', 
+        '["Hamlet", "Romeo and Juliet"]', 
+        'The most celebrated playwright in history, known for his tragedies and comedies.',
+        VEC_FromText('[0.1, 0.2, 0.3, 0.4, 0.5]')
+      );
+
+SELECT * FROM writers;   
 ```
 
 #### II. 
@@ -21,7 +32,13 @@ The first instalment uncovers most of the technical details of [Vector](https://
 
 #### V. 
 
+[Continue to Part 3](README.3.md)
+
+
 #### VI. Bibliography
+1. [MySQL/MariaDB](https://www.prisma.io/docs/orm/overview/databases/mysql)
+10. [The Trial by Franz Kafka](https://www.gutenberg.org/cache/epub/7849/pg7849-images.html)
+
 
 #### Epilogue 
 
