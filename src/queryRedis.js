@@ -57,7 +57,7 @@ const float32Buffer = (arr) => {
 async function findSimilarDocuments(embedding, count = 3) {
     const { vector } = embedding
 
-    const searchQuery = `(*)=>[KNN ${_resultCount} @embeddings $searchBlob AS score]`;
+    const searchQuery = `(*)=>[KNN ${count} @embeddings $searchBlob AS score]`;
   
     const results = await redisClient.call('FT.SEARCH', 
                                        'demo:writers:idx_vss', 
@@ -65,7 +65,7 @@ async function findSimilarDocuments(embedding, count = 3) {
                                        'RETURN', 5, 'score', 'id', 'full_name', 'description', 'notable_works', 
                                        'SORTBY', 'score', 'ASC', 
                                        'PARAMS', 2, 'searchBlob', 
-                                                    float32Buffer(searchTxtVectorArr), 
+                                                    float32Buffer(vector), 
                                        'DIALECT', 2);
     
     return results;
@@ -80,14 +80,15 @@ const askQuestion = () => {
         const queryEmbedding = await context.getEmbeddingFor(query);
         const similarDocuments = await findSimilarDocuments(queryEmbedding);
 
-        similarDocuments.forEach((doc, i) => {
-            console.log(`Element[${i}]:`);
-            console.log(`   distance=${doc.distance}`);
-            console.log(`   description=${doc.description}`);
-            console.log(`   full_name=${doc.full_name}`);
-            console.log(`   notable_works=${doc.notable_works}`);
-            console.log()
-        });
+        console.log(similarDocuments)
+        // similarDocuments.forEach((doc, i) => {
+        //     console.log(`Element[${i}]:`);
+        //     console.log(`   distance=${doc.distance}`);
+        //     console.log(`   description=${doc.description}`);
+        //     console.log(`   full_name=${doc.full_name}`);
+        //     console.log(`   notable_works=${doc.notable_works}`);
+        //     console.log()
+        // });
         console.log()
         askQuestion(); // Recurse to ask the question again
     });
