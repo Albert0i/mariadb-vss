@@ -1,6 +1,9 @@
-import 'dotenv/config'
-import { runSelectSQL, runSQL } from './util/yrunner.js'
+// Prisma 
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 
+// node-llama-cpp 
+import 'dotenv/config'
 import {fileURLToPath} from "url";
 import path from "path";
 import {getLlama} from "node-llama-cpp";
@@ -21,25 +24,20 @@ const model = await llama.loadModel({
 });
 const context = await model.createEmbeddingContext();
 
-await runSQL([
-                `ALTER SESSION SET current_schema = ${process.env.NODE_ORACLEDB_USER}`
-            ])
-
-async function findSimilarDocuments(embedding, count = 10) {
+async function findSimilarDocuments(embedding, count = 3) {
     const { vector } = embedding
 
-    const result = await runSelectSQL(`SELECT id, document, 
-                                              cosine_similarity(float_array_384(${vector}), embedding) AS score 
-                                       FROM vec_items
-                                       ORDER BY score DESC  
-                                       OFFSET 0 ROWS FETCH NEXT ${count} ROWS ONLY
-                                     `)
-    if (result.success)
-        return result.rows;
-    else {
-        console.log(result)
-        return []
-    } 
+    const result = await prisma.$queryRaw`
+                          SELECT VEC_DISTANCE_COSINE(
+                                   embedding,
+                                   VEC_FromText(${JSON.stringify(vector)})
+                                 ) AS distance,
+                                 id, full_name, description, notable_works
+                          FROM writers 
+                          ORDER BY 1 
+                          LIMIT ${count} OFFSET 0 ;
+                        `; 
+    return result 
 }
 
 /*
@@ -50,10 +48,15 @@ const askQuestion = () => {
     rl.question('Input: ', async (query) => {
         const queryEmbedding = await context.getEmbeddingFor(query);
         const similarDocuments = await findSimilarDocuments(queryEmbedding);
-        
-        for (let i = 0; i < similarDocuments.length; i++) {
-            console.log(`Element[${i+1}]: ${similarDocuments[i].DOCUMENT}, ${similarDocuments[i].SCORE}`);
-        }
+
+        similarDocuments.forEach((doc, i) => {
+            console.log(`Element[${i}]:`);
+            console.log(`   distance=${doc.distance}`);
+            console.log(`   description=${doc.description}`);
+            console.log(`   full_name=${doc.full_name}`);
+            console.log(`   notable_works=${doc.notable_works}`);
+            console.log()
+        });
         console.log()
         askQuestion(); // Recurse to ask the question again
     });
