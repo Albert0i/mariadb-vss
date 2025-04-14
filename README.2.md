@@ -4,7 +4,7 @@
 The first instalment uncovers most of the technical details of [Vector](https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)) [Semantic Search](https://en.wikipedia.org/wiki/Semantic_search) capability regarding to a general purpose relational database, aka [MariaDB](https://mariadb.org/), and a specisl purpose [NoSQL](https://en.wikipedia.org/wiki/NoSQL) database, aka [Redis](https://redis.io/). It's time to delve into the [code](https://code.visualstudio.com/) featuring [Prisma](https://www.prisma.io/) ─ an [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) supporting many popular [databases](https://www.prisma.io/docs/orm/reference/supported-databases), [node-llama-cpp](https://www.npmjs.com/package/node-llama-cpp) ─ a tool to run AI models locally on local machine to test drive the new search power. 
 
 
-#### I. The SQL way 
+#### I. The way of SQL
 To begin with, our data model is like this: 
 ```
   {
@@ -101,7 +101,7 @@ SELECT * FROM writers WHERE MATCH(description) AGAINST('political');
 ```
 
 
-#### II. The ORM way 
+#### II. The way of ORM
 Not all database functions and features of [Prisma ORM](https://www.prisma.io/docs/orm/prisma-schema/data-model/unsupported-database-features)'s supported databases have a Prisma Schema Language equivalent. As of this writing, VECTOR datatype is one of them. Let start by installing the packages: 
 ```
 npm install prisma --save-dev
@@ -171,8 +171,10 @@ npx prisma db seed
 ![alt writers](img/writers.JPG)
 ![alt yeah](img/yeah.JPG)
 
+This pretty much concludes the procedures of database creation and seeding. 
 
-#### III. 
+
+#### III. The way of ORM (cont)
 
 #### IV. 
 
