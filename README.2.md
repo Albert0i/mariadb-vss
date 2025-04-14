@@ -265,7 +265,7 @@ main()
 
 
 #### V. Making the Vector Semantic Search 
-Making all pieces together: 
+Putting all pieces of puzzle together: 
 `queryVSS.js`
 ```
 // Prisma 
