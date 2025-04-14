@@ -28,9 +28,10 @@ async function main() {
     const { vector } = await context.getEmbeddingFor(writer.description);
     const embeddings = Buffer.from(Float32Array.from(vector).buffer)
 
-    await redisClient.call("JSON.SET", `demo:writers:${index+1}`, 
+    await redisClient.call("JSON.SET", `demo:writers:${index + 1}`, 
         "$", 
         JSON.stringify(`{
+            "id": ${index + 1}
             "full_name": ${writer.full_name},
             "notable_works": ${JSON.stringify(writer.notable_works)},
             "description": ${writer.description},
