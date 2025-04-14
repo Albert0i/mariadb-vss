@@ -175,6 +175,37 @@ This pretty much concludes the procedures of database creation and seeding.
 
 
 #### III. The way of ORM (cont)
+Prisma is a mature ORM product which supports many mainstream relational databases as well as MongoDB, which is a NoSQL database, and *bi-directional* schema evolution. Alternatively, you can create models in `prisma.schema` first and use `npx prisma db push` to create tables. 
+
+In `prisma/seed.js`, we add fake data like this: 
+```
+  await prisma.$executeRaw`
+      INSERT INTO writers (full_name, notable_works, description, embedding) 
+      VALUES( 'William Shakespeare', 
+              '["Hamlet", "Romeo and Juliet"]', 
+              'The most celebrated playwright in history, known for his tragedies and comedies.',
+              VEC_FromText('[0.11, 0.21, 0.31, 0.41, 0.51]')
+            );
+  `;
+
+```
+
+Before proceeding further, let re-create `writers` with proper dimensions in `embedding` field: 
+```
+CREATE OR REPLACE TABLE writers (
+    id        INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(128),
+    notable_works JSON, 
+    description TEXT, 
+    
+    embedding VECTOR(384) NOT NULL) 
+ENGINE=InnoDB;
+
+CREATE OR REPLACE FULLTEXT INDEX idx_writers_fts ON writers(description); 
+CREATE OR REPLACE VECTOR INDEX idx_writers_vss ON writers(embedding) M=8 DISTANCE=cosine; 
+```
+![alt writers-db](img/writers-db.JPG)
+
 
 #### IV. 
 
