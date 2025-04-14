@@ -175,22 +175,9 @@ This pretty much concludes the procedures of database creation and seeding.
 
 
 #### III. The way of ORM (cont)
-Prisma is a mature ORM product which supports many mainstream relational databases as well as MongoDB, which is a NoSQL database, and *bi-directional* schema evolution. Alternatively, you can create models in `prisma.schema` first and use `npx prisma db push` to create tables. 
+Prisma is a mature ORM product which supports many mainstream relational databases as well as [MongoDB](https://www.mongodb.com/), which is a NoSQL, and *bi-directional* schema evolution in [SDLC](https://en.wikipedia.org/wiki/Systems_development_life_cycle) as you can see in previous section. Alternatively, you can create models in `prisma.schema` and use `npx prisma db push` to create tables. 
 
-In `prisma/seed.js`, we add fake data like this: 
-```
-  await prisma.$executeRaw`
-      INSERT INTO writers (full_name, notable_works, description, embedding) 
-      VALUES( 'William Shakespeare', 
-              '["Hamlet", "Romeo and Juliet"]', 
-              'The most celebrated playwright in history, known for his tragedies and comedies.',
-              VEC_FromText('[0.11, 0.21, 0.31, 0.41, 0.51]')
-            );
-  `;
-
-```
-
-Before proceeding further, let's re-create `writers` with proper dimensions in `embedding` field, which is 384: 
+Before proceeding further, let's re-create `writers` with proper dimensions in `embedding` field, which is 384! 
 ```
 CREATE OR REPLACE TABLE writers (
     id        INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -207,12 +194,82 @@ CREATE OR REPLACE VECTOR INDEX idx_writers_vss ON writers(embedding) M=8 DISTANC
 ![alt writers-db](img/writers-db.JPG)
 
 
-#### IV. 
+#### IV. Creating embeddings
+Previously, we hardcode the embedding in `prisma/seed.js`: 
+```
+  await prisma.$executeRaw`
+      INSERT INTO writers (full_name, notable_works, description, embedding) 
+      VALUES( 'William Shakespeare', 
+              '["Hamlet", "Romeo and Juliet"]', 
+              'The most celebrated playwright in history, known for his tragedies and comedies.',
+              VEC_FromText('[0.11, 0.21, 0.31, 0.41, 0.51]')
+            );
+  `;
+```
 
-#### V. 
+In reality, we have to use a model to create embedding on the fly. Make changes to `main` function in `prisma/seed.js` as follow: 
+```
+// Prisma 
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
+
+// node-llama-cpp 
+import 'dotenv/config'
+import {fileURLToPath} from "url";
+import path from "path";
+import {getLlama} from "node-llama-cpp";
+
+const __dirname = path.dirname(
+    fileURLToPath(import.meta.url)
+);
+
+const llama = await getLlama();
+const model = await llama.loadModel({
+    modelPath: path.join(__dirname, "..", "src", "models", "paraphrase-MiniLM-L6-v2.i1-IQ1_S.gguf")
+});
+const context = await model.createEmbeddingContext();
+
+// The writers data 
+import writers from "../data/writers.json" with { type: "json" };
+
+/*
+   main
+*/
+async function main() {
+  for (const writer of writers) {
+    let { vector } = await context.getEmbeddingFor(writer.description);
+
+    await prisma.$executeRaw`
+        INSERT INTO writers (full_name, notable_works, description, embedding) 
+        VALUES( ${writer.full_name}, 
+                ${JSON.stringify(writer.notable_works)}, 
+                ${writer.description}, 
+                VEC_FromText(${JSON.stringify(vector)})
+              );
+    `; 
+  }
+}
+
+main()
+  .then(async () => {
+    await prisma.$disconnect()
+  })
+  .catch(async (e) => {
+    console.error(e)
+    await prisma.$disconnect()
+    process.exit(1)
+  })
+```
+
+![alt prisma-db-seed-embedding](img/prisma-db-seed-embedding.JPG)
+
+
+#### V. Making the Vector Semantic Search 
+
+
 
 [Continue to Part 3](README.3.md)
-canonical
+
 
 #### VI. Bibliography
 1. ["The Myth and Riddle of ORM"](https://github.com/Albert0i/prisma-planetscale/blob/main/ORM.md)
