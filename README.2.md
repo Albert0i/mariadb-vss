@@ -337,6 +337,8 @@ askQuestion();
 ```
 ![alt queryVSS](img/queryVSS.JPG)
 
+The small the distance, the closer the description *semantically*... 
+
 [Continue to Part 3](README.3.md)
 
 
