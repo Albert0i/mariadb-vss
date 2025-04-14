@@ -337,7 +337,7 @@ askQuestion();
 ```
 ![alt queryVSS](img/queryVSS.JPG)
 
-The small the distance, the closer the description *semantically*. A model [paraphrase-MiniLM-L6-v2.i1-IQ1_S.gguf](https://huggingface.co/sentence-transformers/paraphrase-MiniLM-L6-v2) is used to extract semantic of sentence. 
+The small the distance, the closer the description *semantically*. A model [paraphrase-MiniLM-L6-v2.i1-IQ1_S.gguf](https://huggingface.co/mradermacher/paraphrase-MiniLM-L6-v2-i1-GGUF/blob/main/README.md) is used to extract semantic of sentence. 
 
 [Continue to Part 3](README.3.md)
 
