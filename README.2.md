@@ -190,7 +190,7 @@ In `prisma/seed.js`, we add fake data like this:
 
 ```
 
-Before proceeding further, let re-create `writers` with proper dimensions in `embedding` field: 
+Before proceeding further, let's re-create `writers` with proper dimensions in `embedding` field, which is 384: 
 ```
 CREATE OR REPLACE TABLE writers (
     id        INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
