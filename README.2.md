@@ -337,7 +337,7 @@ askQuestion();
 ```
 ![alt queryVSS](img/queryVSS.JPG)
 
-The small the distance, the closer the description *semantically*. A model [paraphrase-MiniLM-L6-v2.i1-IQ1_S.gguf](https://huggingface.co/mradermacher/paraphrase-MiniLM-L6-v2-i1-GGUF/blob/main/README.md) is used to extract semantic of sentence. While creating embedding is a slow process and vector embedding in MariaDB can't be null, this impedes fast data ingestion to some extend. 
+The small the distance, the closer the description *semantically*. A model [paraphrase-MiniLM-L6-v2.i1-IQ1_S.gguf](https://huggingface.co/mradermacher/paraphrase-MiniLM-L6-v2-i1-GGUF/blob/main/README.md) is used to extract semantic of sentence. While creating embedding is a slow process and vector embedding in MariaDB can't be null, this impedes fast data ingestion to some extent. 
 
 [Continue to Part 3](README.3.md)
 
