@@ -356,7 +356,7 @@ The small the distance, the closer the description *semantically*. A model [para
 
 
 #### Epilogue 
-Everybody is talking about AI in these days, all we need is to do is use new possibility to bestow new capability the applicatin. 
+Everybody is talking about AI in these days, all we need is to do is to use new possibility to bestow new capability our applicatin. 
 
 
 ### EOF (2025/04/17)
