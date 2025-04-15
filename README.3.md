@@ -265,12 +265,16 @@ MariaDB is a relational database with VSS capability while Redis is a vector dat
 
 
 #### VI. Bibliography
-1. [Search and query](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/search/)
-2. [Vectors](https://redis.io/docs/latest/develop/interact/search-and-query/advanced-concepts/vectors/)
-3. [FT.CREATE](https://redis.io/docs/latest/commands/ft.create/)
-4. [FT.SEARCH](https://redis.io/docs/latest/commands/ft.search/)
-5. [JSON](https://redis.io/docs/latest/develop/data-types/json/)
-6. [The Trial by Franz Kafka](https://www.gutenberg.org/cache/epub/7849/pg7849-images.html)
+1. [What is a vector database?](https://youtu.be/Yhv19le0sBw)
+2. [Redis as a Vector Database Explained](https://youtu.be/xhLXZ0Hqudk)
+3. [Understanding Probabilistic Data Structures with 112,092 UFO Sightings - Guy Royse - NDC Oslo 2023](https://youtu.be/M6XOniVANKI)
+4. [Understanding Probabilistic Data Structures with 112,092 UFO Sightings By Guy Royse](https://youtu.be/qMp6jlxC238)
+5. [Search and query](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/search/)
+6. [Vectors](https://redis.io/docs/latest/develop/interact/search-and-query/advanced-concepts/vectors/)
+7. [FT.CREATE](https://redis.io/docs/latest/commands/ft.create/)
+8. [FT.SEARCH](https://redis.io/docs/latest/commands/ft.search/)
+9. [JSON](https://redis.io/docs/latest/develop/data-types/json/)
+10. [The Trial by Franz Kafka](https://www.gutenberg.org/cache/epub/7849/pg7849-images.html)
 
 
 #### Epilogue 
