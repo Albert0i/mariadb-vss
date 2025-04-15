@@ -56,8 +56,8 @@ const float32Buffer = (arr) => {
 // }
 async function findSimilarDocuments(embedding, count = 3) {
     const { vector } = embedding
-
-    const searchQuery = `(*)=>[KNN ${count} @embeddings $searchBlob AS score]`;
+    const embeddings = Buffer.from(Float32Array.from(vector).buffer)
+    const searchQuery = `(*)=>[KNN ${count} @embedding $searchBlob AS score]`;
   
     const results = await redisClient.call('FT.SEARCH', 
                                        'demo:writers:idx_vss', 
@@ -65,7 +65,7 @@ async function findSimilarDocuments(embedding, count = 3) {
                                        'RETURN', 5, 'score', 'id', 'full_name', 'description', 'notable_works', 
                                        'SORTBY', 'score', 'ASC', 
                                        'PARAMS', 2, 'searchBlob', 
-                                                    float32Buffer(vector), 
+                                                    JSON.stringify(vector), 
                                        'DIALECT', 2);
     
     return results;

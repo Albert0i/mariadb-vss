@@ -76,14 +76,9 @@ VALUES( 'Virginia Woolf',
 By means of `VEC_FromText`, we create some *fake* vectors and play with SELECT statement: 
 ```
 SELECT VEC_DISTANCE_COSINE(
-	(SELECT embedding FROM writers WHERE id=1),
-	(VEC_FromText('[0.21, 0.22, 0.23, 0.24, 0.25]'))
-);
-
-SELECT VEC_DISTANCE_COSINE(
                             embedding,
                             (VEC_FromText('[0.22, 0.21, 0.23, 0.24, 0.25]'))
-                          ),
+                          ) AS distance,
        id, full_name, description
 FROM writers 
 ORDER BY 1 

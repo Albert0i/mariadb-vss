@@ -26,7 +26,7 @@ import writers from "../data/writers.json" with { type: "json" };
 async function main() {  
   writers.forEach(async (writer, index) => {
     const { vector } = await context.getEmbeddingFor(writer.description);
-    const embeddings = Buffer.from(Float32Array.from(vector).buffer)
+    //const embeddings = Buffer.from(Float32Array.from(vector).buffer)
 
     await redisClient.call("JSON.SET", `demo:writers:${index + 1}`, 
         "$", 
@@ -35,7 +35,7 @@ async function main() {
             "full_name": ${writer.full_name},
             "notable_works": ${JSON.stringify(writer.notable_works)},
             "description": ${writer.description},
-            "embedding": ${embeddings}
+            "embedding": ${JSON.stringify(vector)}
         }`)
     );
   })
