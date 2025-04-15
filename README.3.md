@@ -2,9 +2,9 @@
 
 
 #### Prologue 
-You may ask: I already know how to use vector semantic search using MariaDB. Why on earch do I need to use another database? The answer is twofold: 
+I already know how to use vector semantic search using MariaDB. Why on earch do I need to use another database? The answer is twofold: 
 1. Repeatedly querying with vectors may have negative impact on database performance; 
-2. Offloading vss to separate server would keep your database more resilient and elastic. 
+2. Offloading vss to separate server would make your database more resilient and easily scale. 
 
 
 #### I. The way of Redis 
@@ -22,6 +22,7 @@ To recap, our data model is like this:
   }
 ```
 
+Redis is a *schemaless* database but it does need an index when it comes to search the data: 
 ```
 FT.CREATE demo:writers:idx_vss 
     ON JSON PREFIX 1 demo:writers: 
@@ -34,6 +35,7 @@ FT.CREATE demo:writers:idx_vss
         DISTANCE_METRIC COSINE
 ```
 
+The next step is to insert testing data:
 ```
 JSON.SET demo:writers:1 $ '{
         "full_name": "William Shakespeare",
@@ -70,10 +72,20 @@ JSON.SET demo:writers:5 $ '{
         "embedding": [0.51, 0.52, 0.53, 0.54, 0.55]
     }'
 ```
-
-By the way, JSON data can be queried like this:
+To play with the data: 
 ```
-> FT.SEARCH demo:writers:idx_vss "@notable_works:{1984}"
+> FT.SEARCH demo:writers:idx_vss @description:"A master of Gothic fiction and poetry" RETURN 2 $.id $.notable_works
+1) "1"
+2) "demo:writers:34"
+3) 1) "$.id"
+   2) "34"
+   3) "$.notable_works"
+   4) "[\"The Raven\",\"The Narrative of Arthur Gordon Pym of Nantucket\",\"The Mystery of Marie Rog\xc3\xaat\",\"The Murders in the Rue Morgue\"]"
+```
+
+By the way, TAG field can be queried like this:
+```
+> FT.SEARCH demo:writers:idx_vss @notable_works:{1984}
 1) "1"
 2) "demo:writers:4"
 3) 1) "$"
@@ -82,7 +94,7 @@ By the way, JSON data can be queried like this:
 
 Fulltext search can be queried like this:
 ```
-> FT.SEARCH demo:writers:idx_vss "@description:political"
+> FT.SEARCH demo:writers:idx_vss "political"
 1) "1"
 2) "demo:writers:4"
 3) 1) "$"
@@ -91,6 +103,7 @@ Fulltext search can be queried like this:
 
 
 #### II. The Way of Redis (cont)
+Before proceeding further, let's re-create the index with proper dimensions in embedding field, which is 384!
 ```
 FT.DROPINDEX demo:writers:idx_vss DD
 
@@ -108,7 +121,7 @@ FT.CREATE demo:writers:idx_vss
 
 
 #### III. Creating embeddings
-Create function in `seedRedis.js` as follow: 
+Previously, we hardcode the embedding in `JSON.SET`. In reality, we have to use a model to create embedding on the fly. Create `seedRedis.js` as follow: 
 ```
 // Redis
 import { redisClient, disconnect } from './redis/redisClient.js'
