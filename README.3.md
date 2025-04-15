@@ -237,16 +237,12 @@ askQuestion();
 
 
 #### VI. Bibliography
-1. [FT.CREATE](https://redis.io/docs/latest/commands/ft.create/)
-2. [FT.SEARCH](https://redis.io/docs/latest/commands/ft.search/)
-3. [JSON](https://redis.io/docs/latest/develop/data-types/json/)
-4. [Vectors](https://redis.io/docs/latest/develop/interact/search-and-query/advanced-concepts/vectors/)
-5. []()
-6. []()
-7. []()
-8. []()
-9. []()
-10. [The Trial by Franz Kafka](https://www.gutenberg.org/cache/epub/7849/pg7849-images.html)
+1. [Search and query](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/search/)
+2. [Vectors](https://redis.io/docs/latest/develop/interact/search-and-query/advanced-concepts/vectors/)
+3. [FT.CREATE](https://redis.io/docs/latest/commands/ft.create/)
+4. [FT.SEARCH](https://redis.io/docs/latest/commands/ft.search/)
+5. [JSON](https://redis.io/docs/latest/develop/data-types/json/)
+6. [The Trial by Franz Kafka](https://www.gutenberg.org/cache/epub/7849/pg7849-images.html)
 
 
 #### Epilogue 
