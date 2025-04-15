@@ -104,17 +104,136 @@ FT.CREATE demo:writers:idx_vss
         DIM 384
         DISTANCE_METRIC COSINE
 ```
+![alt ](img/writers-redis.JPG)
+
 
 #### III. Creating embeddings
+Create function in `seedRedis.js` as follow: 
+```
+// Redis
+import { redisClient, disconnect } from './redis/redisClient.js'
+
+// node-llama-cpp 
+import 'dotenv/config'
+import {fileURLToPath} from "url";
+import path from "path";
+import {getLlama} from "node-llama-cpp";
+
+const __dirname = path.dirname(
+    fileURLToPath(import.meta.url)
+);
+
+const llama = await getLlama();
+const model = await llama.loadModel({
+    modelPath: path.join(__dirname, "..", "src", "models", "paraphrase-MiniLM-L6-v2.i1-IQ1_S.gguf")
+});
+const context = await model.createEmbeddingContext();
+
+// The writers data 
+import writers from "../data/writers.json" with { type: "json" };
+
+/*
+   main
+*/
+async function main() {  
+  writers.forEach(async (writer, index) => {
+    const { vector } = await context.getEmbeddingFor(writer.description);
+    /*
+      You can store or update vectors and any associated metadata in JSON using the JSON.SET command.
+
+      To store vectors in Redis as JSON, you store the vector as a JSON array of floats. Note that this differs from vector storage in Redis hashes, which are instead stored as raw bytes.
+    */
+    await redisClient.call("JSON.SET", `demo:writers:${index + 1}`, 
+        "$", 
+        JSON.stringify({
+            "id": index + 1,
+            "full_name": writer.full_name,
+            "notable_works": writer.notable_works,
+            "description": writer.description,
+            "embedding": vector
+        })
+    );
+  })
+  setTimeout( async() =>{ await disconnect() }, 5000)
+}
+
+await main()
 ```
 
+![alt seed-redis](img/seed-redis.JPG)
+
+
+#### IV. Making the Vector Semantic Search
+Putting all pieces of puzzle together: 
+
+`queryRedis.js`
 ```
+// Redis
+import { redisClient, disconnect } from './redis/redisClient.js'
 
-#### IV. 
+// node-llama-cpp 
+import 'dotenv/config'
+import {fileURLToPath} from "url";
+import path from "path";
+import {getLlama} from "node-llama-cpp";
 
-#### V. 
+import readline from 'readline';
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-#### VI. Bibliography
+const __dirname = path.dirname(
+    fileURLToPath(import.meta.url)
+);
+
+const llama = await getLlama();
+const model = await llama.loadModel({
+    modelPath: path.join(__dirname, "models", "paraphrase-MiniLM-L6-v2.i1-IQ1_S.gguf")
+});
+const context = await model.createEmbeddingContext();
+
+async function findSimilarDocuments(embedding, count = 3) {
+    const { vector } = embedding
+    const result = await redisClient.call('FT.SEARCH', 
+                                        'demo:writers:idx_vss', 
+                                        `(*) => [KNN ${count} @embedding $BLOB AS distance]`, 
+                                        'RETURN', 5, 'distance', 'id', 'full_name', 'description', 'notable_works',  
+                                        'SORTBY', 'distance', 'ASC', 
+                                        'PARAMS', '2', 'BLOB', 
+                                                        Buffer.from(Float32Array.from(vector).buffer),
+                                        'DIALECT', 2)
+    return result;
+  };
+
+/*
+   main
+*/
+console.log()
+const askQuestion = () => {    
+    rl.question('Input: ', async (query) => {
+        const queryEmbedding = await context.getEmbeddingFor(query);
+        const similarDocuments = await findSimilarDocuments(queryEmbedding);
+
+        for (let i = 1; i < similarDocuments.length; i += 2) 
+        {
+            console.log(`${similarDocuments[i]}:`);
+            for (let j = 0; j < 8; j += 2) {
+                console.log(`   ${similarDocuments[i+1][j]}: ${similarDocuments[i+1][j+1]}`);
+            }
+            console.log()
+        }
+        console.log()
+        askQuestion(); // Recurse to ask the question again
+    });
+};
+
+askQuestion();
+```
+![alt queryRedis](img/queryRedis.JPG)
+
+
+#### V. Bibliography
 1. [FT.CREATE](https://redis.io/docs/latest/commands/ft.create/)
 2. [FT.SEARCH](https://redis.io/docs/latest/commands/ft.search/)
 3. [JSON](https://redis.io/docs/latest/develop/data-types/json/)
@@ -129,4 +248,5 @@ FT.CREATE demo:writers:idx_vss
 
 #### Epilogue 
 
-### EOF (2025/04/25)
+
+### EOF (2025/04/17)
