@@ -61,15 +61,14 @@ const askQuestion = () => {
         const queryEmbedding = await context.getEmbeddingFor(query);
         const similarDocuments = await findSimilarDocuments(queryEmbedding);
 
-        console.log(similarDocuments)
-        // similarDocuments.forEach((doc, i) => {
-        //     console.log(`Element[${i}]:`);
-        //     console.log(`   distance=${doc.distance}`);
-        //     console.log(`   description=${doc.description}`);
-        //     console.log(`   full_name=${doc.full_name}`);
-        //     console.log(`   notable_works=${doc.notable_works}`);
-        //     console.log()
-        // });
+        for (let i = 1; i < similarDocuments.length; i += 2) 
+        {
+            console.log(`${similarDocuments[i]}:`);
+            for (let j = 0; j < 8; j += 2) {
+                console.log(`   ${similarDocuments[i+1][j]}: ${similarDocuments[i+1][j+1]}`);
+            }
+            console.log()
+        }
         console.log()
         askQuestion(); // Recurse to ask the question again
     });
