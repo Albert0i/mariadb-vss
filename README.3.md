@@ -198,7 +198,7 @@ async function findSimilarDocuments(embedding, count = 3) {
     const result = await redisClient.call('FT.SEARCH', 
                                         'demo:writers:idx_vss', 
                                         `(*) => [KNN ${count} @embedding $BLOB AS distance]`, 
-                                        'RETURN', 5, 'distance', 'id', 'full_name', 'description', 'notable_works',  
+                                        'RETURN', 5, 'distance', 'id', 'full_name', 'description', '$.notable_works',  
                                         'SORTBY', 'distance', 'ASC', 
                                         'PARAMS', '2', 'BLOB', 
                                                         Buffer.from(Float32Array.from(vector).buffer),
