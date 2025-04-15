@@ -233,7 +233,10 @@ askQuestion();
 ![alt queryRedis](img/queryRedis.JPG)
 
 
-#### V. Bibliography
+#### V. Summary 
+
+
+#### VI. Bibliography
 1. [FT.CREATE](https://redis.io/docs/latest/commands/ft.create/)
 2. [FT.SEARCH](https://redis.io/docs/latest/commands/ft.search/)
 3. [JSON](https://redis.io/docs/latest/develop/data-types/json/)
