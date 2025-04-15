@@ -4,7 +4,7 @@
 #### Prologue 
 I already know how to use vector semantic search using MariaDB. Why on earch do I need to use another database? The answer is twofold: 
 1. Repeatedly querying with vectors may have negative impact on database performance; 
-2. Offloading vss to separate server would make your database more resilient and easily scale. 
+2. Offloading VSS to separate server would make your database more resilient and easily scale. 
 
 
 #### I. The way of Redis 
@@ -255,6 +255,14 @@ askQuestion();
 - `seed.js` is based on documentation of [Seeding](https://www.prisma.io/docs/orm/prisma-migrate/workflows/seeding) and [Using Embedding](https://github.com/withcatai/node-llama-cpp/blob/master/docs/guide/embedding.md); 
 - `queryVSS.js` is based on AI generated code; 
 
+As you can see, it is easy to start VSS with MariaDB which just has a couple of turning parameters and most developers already familiar with some kind of RDBMS. Redis, on the other hand, provides comprehensive functionalities and customization: 
+1. You can choose `HASH` or `JSON` as underlaying data structure; 
+2. Either `FLAT` or `HNSW` indexing method; 
+3. Three types of distance: Euclidean Distance (L2), Inner Product (IP) or Cosine Distance; 
+4. Three type of queries: KNN (K-Nearest Neighbors) Query, Vector Range Query and Hybrid Query; 
+
+To implement VSS on Redis is much more difficult then on MariaDB, but when it comes to speed and accuracy, Redis is good choice... 
+
 
 #### VI. Bibliography
 1. [Search and query](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/search/)
@@ -266,6 +274,7 @@ askQuestion();
 
 
 #### Epilogue 
+cryptic
 
 
 ### EOF (2025/04/17)
