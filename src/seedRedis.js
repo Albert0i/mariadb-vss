@@ -26,17 +26,20 @@ import writers from "../data/writers.json" with { type: "json" };
 async function main() {  
   writers.forEach(async (writer, index) => {
     const { vector } = await context.getEmbeddingFor(writer.description);
-    //const embeddings = Buffer.from(Float32Array.from(vector).buffer)
+    /*
+      You can store or update vectors and any associated metadata in JSON using the JSON.SET command.
 
+      To store vectors in Redis as JSON, you store the vector as a JSON array of floats. Note that this differs from vector storage in Redis hashes, which are instead stored as raw bytes.
+    */
     await redisClient.call("JSON.SET", `demo:writers:${index + 1}`, 
         "$", 
-        JSON.stringify(`{
-            "id": ${index + 1}
-            "full_name": ${writer.full_name},
-            "notable_works": ${JSON.stringify(writer.notable_works)},
-            "description": ${writer.description},
-            "embedding": ${JSON.stringify(vector)}
-        }`)
+        JSON.stringify({
+            "id": index + 1,
+            "full_name": writer.full_name,
+            "notable_works": writer.notable_works,
+            "description": writer.description,
+            "embedding": vector
+        })
     );
   })
   setTimeout( async() =>{ await disconnect() }, 5000)

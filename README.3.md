@@ -27,8 +27,8 @@ FT.CREATE demo:writers:idx_vss
     ON JSON PREFIX 1 demo:writers: 
     SCHEMA $.full_name AS full_name TAG SORTABLE
     $.notable_works[*] AS notable_works TAG SORTABLE
-    $.description AS description TEXT 
-    $.embedding VECTOR FLAT 6
+    $.description AS description TEXT SORTABLE
+    $.embedding AS embedding VECTOR FLAT 6
         TYPE FLOAT32
         DIM 5
         DISTANCE_METRIC COSINE
@@ -98,8 +98,8 @@ FT.CREATE demo:writers:idx_vss
     ON JSON PREFIX 1 demo:writers: 
     SCHEMA $.full_name AS full_name TAG SORTABLE
     $.notable_works[*] AS notable_works TAG SORTABLE
-    $.description AS description TEXT 
-    $.embedding VECTOR FLAT 6
+    $.description AS description TEXT SORTABLE
+    $.embedding AS embedding VECTOR FLAT 6
         TYPE FLOAT32
         DIM 384
         DISTANCE_METRIC COSINE

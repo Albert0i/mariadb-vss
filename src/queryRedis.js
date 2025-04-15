@@ -23,11 +23,11 @@ const model = await llama.loadModel({
 });
 const context = await model.createEmbeddingContext();
 
-const float32Buffer = (arr) => {
-    const floatArray = new Float32Array(arr);
-    const float32Buffer = Buffer.from(floatArray.buffer);
-    return float32Buffer;
-  };
+// const float32Buffer = (arr) => {
+//     const floatArray = new Float32Array(arr);
+//     const float32Buffer = Buffer.from(floatArray.buffer);
+//     return float32Buffer;
+//   };
 
 //A KNN query will give us the top n documents that best match the query vector.
 /*  sample raw query
@@ -39,36 +39,17 @@ const float32Buffer = (arr) => {
     PARAMS 2 searchBlob "6\xf7\..."
     DIALECT 2
 */
-// async function findSimilarDocuments(embedding, count = 3) {
-//     const { vector } = embedding
-
-//     const result = await prisma.$queryRaw`
-//                           SELECT VEC_DISTANCE_COSINE(
-//                                    embedding,
-//                                    VEC_FromText(${JSON.stringify(vector)})
-//                                  ) AS distance,
-//                                  id, full_name, description, notable_works
-//                           FROM writers 
-//                           ORDER BY 1 
-//                           LIMIT ${count} OFFSET 0 ;
-//                         `; 
-//     return result 
-// }
 async function findSimilarDocuments(embedding, count = 3) {
     const { vector } = embedding
-    const embeddings = Buffer.from(Float32Array.from(vector).buffer)
-    const searchQuery = `(*)=>[KNN ${count} @embedding $searchBlob AS score]`;
-  
-    const results = await redisClient.call('FT.SEARCH', 
-                                       'demo:writers:idx_vss', 
-                                       searchQuery, 
-                                       'RETURN', 5, 'score', 'id', 'full_name', 'description', 'notable_works', 
-                                       'SORTBY', 'score', 'ASC', 
-                                       'PARAMS', 2, 'searchBlob', 
-                                                    JSON.stringify(vector), 
-                                       'DIALECT', 2);
-    
-    return results;
+    const result = await redisClient.call('FT.SEARCH', 
+                                        'demo:writers:idx_vss', 
+                                        `(*) => [KNN ${count} @embedding $BLOB AS distance]`, 
+                                        'RETURN', 5, 'distance', 'id', 'full_name', 'description', 'notable_works',  
+                                        'SORTBY', 'distance', 'ASC', 
+                                        'PARAMS', '2', 'BLOB', 
+                                                        Buffer.from(Float32Array.from(vector).buffer),
+                                        'DIALECT', 2)
+    return result;
   };
 
 /*
