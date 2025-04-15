@@ -274,7 +274,7 @@ MariaDB is a relational database with VSS capability while Redis is a vector dat
 
 
 #### Epilogue 
-cryptic
+Redis commands tend to be cryptic, obfuscated and formidable. Various data structures are available and each for a special purpose, most of the time are spent on consulting [documentation](https://redis.io/docs/latest/commands/). It's not easy for developers who already accustomed to SQL to begin with. IMHO, relational database is for office task -- since most data are in *tabular* format and thus is a choice of both natural and convenient as a result, while Redis is to tackle real world issues where data are semi-structured or completely unstructured. 
 
 
 ### EOF (2025/04/17)
