@@ -261,7 +261,7 @@ As you can see, it is easy to start VSS with MariaDB which just has a couple of 
 3. Three types of distance: Euclidean Distance (L2), Inner Product (IP) or Cosine Distance; 
 4. Three type of queries: KNN (K-Nearest Neighbors) Query, Vector Range Query and Hybrid Query; 
 
-To implement VSS on Redis is much more difficult then on MariaDB, but when it comes to speed and accuracy, Redis is good choice... 
+To implement VSS in Redis is much more difficult then in MariaDB, but when it comes to speed and accuracy, Redis is an obvious choice... 
 
 
 #### VI. Bibliography
