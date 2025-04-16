@@ -19,7 +19,7 @@ To begin with, our data model is like this:
   }
 ```
 
-According to *canonical* RDBMS design principle, the first step is to *normalize* the `writers` table by splitting the `notable_works` into separate table, but we are going to store array of string using JSON datatype here: 
+According to *canonical* RDBMS design principle, the first step is to *normalize*  `writers` table by splitting `notable_works` into separate table and link up by [foreign key](https://en.wikipedia.org/wiki/Foreign_key), but we are going to store it in JSON datatype: 
 ```
 CREATE OR REPLACE TABLE writers (
     id        INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -43,6 +43,7 @@ VALUES( 'William Shakespeare',
         'The most celebrated playwright in history, known for his tragedies and comedies.',
         VEC_FromText('[0.11, 0.21, 0.31, 0.41, 0.51]')
       );
+
 -- 2 Jane Austen
 INSERT INTO writers (full_name, notable_works, description, embedding) 
 VALUES( 'Jane Austen', 
@@ -50,6 +51,7 @@ VALUES( 'Jane Austen',
         'Renowned for her sharp observations of 19th-century society and romance.',
         VEC_FromText('[0.21, 0.22, 0.23, 0.24, 0.25]')
       );
+
 -- 3 Charles Dickens
 INSERT INTO writers (full_name, notable_works, description, embedding) 
 VALUES( 'Charles Dickens', 
@@ -57,6 +59,7 @@ VALUES( 'Charles Dickens',
         'A Victorian novelist celebrated for his social commentary and vivid characters.',
         VEC_FromText('[0.31, 0.32, 0.33, 0.34, 0.35]')
       );
+
 -- 4 George Orwell
 INSERT INTO writers (full_name, notable_works, description, embedding) 
 VALUES( 'George Orwell', 
@@ -64,6 +67,7 @@ VALUES( 'George Orwell',
         'Known for his dystopian novels critiquing political oppression.',
         VEC_FromText('[0.41, 0.42, 0.43, 0.44, 0.45]')
       );
+
 -- 5 Virginia Woolf
 INSERT INTO writers (full_name, notable_works, description, embedding) 
 VALUES( 'Virginia Woolf', 
@@ -73,7 +77,7 @@ VALUES( 'Virginia Woolf',
       );
 ```
 
-By means of `VEC_FromText`, we create some *fake* vectors and play with SELECT statement: 
+By means of `VEC_FromText`, we create some *fake* vectors. To play with `SELECT` statement: 
 ```
 SELECT VEC_DISTANCE_COSINE(
                             embedding,
@@ -97,7 +101,7 @@ SELECT * FROM writers WHERE MATCH(description) AGAINST('political');
 
 
 #### II. The way of ORM
-Not all database functions and features of [Prisma ORM](https://www.prisma.io/docs/orm/prisma-schema/data-model/unsupported-database-features)'s supported databases have a Prisma Schema Language equivalent. As of this writing, VECTOR datatype is one of them. Let start by installing the packages: 
+Not all database functions and features are supported by [Prisma ORM](https://www.prisma.io/docs/orm/prisma-schema/data-model/unsupported-database-features). As of this writing, VECTOR datatype does not have a Prisma Schema Language equivalent... Anyway, let start by installing the necessary packages: 
 ```
 npm install prisma --save-dev
 npm install @prisma/client mariadb
@@ -126,7 +130,7 @@ datasource db {
 }
 ```
 
-Pull the model out of database via *introspection*: 
+Pull the model out of MariaDB via *introspection*: 
 ```
 npx prisma db pull 
 ```
@@ -146,7 +150,7 @@ model writers {
 }
 ```
 
-Generate client code for the model: 
+As you can see, the `embedding` field is marked by `Unsupported("vector(5)")`. Go ahead and generate client code for the model: 
 ```
 npx prisma generate
 ```
@@ -166,11 +170,11 @@ npx prisma db seed
 ![alt writers](img/writers.JPG)
 ![alt yeah](img/yeah.JPG)
 
-This pretty much concludes the procedures of database creation and seeding. 
+This pretty much concludes the steps of Prisma setup and database seeding. 
 
 
 #### III. The way of ORM (cont)
-Prisma is a mature ORM product which supports many mainstream relational databases as well as [MongoDB](https://www.mongodb.com/), which is a NoSQL, and *bi-directional* schema evolution in [SDLC](https://en.wikipedia.org/wiki/Systems_development_life_cycle) as you can see in previous section. Alternatively, you can create models in `prisma.schema` and use `npx prisma db push` to create tables. 
+Prisma is a mature ORM product which supports many mainstream relational databases as well as [MongoDB](https://www.mongodb.com/), which is a NoSQL, and *bi-directional* schema evolution in [SDLC](https://en.wikipedia.org/wiki/Systems_development_life_cycle) as you can see in previous section. Alternatively, you can create models in `prisma.schema` and use `npx prisma db push` to create tables in MariaDB. 
 
 Before proceeding further, let's re-create `writers` with proper dimensions in `embedding` field, which is 384! 
 ```
@@ -190,7 +194,7 @@ CREATE OR REPLACE VECTOR INDEX idx_writers_vss ON writers(embedding) M=8 DISTANC
 
 
 #### IV. Creating embeddings
-Previously, we hardcode the embedding in `prisma/seed.js`: 
+Previously, we hardcode embeddings in `prisma/seed.js`: 
 ```
   await prisma.$executeRaw`
       INSERT INTO writers (full_name, notable_works, description, embedding) 
@@ -260,7 +264,7 @@ main()
 
 
 #### V. Making the Vector Semantic Search 
-Putting all pieces of puzzle together: 
+Putting all pieces together: 
 
 `queryVSS.js`
 ```
@@ -332,7 +336,7 @@ askQuestion();
 ```
 ![alt queryVSS](img/queryVSS.JPG)
 
-The small the distance, the closer the description *semantically*. A model [paraphrase-MiniLM-L6-v2.i1-IQ1_S.gguf](https://huggingface.co/mradermacher/paraphrase-MiniLM-L6-v2-i1-GGUF/blob/main/README.md) is used to extract semantic of sentence. While creating embedding is a slow process and vector embedding in MariaDB can't be null, this impedes fast data ingestion to some extent. 
+The smaller the distance, the closer the description *semantically*. A model [paraphrase-MiniLM-L6-v2.i1-IQ1_S.gguf](https://huggingface.co/mradermacher/paraphrase-MiniLM-L6-v2-i1-GGUF/blob/main/README.md) is used to extract semantic of `description`. While creating embedding is a slow process and vector embedding in MariaDB can't be null, this impedes fast data ingestion to some extent. 
 
 [Continue to Part 3](README.3.md)
 
@@ -351,6 +355,8 @@ The small the distance, the closer the description *semantically*. A model [para
 
 
 #### Epilogue 
+We've used `$executeRaw` and `$queryRaw` in our code... 
+
 Everybody is talking about AI in these days, all we need is to do is to use new possibility to bestow new capability our applicatin. 
 
 
