@@ -260,8 +260,10 @@ As you can see, it is easy to start with MariaDB with just a couple of turning p
 3. Three types of distance: Euclidean Distance (L2), Inner Product (IP) or Cosine Distance; 
 4. Three type of queries: KNN (K-Nearest Neighbors) Query, Vector Range Query and Hybrid Query; 
 
-You may consider MariaDB as general purpose relational database with additional vector semantic search capability, while Redis is in-memory NoSQL database featuring vector database. The term [`Approximate Nearest Neighbor (ANN)`](https://weaviate.io/blog/vector-search-explained) is algorithm which trades off a bit of accuracy for a huge gain in size and/or speed. In our example, we have 100 vectors each of 384 dimensions, vector distance has to be recalculate upon each query. 
+You may consider MariaDB as general purpose relational database with additional vector semantic search capability, while Redis is in-memory NoSQL database featuring vector database. The term [`Approximate Nearest Neighbor (ANN)`](https://weaviate.io/blog/vector-search-explained) is algorithm which trades off a bit of accuracy for a huge gain in size and/or speed. `k-nearest neighbors (kNN)` algorithm, differs from ANN because it calculates a similarity score for every data vector in the database compared to the query vector. 
 ![alt DistanceMetric](img/DistanceMetric.JPG)
+
+The *brute force* of a kNN search is computationally very expensive - and depending on the size of your database, a single query could take anything from several seconds to even hours. If you compare a vector with 300 dimensions with 10M vectors, the search system would need to do 300 x 10M = 3B computations! The number of required calculations increases linearly with the number of data points (O(n)).
 
 MariaDB employs modified HNSW and most of the time delivers the correct result. This probabilistic nature allows HNSW to achieve high performance and scalability in vector similarity searches. 
 ![alt accuracy-complexity](img/accuracy-complexity.png)
