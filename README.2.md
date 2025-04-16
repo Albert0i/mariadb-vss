@@ -357,7 +357,7 @@ The smaller the distance, the closer the description *semantically*. A model [pa
 #### Epilogue 
 We've used `$executeRaw` and `$queryRaw` in our code... One would ask why not use [mariadb](https://www.npmjs.com/package/mariadb) package directly? What's the point? 
 
-Relational Database Management Systems (RDBMS) emerged in the late 1970s and remains mainstream till today. Object-oriented programming (OOP) gained prominence in the 1980s of last century. The point is most prevalent programming languages are Object-oriented today. ORM bridges the gap betwixt and between and makes data manipulation in a taste of objects. Although SQL is *de facto* industrial standard and can not do without, ORM CRUD functions come handy in day-to-day life. 
+Relational Database Management Systems (RDBMS) emerged in the late 1970s and remains mainstream till today. Object-oriented programming (OOP) gained prominence in the 1980s of last century. The point is most prevalent programming languages are Object-oriented today. ORM bridges the gap betwixt and between and makes data manipulation in a taste of objects. Although SQL is *de facto* industrial standard and can not do without, ORM [CRUD](https://www.prisma.io/docs/orm/prisma-client/queries/crud) functions come handy in day-to-day life. 
 ```
 const result = await prisma.writers.findMany({
     where: {
