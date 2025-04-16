@@ -260,7 +260,11 @@ As you can see, it is easy to start with MariaDB with just a couple of turning p
 3. Three types of distance: Euclidean Distance (L2), Inner Product (IP) or Cosine Distance; 
 4. Three type of queries: KNN (K-Nearest Neighbors) Query, Vector Range Query and Hybrid Query; 
 
-You may consider MariaDB as general purpose relational database with additional vector semantic search capability, while Redis is in-memory NoSQL database featuring vector database. 
+You may consider MariaDB as general purpose relational database with additional vector semantic search capability, while Redis is in-memory NoSQL database featuring vector database. The term [`Approximate Nearest Neighbor (ANN)`](https://weaviate.io/blog/vector-search-explained) is algorithm which trades off a bit of accuracy for a huge gain in size and/or speed. In our example, we have 100 vectors each of 384 dimensions, vector distance has to be recalculate upon each query. 
+![alt DistanceMetric](img/DistanceMetric.JPG)
+
+MariaDB employs modified HNSW and most of the time delivers the correct result. This probabilistic nature allows HNSW to achieve high performance and scalability in vector similarity searches. 
+![alt accuracy-complexity](img/accuracy-complexity.png)
 
 
 #### VI. Bibliography
@@ -280,4 +284,4 @@ You may consider MariaDB as general purpose relational database with additional 
 Redis commands tend to be cryptic, obfuscated and formidable. Various data structures are available and each for a special purpose, most of the time are spent on consulting [documentation](https://redis.io/docs/latest/commands/). It's not easy for developers who already accustomed to SQL to begin with. IMHO, relational database is for office task -- since most data are in *tabular* format and thus is a choice of both natural and convenient as a result, while Redis is to tackle real world issues where data are semi-structured or completely unstructured. 
 
 
-### EOF (2025/04/17)
+### EOF (2025/04/25)
