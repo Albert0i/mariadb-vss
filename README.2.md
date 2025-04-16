@@ -19,7 +19,7 @@ To begin with, our data model is like this:
   }
 ```
 
-According to *canonical* RDBMS design principle, the first step is to *normalize*  `writers` table by splitting `notable_works` into separate table and link up by [foreign key](https://en.wikipedia.org/wiki/Foreign_key), but we are going to store it in JSON datatype: 
+According to *canonical* RDBMS design principle, the first step is to *normalize*  `writers` table by splitting `notable_works` into separate table and link them up by [foreign key](https://en.wikipedia.org/wiki/Foreign_key), but we are going to store it in JSON datatype: 
 ```
 CREATE OR REPLACE TABLE writers (
     id        INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
