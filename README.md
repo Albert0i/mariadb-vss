@@ -4,9 +4,9 @@
 
 
 #### Prologue 
-I am a man of conservative by nature *not* by age. When it comes to experiments, I am rather proactive to new technology. The motto is we have to get merits and demerits of both ends so that an optimal solution can be orchestrated to the maximum extend. 
+I am a man of conservative by nature *not* by age. When it comes to experiments, I am rather proactive to new technology. The motto is we have to get merits and demerits of both ends so that optimal solutions can be orchestrated to the maximum extend. 
 
-IMHO, both SQL and NoSQL databases have their roles in modern data processing. Currently, RDBMS dominates the market because-of it's popularity and ease-of-use. However, NoSQL database evinces tremendous flexibility in certain application scenario. It's the emerging menace of NoSQL which brings about new challenge and evolution to *traditional* SQL database. Examples are [JSON](https://www.w3schools.com/js/js_json_datatypes.asp) data types in which began in the early 2010s and VECTOR datatype in years of relatively recent. 
+[IMHO](https://dictionary.cambridge.org/dictionary/english-chinese-traditional/imho), both SQL and NoSQL databases have their roles in modern data processing. RDBMS dominates because-of historical reasons and ease-of-use, however, NoSQL database evinces tremendous flexibility in certain application scenario. It's the emerging menace of NoSQL which brings about new challenge and evolution to *traditional* SQL database. Examples are [JSON](https://www.w3schools.com/js/js_json_datatypes.asp) data types in which began in the early 2010s and VECTOR datatype in years of relatively recent. 
 
 
 #### I. [What is HNSW?](https://towardsdatascience.com/similarity-search-part-4-hierarchical-navigable-small-world-hnsw-2aad4fe87d37/) (TL;DR)
@@ -911,7 +911,7 @@ FT.SEARCH products "(@type:{shirt} @year:[2020 2022]) | @description_vector:[VEC
 
 
 #### Epilogue 
-Between [MySQL Community Server 9.2.0 Innovation](https://dev.mysql.com/downloads/mysql/) and [MariaDB Community Server Version 11.7.2-GA](https://mariadb.com/downloads/), I opt the later... Currently, I am using MySQL Community Server 8.0.30 and so far so good, the only reason drives me away is that one should not develop under the shadow of being blackmailed in huge bucks by some guy some day... It is just psychologically unwholesome... 
+Between [MySQL Community Server 9.2.0 Innovation](https://dev.mysql.com/downloads/mysql/) and [MariaDB Community Server Version 11.7.2-GA](https://mariadb.com/downloads/), I opt the later... Currently, I am using MySQL Community Server 8.0.30 and so far so good, the only reason drives me away is that one should not develop under the shadow of being blackmailed in huge bucks by some guy in some day... It is just psychologically unwholesome... 
 
 [![alt 8.0.30](img/8.0.30.JPG)](https://www.heidisql.com/#google_vignette)
 
