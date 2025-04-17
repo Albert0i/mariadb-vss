@@ -127,8 +127,8 @@ client.send_command('TDIGEST.ADD', ['latencies', 100, 200, 300, 400, 500], (err,
 
 **Documentation:** [T-digest Documentation](https://redis.io/docs/latest/develop/data-types/probabilistic/t-digest/)
 
-### 6. Heavy Keeper
-**Description:** Heavy Keeper is designed to identify and keep track of the most frequent items in a data stream. It uses a combination of hash tables and counters to maintain a list of the top-k elements. This is useful for applications like detecting the most popular items in a large dataset or monitoring the most frequent queries.
+### 6. TopK
+**Description:** TopK is designed to identify and keep track of the most frequent items in a data stream. It uses a combination of hash tables and counters to maintain a list of the top-k elements. This is useful for applications like detecting the most popular items in a large dataset or monitoring the most frequent queries.
 
 **Example:** You want to identify the most frequent search queries on your website.
 
@@ -137,18 +137,18 @@ client.send_command('TDIGEST.ADD', ['latencies', 100, 200, 300, 400, 500], (err,
 const redis = require('redis');
 const client = redis.createClient();
 
-// Add search queries to Heavy Keeper
-client.send_command('HKEEPER.ADD', ['search_queries', 'query1', 'query2', 'query1', 'query3', 'query1'], (err, res) => {
+// Add search queries to TopK
+client.send_command('TOPK.ADD', ['search_queries', 'query1', 'query2', 'query1', 'query3', 'query1'], (err, res) => {
   if (err) throw err;
 
   // Get the top-k frequent search queries
-  client.send_command('HKEEPER.TOPK', ['search_queries', 2], (err, topK) => {
+  client.send_command('TOPK.LIST', ['search_queries'], (err, topK) => {
     if (err) throw err;
     console.log(topK);  // Output: ['query1', 'query2']
   });
 });
 ```
 
-**Documentation:** [Heavy Keeper Documentation](https://github.com/Kaligo/heavy_keeper)
+**Documentation:** [TopK Documentation](https://redis.io/docs/latest/commands/?group=topk)
 
 These descriptions, examples, usage in Node.js ES6 syntax, and updated documentation links should give you a comprehensive understanding of these probabilistic data structures in Redis. If you have any further questions or need more details, feel free to ask!
