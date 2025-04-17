@@ -21,6 +21,7 @@
 - **T-digest:** Estimates percentiles and quantiles in a data stream.
 - **TopK:** Identifies the most frequent items in a data stream.
 
+---
 - <span>&#10004;</span> <!-- ✔ -->  Available in Redis cloud
 - <span>&#10006;</span> <!-- ✖ -->  Unavailable in Redis cloud
 
