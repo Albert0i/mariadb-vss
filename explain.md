@@ -2,6 +2,8 @@
 
 Here are the descriptions, examples, usage with native Redis commands, and updated documentation links for various probabilistic data structures in Redis:
 
+<span>&#10004;</span> <!-- ✔ -->  Available in Redis cloud
+<span>&#10006;</span> <!-- ✖ -->  Unavailable ub Redus ckiyd
 
 ### 1. Bloom Filter  <span>&#10004;</span> <!-- ✔ -->
 **Description:** A Bloom Filter is a space-efficient probabilistic data structure used to test whether an element is a member of a set. It can guarantee that an element is definitely not in the set, but it may produce false positives, meaning it might incorrectly indicate that an element is in the set when it is not. Bloom Filters are useful for applications like checking if a username is taken or if a user has seen an ad.
