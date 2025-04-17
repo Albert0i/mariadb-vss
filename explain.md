@@ -241,8 +241,9 @@ These descriptions, examples, usage in Node.js ES6 syntax, and updated documenta
 
 
 #### VIII. Bibliography 
-1. [Understanding Probabilistic Data Structures with 112,092 UFO Sightings - Guy Royse - NDC Oslo 2023](https://youtu.be/M6XOniVANKI)
-2. [Understanding Probabilistic Data Structures with 112,092 UFO Sightings By Guy Royse](https://youtu.be/qMp6jlxC238)
+1. [Probabilistic Data Structures - Bloom Filters, HyperLogLogs & Cuckoo Filters](https://youtu.be/dq-0xagF7v8)
+2. [Understanding Probabilistic Data Structures with 112,092 UFO Sightings - Guy Royse - NDC Oslo 2023](https://youtu.be/M6XOniVANKI)
+3. [Understanding Probabilistic Data Structures with 112,092 UFO Sightings By Guy Royse](https://youtu.be/qMp6jlxC238)
 
 
 ### EOF (2025/04/17)
