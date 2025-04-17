@@ -23,7 +23,7 @@ console.log(bloom.test('example@example.com'));  // Output: true
 console.log(bloom.test('new@example.com'));      // Output: false (or true, but rarely)
 ```
 
-**Documentation:** [Bloom Filter Documentation](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/), [Bloom Filter Calculator](https://hur.st/bloomfilter/)
+**Documentation:** [Bloom Filter](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/), [Bloom Filter Calculator](https://hur.st/bloomfilter/)
 
 
 #### 2. Cuckoo Filter
@@ -50,7 +50,7 @@ cuckoo.remove('DISCOUNT2025');
 console.log(cuckoo.contains('DISCOUNT2025'));  // Output: false
 ```
 
-**Documentation:** [Cuckoo Filter Documentation](https://redis.io/docs/latest/develop/data-types/probabilistic/cuckoo-filter/)
+**Documentation:** [Cuckoo Filter](https://redis.io/docs/latest/develop/data-types/probabilistic/cuckoo-filter/)
 
 
 #### 3. HyperLogLog
@@ -75,7 +75,7 @@ client.pfadd('visitors', 'user1', 'user2', 'user3', (err, res) => {
 });
 ```
 
-**Documentation:** [HyperLogLog Documentation](https://redis.io/docs/latest/develop/data-types/probabilistic/hyperloglogs/)
+**Documentation:** [HyperLogLog](https://redis.io/docs/latest/develop/data-types/probabilistic/hyperloglogs/)
 
 
 #### 4. Count-Min Sketch
@@ -105,7 +105,7 @@ client.send_command('CMS.INCRBY', ['product_sales', 'productA', 5, 'productB', 3
 });
 ```
 
-**Documentation:** [Count-Min Sketch Documentation](https://redis.io/docs/latest/develop/data-types/probabilistic/count-min-sketch/)
+**Documentation:** [Count-Min Sketch](https://redis.io/docs/latest/develop/data-types/probabilistic/count-min-sketch/)
 
 
 #### 5. T-digest
@@ -130,7 +130,7 @@ client.send_command('TDIGEST.ADD', ['latencies', 100, 200, 300, 400, 500], (err,
 });
 ```
 
-**Documentation:** [T-digest Documentation](https://redis.io/docs/latest/develop/data-types/probabilistic/t-digest/)
+**Documentation:** [T-digest](https://redis.io/docs/latest/develop/data-types/probabilistic/t-digest/)
 
 
 #### 6. TopK
@@ -155,7 +155,7 @@ client.send_command('TOPK.ADD', ['search_queries', 'query1', 'query2', 'query1',
 });
 ```
 
-**Documentation:** [TopK Documentation](https://redis.io/docs/latest/commands/?group=topk)
+**Documentation:** [TopK](https://redis.io/docs/latest/commands/?group=topk)
 
 These descriptions, examples, usage in Node.js ES6 syntax, and updated documentation links should give you a comprehensive understanding of these probabilistic data structures in Redis. If you have any further questions or need more details, feel free to ask!
 
