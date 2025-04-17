@@ -13,6 +13,14 @@
 
 **Definition:** Probabilistic data structures provide approximate results, which are often sufficient for many applications. They trade off some accuracy for significant gains in space and time efficiency. These structures are useful for large-scale data processing where exact precision is not critical.
 
+**Examples in Redis:**
+- **Bloom Filter:** Checks for the presence of an item in a set with a possibility of false positives but no false negatives [1](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/).
+- **Cuckoo Filter:** Similar to Bloom Filter but supports deletions [1](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/).
+- **HyperLogLog:** Estimates the cardinality (number of unique elements) of a set [1](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/).
+- **Count-Min Sketch:** Estimates the frequency of elements in a data stream [1](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/).
+- **T-digest:** Estimates percentiles and quantiles in a data stream [1](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/).
+- **TopK:** Identifies the most frequent items in a data stream [1](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/).
+
 - <span>&#10004;</span> <!-- ✔ -->  Available in Redis cloud
 - <span>&#10006;</span> <!-- ✖ -->  Unavailable in Redis cloud
 
