@@ -116,10 +116,6 @@ TOPK.ADD search_queries "query1" "query2" "query1" "query3" "query1"
 TOPK.LIST search_queries  # Output: ["query1", "query2"]
 ```
 
-**Documentation:** TopK Documentation
-
-These descriptions, examples, usage with native Redis commands, and updated documentation links should give you a comprehensive understanding of these probabilistic data structures in Redis. If you have any further questions or need more details, feel free to ask!
-
 **Documentation:** [TopK](https://redis.io/docs/latest/commands/?group=topk)
 
 These descriptions, examples, usage in Node.js ES6 syntax, and updated documentation links should give you a comprehensive understanding of these probabilistic data structures in Redis. If you have any further questions or need more details, feel free to ask!
