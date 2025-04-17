@@ -22,8 +22,9 @@
 - **TopK:** Identifies the most frequent items in a data stream.
 
 ---
-- <span>&#10004;</span> <!-- ✔ -->  Available in Redis cloud
-- <span>&#10006;</span> <!-- ✖ -->  Unavailable in Redis cloud
+<span>&#10004;</span> <!-- ✔ -->  Available in Redis cloud
+
+<span>&#10006;</span> <!-- ✖ -->  Unavailable in Redis cloud
 
 
 #### II. Bloom Filter  <span>&#10004;</span> <!-- ✔ -->
