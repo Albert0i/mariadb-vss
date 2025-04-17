@@ -1,12 +1,23 @@
 ### Understanding and Using Probabilistic Data Structures in Redis
 
-Here are the descriptions, examples, usage with native Redis commands, and updated documentation links for various probabilistic data structures in Redis:
 
-<span>&#10004;</span> <!-- ✔ -->  Available in Redis cloud
+#### I. Deterministic and Probabilistic
+**Definition:** Deterministic data structures provide precise and predictable results. Every operation on these data structures yields the same result every time, given the same input. They are used when exact data accuracy is required.
 
-<span>&#10006;</span> <!-- ✖ -->  Unavailable in Redis cloud
+**Examples in Redis:**
+- **Strings:** Store and retrieve exact string values.
+- **Lists:** Maintain an ordered collection of elements.
+- **Sets:** Store unique elements without any order.
+- **Hashes:** Store field-value pairs.
+- **Sorted Sets:** Store unique elements ordered by a score.
 
-### 1. Bloom Filter  <span>&#10004;</span> <!-- ✔ -->
+**Definition:** Probabilistic data structures provide approximate results, which are often sufficient for many applications. They trade off some accuracy for significant gains in space and time efficiency. These structures are useful for large-scale data processing where exact precision is not critical.
+
+- <span>&#10004;</span> <!-- ✔ -->  Available in Redis cloud
+- <span>&#10006;</span> <!-- ✖ -->  Unavailable in Redis cloud
+
+
+### II. Bloom Filter  <span>&#10004;</span> <!-- ✔ -->
 **Description:** A Bloom Filter is a space-efficient probabilistic data structure used to test whether an element is a member of a set. It can guarantee that an element is definitely not in the set, but it may produce false positives, meaning it might incorrectly indicate that an element is in the set when it is not. Bloom Filters are useful for applications like checking if a username is taken or if a user has seen an ad.
 
 **Example:** Imagine you have a list of email addresses and you want to quickly check if an email has already been seen before.
@@ -40,7 +51,7 @@ console.log(bloom.test('new@example.com'));      // Output: false (or true, but 
 **Documentation:** [Bloom Filter](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/), [Bloom Filter Calculator](https://hur.st/bloomfilter/)
 
 
-### 2. Cuckoo Filter  <span>&#10004;</span> <!-- ✔ -->
+### III. Cuckoo Filter  <span>&#10004;</span> <!-- ✔ -->
 **Description:** A Cuckoo Filter is similar to a Bloom Filter but supports deletion of elements. It uses multiple hash functions and an array of buckets to store fingerprints of elements. This structure allows for efficient membership tests and deletions, making it suitable for applications like validating discount codes or managing targeted ad campaigns.
 
 **Example:** Suppose you have a list of discount codes and you want to check if a code is valid and also be able to remove expired codes.
@@ -82,7 +93,7 @@ console.log(cuckoo.contains('DISCOUNT2025'));  // Output: false
 **Documentation:** [Cuckoo Filter](https://redis.io/docs/latest/develop/data-types/probabilistic/cuckoo-filter/)
 
 
-### 3. HyperLogLog  <span>&#10004;</span> <!-- ✔ -->
+### IV. HyperLogLog  <span>&#10004;</span> <!-- ✔ -->
 **Description:** HyperLogLog is used to estimate the cardinality (the number of unique elements) of a set. It is highly space-efficient and can provide an approximate count with a standard error of 0.81%. This makes it ideal for applications like counting unique visitors to a website or unique queries in a search engine.
 
 **Example:** You want to count the number of unique visitors to your website.
@@ -114,7 +125,7 @@ client.pfadd('visitors', 'user1', 'user2', 'user3', (err, res) => {
 **Documentation:** [HyperLogLog](https://redis.io/docs/latest/develop/data-types/probabilistic/hyperloglogs/)
 
 
-### 4. Count-Min Sketch  <span>&#10006;</span> <!-- ✖ -->
+### V. Count-Min Sketch  <span>&#10006;</span> <!-- ✖ -->
 **Description:** A Count-Min Sketch is used to estimate the frequency of elements in a data stream. It uses sub-linear space and can overestimate counts due to hash collisions. This structure is useful for applications like tracking the frequency of product sales or monitoring network traffic.
 
 **Example:** You want to track the frequency of product sales in an online store.
@@ -152,7 +163,7 @@ client.send_command('CMS.INCRBY', ['product_sales', 'productA', 5, 'productB', 3
 **Documentation:** [Count-Min Sketch](https://redis.io/docs/latest/develop/data-types/probabilistic/count-min-sketch/)
 
 
-### 5. T-digest  <span>&#10006;</span> <!-- ✖ -->
+### VI. T-digest  <span>&#10006;</span> <!-- ✖ -->
 **Description:** T-digest is a data structure for estimating percentiles and quantiles in a data stream. It is particularly useful for computing high-percentile values like the 99th percentile latency in a monitoring system. T-digest is efficient in terms of both space and computation.
 
 **Example:** You want to compute the 99th percentile latency of requests to your server.
@@ -184,7 +195,7 @@ client.send_command('TDIGEST.ADD', ['latencies', 100, 200, 300, 400, 500], (err,
 **Documentation:** [T-digest](https://redis.io/docs/latest/develop/data-types/probabilistic/t-digest/)
 
 
-### 6. TopK  <span>&#10004;</span> <!-- ✔ -->
+### VII. TopK  <span>&#10004;</span> <!-- ✔ -->
 **Description:** TopK is designed to identify and keep track of the most frequent items in a data stream. It uses a combination of hash tables and counters to maintain a list of the top-k elements. This is useful for applications like detecting the most popular items in a large dataset or monitoring the most frequent queries.
 
 **Example:** You want to identify the most frequent search queries on your website.
@@ -219,7 +230,7 @@ client.send_command('TOPK.ADD', ['search_queries', 'query1', 'query2', 'query1',
 These descriptions, examples, usage in Node.js ES6 syntax, and updated documentation links should give you a comprehensive understanding of these probabilistic data structures in Redis. If you have any further questions or need more details, feel free to ask!
 
 
-#### 7. Bibliography 
+#### VIII. Bibliography 
 1. [Understanding Probabilistic Data Structures with 112,092 UFO Sightings - Guy Royse - NDC Oslo 2023](https://youtu.be/M6XOniVANKI)
 2. [Understanding Probabilistic Data Structures with 112,092 UFO Sightings By Guy Royse](https://youtu.be/qMp6jlxC238)
 
