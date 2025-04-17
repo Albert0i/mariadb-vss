@@ -22,7 +22,7 @@ console.log(bloom.test('example@example.com'));  // Output: true
 console.log(bloom.test('new@example.com'));      // Output: false (or true, but rarely)
 ```
 
-**Documentation:** [Bloom Filter Documentation](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/)
+**Documentation:** [Bloom Filter Documentation](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/), [Bloom Filter Calculator](https://hur.st/bloomfilter/)
 
 ### 2. Cuckoo Filter
 **Description:** A Cuckoo Filter is similar to a Bloom Filter but supports deletion of elements. It uses multiple hash functions and an array of buckets to store fingerprints of elements. This structure allows for efficient membership tests and deletions, making it suitable for applications like validating discount codes or managing targeted ad campaigns.
