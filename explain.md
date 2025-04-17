@@ -20,6 +20,19 @@ BF.ADD emails "example@example.com"
 BF.EXISTS emails "example@example.com"  # Output: 1 (true)
 BF.EXISTS emails "new@example.com"      # Output: 0 (false)
 ```
+```javascript
+const BloomFilter = require('bloom-filter');
+
+// Create a Bloom Filter with a capacity of 1000 and error rate of 0.1%
+const bloom = new BloomFilter(1000, 0.001);
+
+// Add an email to the Bloom Filter
+bloom.add('example@example.com');
+
+// Check if an email is in the Bloom Filter
+console.log(bloom.test('example@example.com'));  // Output: true
+console.log(bloom.test('new@example.com'));      // Output: false (or true, but rarely)
+```
 
 **Documentation:** [Bloom Filter](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/), [Bloom Filter Calculator](https://hur.st/bloomfilter/)
 
@@ -45,6 +58,23 @@ CF.EXISTS discount_codes "EXPIRED2024"   # Output: 0 (false)
 CF.DEL discount_codes "DISCOUNT2025"
 CF.EXISTS discount_codes "DISCOUNT2025"  # Output: 0 (false)
 ```
+```javascript
+const CuckooFilter = require('cuckoo-filter');
+
+// Create a Cuckoo Filter with a capacity of 1000
+const cuckoo = new CuckooFilter(1000);
+
+// Add a discount code to the Cuckoo Filter
+cuckoo.add('DISCOUNT2025');
+
+// Check if a discount code is in the Cuckoo Filter
+console.log(cuckoo.contains('DISCOUNT2025'));  // Output: true
+console.log(cuckoo.contains('EXPIRED2024'));   // Output: false
+
+// Remove a discount code from the Cuckoo Filter
+cuckoo.remove('DISCOUNT2025');
+console.log(cuckoo.contains('DISCOUNT2025'));  // Output: false
+```
 
 **Documentation:** [Cuckoo Filter](https://redis.io/docs/latest/develop/data-types/probabilistic/cuckoo-filter/)
 
@@ -61,6 +91,21 @@ PFADD visitors "user1" "user2" "user3"
 
 # Estimate the number of unique visitors
 PFCOUNT visitors  # Output: 3
+```
+```javascript
+const redis = require('redis');
+const client = redis.createClient();
+
+// Add visitor IDs to HyperLogLog
+client.pfadd('visitors', 'user1', 'user2', 'user3', (err, res) => {
+  if (err) throw err;
+
+  // Estimate the number of unique visitors
+  client.pfcount('visitors', (err, count) => {
+    if (err) throw err;
+    console.log(count);  // Output: 3
+  });
+});
 ```
 
 **Documentation:** [HyperLogLog](https://redis.io/docs/latest/develop/data-types/probabilistic/hyperloglogs/)
@@ -80,6 +125,26 @@ CMS.INCRBY product_sales "productA" 5 "productB" 3
 CMS.QUERY product_sales "productA"  # Output: 5
 CMS.QUERY product_sales "productB"  # Output: 3
 ```
+```javascript
+const redis = require('redis');
+const client = redis.createClient();
+
+// Increment the count of product sales
+client.send_command('CMS.INCRBY', ['product_sales', 'productA', 5, 'productB', 3], (err, res) => {
+  if (err) throw err;
+
+  // Get the estimated count of product sales
+  client.send_command('CMS.QUERY', ['product_sales', 'productA'], (err, countA) => {
+    if (err) throw err;
+    console.log(countA);  // Output: 5
+
+    client.send_command('CMS.QUERY', ['product_sales', 'productB'], (err, countB) => {
+      if (err) throw err;
+      console.log(countB);  // Output: 3
+    });
+  });
+});
+```
 
 **Documentation:** [Count-Min Sketch](https://redis.io/docs/latest/develop/data-types/probabilistic/count-min-sketch/)
 
@@ -96,6 +161,21 @@ TDIGEST.ADD latencies 100 200 300 400 500
 
 # Get the 99th percentile latency
 TDIGEST.QUANTILE latencies 0.99  # Output: 500 (approx.)
+```
+```javascript
+const redis = require('redis');
+const client = redis.createClient();
+
+// Add latency values to T-digest
+client.send_command('TDIGEST.ADD', ['latencies', 100, 200, 300, 400, 500], (err, res) => {
+  if (err) throw err;
+
+  // Get the 99th percentile latency
+  client.send_command('TDIGEST.QUANTILE', ['latencies', 0.99], (err, quantile) => {
+    if (err) throw err;
+    console.log(quantile);  // Output: 500 (approx.)
+  });
+});
 ```
 
 **Documentation:** [T-digest](https://redis.io/docs/latest/develop/data-types/probabilistic/t-digest/)
@@ -114,6 +194,21 @@ TOPK.ADD search_queries "query1" "query2" "query1" "query3" "query1"
 
 # Get the top-k frequent search queries
 TOPK.LIST search_queries  # Output: ["query1", "query2"]
+```
+```javascript
+const redis = require('redis');
+const client = redis.createClient();
+
+// Add search queries to TopK
+client.send_command('TOPK.ADD', ['search_queries', 'query1', 'query2', 'query1', 'query3', 'query1'], (err, res) => {
+  if (err) throw err;
+
+  // Get the top-k frequent search queries
+  client.send_command('TOPK.LIST', ['search_queries'], (err, topK) => {
+    if (err) throw err;
+    console.log(topK);  // Output: ['query1', 'query2']
+  });
+});
 ```
 
 **Documentation:** [TopK](https://redis.io/docs/latest/commands/?group=topk)
