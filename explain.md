@@ -243,7 +243,7 @@ These descriptions, examples, usage in Node.js ES6 syntax, and updated documenta
 #### VIII. Skip List (behind the scenes)
 A **skip list** is a data structure that allows fast search, insertion, and deletion operations. It consists of multiple layers of linked lists. The bottom layer is an ordinary sorted linked list, and each higher layer acts as an "express lane" to skip over multiple elements, which speeds up the search process.
 
-It is a probabilistic data structure. The levels of the skip list are determined using randomization, which means the structure and height of the skip list can vary. This randomness helps achieve average-case time complexity of \(O(\log n)\) for search, insertion, and deletion operations.
+It is a probabilistic data structure. The levels of the skip list are determined using randomization, which means the structure and height of the skip list can vary. This randomness helps achieve average-case time complexity of (O(log n)) for search, insertion, and deletion operations.
 
 In Redis, the **sorted set** (`zset`) uses skip lists to maintain elements in a sorted order. Each element in a sorted set has a unique score, and the skip list helps efficiently manage these elements by their scores. This allows Redis to quickly perform operations like finding the rank of an element, retrieving elements within a score range, and more.
 
