@@ -240,7 +240,7 @@ client.send_command('TOPK.ADD', ['search_queries', 'query1', 'query2', 'query1',
 These descriptions, examples, usage in Node.js ES6 syntax, and updated documentation links should give you a comprehensive understanding of these probabilistic data structures in Redis. If you have any further questions or need more details, feel free to ask!
 
 
-#### VIII. Skip List
+#### VIII. Skip List (behind the scenes)
 A **skip list** is a data structure that allows fast search, insertion, and deletion operations. It consists of multiple layers of linked lists. The bottom layer is an ordinary sorted linked list, and each higher layer acts as an "express lane" to skip over multiple elements, which speeds up the search process.
 
 It is a probabilistic data structure. The levels of the skip list are determined using randomization, which means the structure and height of the skip list can vary. This randomness helps achieve average-case time complexity of \(O(\log n)\) for search, insertion, and deletion operations.
