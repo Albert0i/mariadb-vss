@@ -20,3 +20,8 @@ console.log(await writersRepository.search().where('description').match('politic
 console.log(await writersRepository.searchRaw('@description:(A master of Gothic fiction and poetry)').return.all())
 
 await redis.quit()
+
+/*
+   redis-om
+   https://www.npmjs.com/package/redis-om
+*/
