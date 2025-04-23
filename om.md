@@ -3,7 +3,7 @@
 Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 import syntax, incorporating the given object model.
 
 
-### Step 1: Set Up Your Project
+#### Step 1: Set Up Your Project
 1. **Initialize a new Node.js project**:
     ```bash
     mkdir redis-om-tutorial
@@ -37,7 +37,7 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
     ```
 
 
-### Step 2: Set Up Redis
+#### Step 2: Set Up Redis
 1. **Run Redis Stack**:
     You can run Redis Stack using Docker:
     ```bash
@@ -45,7 +45,7 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
     ```
 
 
-### Step 3: Create Your Application
+#### Step 3: Create Your Application
 1. **Create a `.env` file**:
     ```.env
     REDIS_URL=redis://localhost:6379
@@ -64,7 +64,7 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
     ```
 
 
-### Step 4: Define a Schema and Repository
+#### Step 4: Define a Schema and Repository
 1. **Create `schema.js`**:
     ```javascript
     import { Schema } from 'redis-om';
@@ -109,7 +109,7 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
     ```
 
 
-### Step 5: Create an Index
+#### Step 5: Create an Index
 1. **Create an index for the `Writer` schema**:
     ```javascript
     await writerRepository.createIndex();
@@ -123,7 +123,7 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
     ```
 
 
-### Step 6: Create Routes
+#### Step 6: Create Routes
 1. **Create `routes.js`**:
     ```javascript
     import express from 'express';
@@ -167,7 +167,7 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
     ```
 
 
-### Step 7: Run Your Application
+#### Step 7: Run Your Application
 1. **Start your server**:
     ```bash
     npm start
