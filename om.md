@@ -124,6 +124,7 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
 
     export { writersRepository };
     ```
+    > Now that we have a client and a schema, we have what we need to make a [repository](https://github.com/redis/redis-om-node/blob/main/docs/classes/Repository.md). A repository provides the means to write, read, and remove entities. Creating a repository is pretty straightforward—just instantiate one with a schema and a client. 
 
 
 #### Step 5: Create an Index
