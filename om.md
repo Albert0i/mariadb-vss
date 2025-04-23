@@ -185,7 +185,7 @@ And that's it! You've set up a basic Node.js application using Redis-OM with ES6
 #### Retrospection
 Regarding to our case, we maintain the index `demo:writers:idx_vss` manually: 
 
-```
+```javascript
 const writersSchema = new Schema('writers', {
         full_name: { type: 'string', sortable: true },
         notable_works: { type: 'string[]', sortable: true },
@@ -198,13 +198,13 @@ const writersSchema = new Schema('writers', {
 
 There's no need to call `createIndex`, no need to index `embedding` field albeit it is possible to add: 
 
-```
+```javascript
 embedding: { type: 'number[]' }
 ```
 
 Use it as it is! 
 
-```
+```javascript
 const writers = await writersRepository.search().where('notable_works').contains('1984').return.all()
 
 const writers = await writersRepository.search().where('description').match('political').return.all()
