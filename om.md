@@ -218,7 +218,9 @@ const writers = await writersRepository.searchRaw('@description:(A master of Got
 1. [Beyond the Cache with Redis + Node.js | Guy Royse](https://youtu.be/5NGVIhLAYVA)
 2. [Redis Stack Workshop: Redis Stack OM Library for Node.js](https://youtu.be/KUfufrwpBkM)
 3. [redis-om](https://github.com/redis/redis-om-node/tree/main)
-4. [node-redis](https://www.npmjs.com/package/redis)
+4. [redis-om detailed documentation](https://github.com/redis/redis-om-node/blob/main/docs/classes/Schema.md)
+5. [redis-om API documentation](https://github.com/redis/redis-om-node/blob/main/docs)
+6. [node-redis](https://www.npmjs.com/package/redis)
 
 
 ### EOF (2025/04/23)
