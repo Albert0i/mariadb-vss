@@ -1,6 +1,6 @@
-Both MySQL and MariaDB have introduced vector types to support advanced search capabilities, but they differ in their implementations and features.
+### MySQL vs MariaDB
 
-### **MySQL**
+#### **MySQL**
 
 MySQL 9.0 introduced the VECTOR type, which allows storing vectors as a series of single-precision floating-point values[1](https://dev.mysql.com/doc/refman/9.0/en/vector.html)[2](https://docs.oracle.com/cd/E17952_01/mysql-9.2-en/vector.html). Key features include:
 
@@ -8,7 +8,7 @@ MySQL 9.0 introduced the VECTOR type, which allows storing vectors as a series o
 - **Functions**: Supports basic string functions like `BIT_LENGTH()`, `CHAR_LENGTH()`, `HEX()`, `LENGTH()`, and `TO_BASE64()`[1](https://dev.mysql.com/doc/refman/9.0/en/vector.html)[2](https://docs.oracle.com/cd/E17952_01/mysql-9.2-en/vector.html). It can also be used with encryption functions like `AES_ENCRYPT()`, `COMPRESS()`, `MD5()`, `SHA1()`, and `SHA2()`[1](https://dev.mysql.com/doc/refman/9.0/en/vector.html)[2](https://docs.oracle.com/cd/E17952_01/mysql-9.2-en/vector.html).
 - **Limitations**: VECTOR columns cannot be used as keys (primary, foreign, unique, partitioning) or histogram sources[1](https://dev.mysql.com/doc/refman/9.0/en/vector.html)[2](https://docs.oracle.com/cd/E17952_01/mysql-9.2-en/vector.html). They are not supported by aggregate functions or window functions other than `COUNT(DISTINCT)`[1](https://dev.mysql.com/doc/refman/9.0/en/vector.html)[2](https://docs.oracle.com/cd/E17952_01/mysql-9.2-en/vector.html).
 
-### **MariaDB**
+#### **MariaDB**
 
 MariaDB 11.7 introduced vector search capabilities with a dedicated VECTOR data type and specialized vector indexes[3](https://mariadb.com/kb/en/vector-overview/)[4](https://mariadb.org/projects/mariadb-vector/)[5](https://mariadb.com/kb/en/vector/). Key features include:
 
@@ -17,12 +17,10 @@ MariaDB 11.7 introduced vector search capabilities with a dedicated VECTOR data 
 - **Functions**: Includes utility functions like `VEC_FromText()` and `VEC_ToText()` for handling vector data[3](https://mariadb.com/kb/en/vector-overview/)[4](https://mariadb.org/projects/mariadb-vector/).
 - **Performance**: Optimized for scalability and performance, especially with multiple connections[4](https://mariadb.org/projects/mariadb-vector/).
 
-### **Comparison**
+#### **Comparison**
 
 - **Flexibility**: MariaDB offers more flexibility with specialized vector indexes and multiple distance functions (Euclidean and Cosine), making it suitable for various AI and machine learning applications[3](https://mariadb.com/kb/en/vector-overview/)[4](https://mariadb.org/projects/mariadb-vector/)[5](https://mariadb.com/kb/en/vector/).
 - **Performance**: MariaDB's implementation is optimized for high performance and scalability, particularly in multi-threaded environments[4](https://mariadb.org/projects/mariadb-vector/).
 - **Functionality**: MySQL's VECTOR type has more limitations in terms of usage with keys and functions[1](https://dev.mysql.com/doc/refman/9.0/en/vector.html)[2](https://docs.oracle.com/cd/E17952_01/mysql-9.2-en/vector.html).
 
 Overall, MariaDB's vector capabilities are more advanced and tailored for modern AI applications, while MySQL provides basic vector support with certain limitations.
-
-If you have any specific requirements or use cases, feel free to share, and I can help you further evaluate which database might be better suited for your needs!
