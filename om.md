@@ -183,7 +183,7 @@ And that's it! You've set up a basic Node.js application using Redis-OM with ES6
 
 
 #### Retrospection
-Regarding to our case, we maintain the index `demo:writers:idx_vss` manually: 
+Regarding to our case, as of this writing, `redis-om` doesn't support vector type yet, index `demo:writers:idx_vss` is maintained manually: 
 
 ```javascript
 const writersSchema = new Schema('writers', {
@@ -196,14 +196,13 @@ const writersSchema = new Schema('writers', {
     })
 ```
 
-There's no need to call `createIndex`, no need to index `embedding` field albeit it is possible to add: 
+It is hazardous to call `createIndex`, in addition, indexing  `embedding` field is practically unuseful albeit it is possible: 
 
 ```javascript
 embedding: { type: 'number[]' }
 ```
 
-Use it *as it is*...
-
+The only palpable issue is unable to select which fields to return. So, use it on your own risk... 
 ```javascript
 const writers = await writersRepository.search().where('notable_works').contains('1984').return.all()
 
