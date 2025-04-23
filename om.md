@@ -183,7 +183,7 @@ And that's it! You've set up a basic Node.js application using Redis-OM with ES6
 
 
 #### Retrospection
-Regarding to our case, we maintain the index `demo:writers:idx_vss` manually: 
+Regarding to our case, we maintain the index demo:writers:idx_vss manually: 
 
     ```javascript
     const writersSchema = new Schema('writers', {
