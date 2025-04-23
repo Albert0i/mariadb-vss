@@ -4,6 +4,8 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
 
 
 #### Step 0: Entities and Schemas
+> Redis OM (pronounced *REDiss OHM*) makes it easy to add Redis to your Node.js application by mapping the Redis data structures you know and love to simple JavaScript objects. No more pesky, low-level commands, just pure code with a fluent interface.
+
 > Redis OM is all about saving, reading, and deleting *entities*. An [Entity](https://github.com/redis/redis-om-node/blob/main/docs/README.md#entity) is just data in a JavaScript object that you want to save or retrieve from Redis. Almost any JavaScript object is a valid `Entity`.
 
 > [Schemas](https://github.com/redis/redis-om-node/blob/main/docs/classes/Schema.md) define fields that might be on an `Entity`. It includes a field's type, how it is stored internally in Redis, and how to search on it if you are using RediSearch. By default, they are mapped to JSON documents using RedisJSON, but you can change it to use Hashes if want.
