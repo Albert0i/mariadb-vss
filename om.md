@@ -117,8 +117,10 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
 
     Add this line to your `index.js` after the client connection:
     ```javascript
+    import { redis } from './redis.js'
     import { writersRepository } from './repository.js';
 
+    await redis.connect()
     await writersRepository.createIndex();
     ```
 
@@ -131,14 +133,15 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
 
     const router = express.Router();
 
-    router.post('/writer', async (req, res) => {
-      const writer = writersRepository.createEntity(req.body);
-      const id = await writersRepository.save(writer);
-      res.send({ id });
+    router.post('/writer', async (req, res) => {      
+      const writer = await writersRepository.save(req.body);
+
+      res.send({ id: writer[EntityId] });
     });
 
     router.get('/writer/:id', async (req, res) => {
       const writer = await writersRepository.fetch(req.params.id);
+
       res.send(writer);
     });
 
@@ -181,6 +184,35 @@ And that's it! You've set up a basic Node.js application using Redis-OM with ES6
 
 #### Retrospection
 Regarding to our case, we maintain the index `demo:writers:idx_vss` manually: 
+    ```javascript
+    const writersSchema = new Schema('writers', {
+            full_name: { type: 'string', sortable: true },
+            notable_works: { type: 'string[]', sortable: true },
+            description: { type: 'text', sortable: true }
+        }, {
+            dataStructure: 'JSON',
+            indexName: 'demo:writers:idx_vss'
+        })
+    ```
+There's no need to call `createIndex`, no need to index `embedding` field albeit it is possible to add: 
+```javascript
+  embedding: { type: 'number[]' }
+```
+
+Use it as it is! 
+```javascript
+const writers = await writersRepository.search().where('notable_works').contains('1984').return.all()
+
+const writers = await writersRepository.search().where('description').match('political').return.all()
+
+const writers = await writersRepository.searchRaw('@description:(A master of Gothic fiction and poetry)').return.all()
+```
+
+
+#### Bibliography
+1. [Beyond the Cache with Redis + Node.js | Guy Royse](https://youtu.be/5NGVIhLAYVA)
+2. [node-redis](https://www.npmjs.com/package/redis)
+3. [redis-om](https://www.npmjs.com/package/redis-om)
 
 
 ### EOF (2025/04/23)
