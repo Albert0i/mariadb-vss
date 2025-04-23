@@ -91,6 +91,9 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
 
     export { writersSchema };
     ```
+    > The *first argument* is the `Schema` name. It defines the key name prefix that entities stored in Redis will have. It should be unique for your particular instance of Redis and probably meaningful to what you're doing. 
+
+    > The *second argument* defines fields that might be stored in that key. The property name is the name of the field that you'll be referencing in your Redis OM queries. The type property tells Redis OM what sort of data is in that field. Valid types are: `string`, `number`, `boolean`, `string[]`, `number[]`, `date`, `point` and `text`.
 
 2. **Create `redis.js`**:
     ```javascript
@@ -211,6 +214,7 @@ const writersSchema = new Schema('writers', {
         indexName: 'demo:writers:idx_vss'
     })
 ```
+> A `text` field is a lot like a `string`. If you're just reading and writing objects, they are identical. But if you want to *search* on them, **they are very, very different**. I'll cover that in detail when I talk about [searching](https://github.com/redis/redis-om-node/tree/main?tab=readme-ov-file#searching) but the tl;dr is that `string` fields can only be matched on their exact value and are best for keys and discrete data—like postal codes or status indicators—while `text` fields have full-text search enabled on them, are optimized for human-readable text, and can take advantage of [stemming](https://redis.io/docs/stack/search/reference/stemming/) and [stop words](https://redis.io/docs/stack/search/reference/stopwords/).
 
 It is hazardous to call `createIndex`, in addition, indexing  `embedding` field is practically unuseful albeit it is possible: 
 
