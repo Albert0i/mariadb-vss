@@ -242,7 +242,8 @@ It is hazardous to call `createIndex`, in addition, indexing  `embedding` field 
 embedding: { type: 'number[]' }
 ```
 
-The only palpable issue is unable to select which fields to return. So, use it on your own risk... 
+> Using [RediSearch](https://oss.redis.com/redisearch/) with Redis OM is where the power of this fully armed and operational battle station starts to become apparent. 
+
 ```javascript
 const writers = await writersRepository.search().where('notable_works').contains('1984').return.all()
 
@@ -250,6 +251,7 @@ const writers = await writersRepository.search().where('description').match('pol
 
 const writers = await writersRepository.searchRaw('@description:(A master of Gothic fiction and poetry)').return.all()
 ```
+The only palpable issue is unable to select which fields to return. So, use it on your own risk... 
 
 
 #### Bibliography
