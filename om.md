@@ -183,8 +183,10 @@ And that's it! You've set up a basic Node.js application using Redis-OM with ES6
 
 
 #### Retrospection
-Regarding to our case, as of this writing, `redis-om` doesn't support vector type yet, index `demo:writers:idx_vss` is maintained manually: 
+Regarding to our case, as of this writing, `redis-om` doesn't support vector type yet. 
+![alt om-data-type](img/om-data-type.JPG)
 
+Index `demo:writers:idx_vss` has to be maintained manually by ourself: 
 ```javascript
 const writersSchema = new Schema('writers', {
         full_name: { type: 'string', sortable: true },
@@ -214,8 +216,9 @@ const writers = await writersRepository.searchRaw('@description:(A master of Got
 
 #### Bibliography
 1. [Beyond the Cache with Redis + Node.js | Guy Royse](https://youtu.be/5NGVIhLAYVA)
-2. [node-redis](https://www.npmjs.com/package/redis)
-3. [redis-om](https://www.npmjs.com/package/redis-om)
+2. [Redis Stack Workshop: Redis Stack OM Library for Node.js](https://youtu.be/KUfufrwpBkM)
+3. [redis-om](https://github.com/redis/redis-om-node/tree/main)
+4. [node-redis](https://www.npmjs.com/package/redis)
 
 
 ### EOF (2025/04/23)
