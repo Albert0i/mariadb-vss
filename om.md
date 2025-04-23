@@ -3,6 +3,18 @@
 Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 import syntax, incorporating the given object model.
 
 
+#### Entities and Schemas
+> Redis OM is all about saving, reading, and deleting *entities*. An [Entity](https://github.com/redis/redis-om-node/blob/main/docs/README.md#entity) is just data in a JavaScript object that you want to save or retrieve from Redis. Almost any JavaScript object is a valid `Entity`.
+
+> [Schemas](https://github.com/redis/redis-om-node/blob/main/docs/classes/Schema.md) define fields that might be on an `Entity`. It includes a field's type, how it is stored internally in Redis, and how to search on it if you are using RediSearch. By default, they are mapped to JSON documents using RedisJSON, but you can change it to use Hashes if want.
+
+> Additional field options can be set depending on the field type. These correspond to the [Field Options](https://redis.io/commands/ft.create/#field-options) available when creating a RediSearch full-text index. Other than the `separator` option, these only affect how content is indexed and searched.
+
+> There are several other options available when defining a schema for your entity. Check them out in the [detailed documentation](https://github.com/redis/redis-om-node/blob/main/docs/classes/Schema.md) for the `Schema` class.
+
+> This README is pretty extensive, but if you want to check out every last corner of Redis OM for Node.js, take a look at the complete [API documentation](https://github.com/redis/redis-om-node/blob/main/docs).
+
+
 #### Step 1: Set Up Your Project
 1. **Initialize a new Node.js project**:
     ```bash
@@ -183,7 +195,7 @@ And that's it! You've set up a basic Node.js application using Redis-OM with ES6
 
 
 #### Retrospection
-Regarding to our case, as of this writing, `redis-om` doesn't support vector type yet. 
+Regarding to our case, as of this writing, `redis-om` doesn't support `vector` type yet. Valid types are: `string`, `number`, `boolean`, `string[]`, `number[]`, `date`, `point` and `text`.
 ![alt om-data-type](img/om-data-type.JPG)
 
 Index `demo:writers:idx_vss` has to be maintained manually by ourself: 
