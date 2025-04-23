@@ -143,6 +143,8 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
     ```
     > To use search you have to build an index. If you don't, you'll get errors. To build an index, just call `.createIndex` on your repository. 
 
+    > If you change your schema, no worries. Redis OM will automatically rebuild the index for you. Just call `.createIndex` again. And don't worry if you call `.createIndex` when your schema hasn't changed. Redis OM will only rebuild your index if the schema has changed. So, you can safely use it in your startup code.
+
 #### Step 6: Create Routes
 1. **Create `routes.js`**:
     ```javascript
@@ -163,6 +165,12 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
       res.send(writer);
     });
 
+    router.delete('/writer/:id', async (req, res) => {
+      const result = await writersRepository.remove(req.params.id);
+
+      res.send(result);
+    });
+
     export default router;
     ```
     > This saves your entity and returns a copy, a copy with some additional properties. The primary property we care about right now is the entity ID, which Redis OM will generate for you. However, this isn't stored and accessed like a typical property. After all, you might have a property in your data with a name that conflicts with the name Redis OM uses and that would create all sorts of problems.
@@ -172,6 +180,10 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
     > The entity ID that Redis OM generates is a [ULID](https://github.com/ulid/spec) and is a unique id representing that object. 
 
     > Regardless, once you have an object's entity ID you can `.fetch` with it. 
+
+    > If you call `.save` with an entity that already has an entity ID, probably because you fetched it, `.save` will update it instead of creating a new `Entity`:
+
+    > And, of course, you need to be able to delete things. Use `.remove` to do that. 
     
 2. **Update `index.js` to use the routes**:
     ```javascript
