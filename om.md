@@ -165,7 +165,14 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
 
     export default router;
     ```
+    > This saves your entity and returns a copy, a copy with some additional properties. The primary property we care about right now is the entity ID, which Redis OM will generate for you. However, this isn't stored and accessed like a typical property. After all, you might have a property in your data with a name that conflicts with the name Redis OM uses and that would create all sorts of problems.
 
+    > So, Redis OM uses a [Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) to access it instead. You'll need to import this symbol from Redis OM.
+
+    > The entity ID that Redis OM generates is a [ULID](https://github.com/ulid/spec) and is a unique id representing that object. 
+
+    > Regardless, once you have an object's entity ID you can `.fetch` with it. 
+    
 2. **Update `index.js` to use the routes**:
     ```javascript
     import express from 'express';
