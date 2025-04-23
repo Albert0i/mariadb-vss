@@ -202,7 +202,7 @@ There's no need to call `createIndex`, no need to index `embedding` field albeit
 embedding: { type: 'number[]' }
 ```
 
-Use it as it is! 
+Use it *as it is*...
 
 ```javascript
 const writers = await writersRepository.search().where('notable_works').contains('1984').return.all()
