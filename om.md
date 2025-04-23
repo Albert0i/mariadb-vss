@@ -112,8 +112,8 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
 
     export { redis }
     ```
-
-
+    > Before you can use Redis OM, you need to connect to Redis with Node Redis. But, if you're curious—or if you need that power—you can find all the info in the Node Redis [documentation](https://github.com/redis/node-redis).
+    
 3. **Create `repository.js`**:
     ```javascript
     import { Repository } from 'redis-om';
