@@ -69,13 +69,13 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
     ```javascript
     import { Schema } from 'redis-om';
 
-    const writerSchema = new Schema('writers', {
+    const writersSchema = new Schema('writers', {
       full_name: { type: 'string' },
       notable_works: { type: 'string[]' },
       description: { type: 'string' }
     });
 
-    export { writerSchema };
+    export { writersSchema };
     ```
 
 2. **Create `redis.js`**:
@@ -101,25 +101,25 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
     ```javascript
     import { Repository } from 'redis-om';
     import { redis } from './redis.js'
-    import { writerSchema } from './schema.js';
+    import { writersSchema } from './schema.js';
 
-    const writerRepository = new Repository(writerSchema, redis);
+    const writersRepository = new Repository(writersSchema, redis);
 
-    export { writerRepository };
+    export { writersRepository };
     ```
 
 
 #### Step 5: Create an Index
-1. **Create an index for the `Writer` schema**:
+1. **Create an index for the `writers` schema**:
     ```javascript
-    await writerRepository.createIndex();
+    await writersRepository.createIndex();
     ```
 
     Add this line to your `index.js` after the client connection:
     ```javascript
-    import { writerRepository } from './repository.js';
+    import { writersRepository } from './repository.js';
 
-    await writerRepository.createIndex();
+    await writersRepository.createIndex();
     ```
 
 
@@ -127,18 +127,18 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
 1. **Create `routes.js`**:
     ```javascript
     import express from 'express';
-    import { writerRepository } from './repository.js';
+    import { writersRepository } from './repository.js';
 
     const router = express.Router();
 
     router.post('/writer', async (req, res) => {
-      const writer = writerRepository.createEntity(req.body);
-      const id = await writerRepository.save(writer);
+      const writer = writersRepository.createEntity(req.body);
+      const id = await writersRepository.save(writer);
       res.send({ id });
     });
 
     router.get('/writer/:id', async (req, res) => {
-      const writer = await writerRepository.fetch(req.params.id);
+      const writer = await writersRepository.fetch(req.params.id);
       res.send(writer);
     });
 
@@ -150,14 +150,14 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
     import express from 'express';
     import router from './routes.js';
     import { redis } from './redis.js'
-    import { writerRepository } from './repository.js';
+    import { writersRepository } from './repository.js';
 
     const app = express();
     app.use(express.json());
 
     // Create index for the Writer schema
     await redis.connect()
-    await writerRepository.createIndex();
+    await writersRepository.createIndex();
 
     app.use('/api', router);
 
@@ -180,7 +180,7 @@ And that's it! You've set up a basic Node.js application using Redis-OM with ES6
 
 
 #### Retrospection
-Regarding to our case, we would like to maintain the index `demo:writers:idx_vss` manually : 
+Regarding to our case, we maintain the index `demo:writers:idx_vss` manually: 
 
 
 ### EOF (2025/04/23)
