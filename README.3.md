@@ -268,7 +268,7 @@ The *brute force* of a kNN search is computationally very expensive - and depend
 MariaDB employs modified HNSW and most of the time delivers the correct result. This probabilistic nature allows HNSW to achieve high performance and scalability in vector similarity searches. 
 ![alt accuracy-complexity](img/accuracy-complexity.png)
 
-Articles written by copilot: 
+Articles written by [copilot](https://copilot.microsoft.com/): 
 - [Understanding and Using Probabilistic Data Structures in Redis](explain.md)
 - [Tutorial on Using Redis-OM in Node.js](om.md)
 
