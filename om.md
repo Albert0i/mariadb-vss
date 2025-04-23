@@ -197,18 +197,18 @@ Regarding to our case, we maintain the index `demo:writers:idx_vss` manually:
     ```
 
 There's no need to call `createIndex`, no need to index `embedding` field albeit it is possible to add: 
-```javascript
-  embedding: { type: 'number[]' }
-```
+    ```javascript
+      embedding: { type: 'number[]' }
+    ```
 
 Use it as it is! 
-```javascript
-const writers = await writersRepository.search().where('notable_works').contains('1984').return.all()
+    ```javascript
+    const writers = await writersRepository.search().where('notable_works').contains('1984').return.all()
 
-const writers = await writersRepository.search().where('description').match('political').return.all()
+    const writers = await writersRepository.search().where('description').match('political').return.all()
 
-const writers = await writersRepository.searchRaw('@description:(A master of Gothic fiction and poetry)').return.all()
-```
+    const writers = await writersRepository.searchRaw('@description:(A master of Gothic fiction and poetry)').return.all()
+    ```
 
 
 #### Bibliography
