@@ -141,7 +141,7 @@ Let's create a step-by-step tutorial on using Redis-OM in Node.js with ES6 impor
     await redis.connect()
     await writersRepository.createIndex();
     ```
-
+    > To use search you have to build an index. If you don't, you'll get errors. To build an index, just call `.createIndex` on your repository. 
 
 #### Step 6: Create Routes
 1. **Create `routes.js`**:
