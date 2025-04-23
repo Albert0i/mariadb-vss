@@ -269,6 +269,7 @@ MariaDB employs modified HNSW and most of the time delivers the correct result. 
 ![alt accuracy-complexity](img/accuracy-complexity.png)
 
 Articles written by [copilot](https://copilot.microsoft.com/): 
+- [Cosine or Euclidean](cosine-vs-euclidean.md)
 - [Understanding and Using Probabilistic Data Structures in Redis](explain.md)
 - [Tutorial on Using Redis-OM in Node.js](om.md)
 
