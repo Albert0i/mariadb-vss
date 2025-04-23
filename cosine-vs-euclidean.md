@@ -19,13 +19,17 @@
 
 
 #### IV. Resources
-[1](https://www.datacamp.com/tutorial/cosine-distance): [What is Cosine Distance? A Deep Dive - DataCamp](https://www.datacamp.com/tutorial/cosine-distance)
+[1](https://www.datacamp.com/tutorial/cosine-distance): 
+[What is Cosine Distance? A Deep Dive - DataCamp](https://www.datacamp.com/tutorial/cosine-distance)
 
-[2](https://stackoverflow.com/questions/29901173/euclidean-vs-cosine-for-text-data): [Euclidean vs Cosine for text data - Stack Overflow](https://stackoverflow.com/questions/29901173/euclidean-vs-cosine-for-text-data)
+[2](https://stackoverflow.com/questions/29901173/euclidean-vs-cosine-for-text-data): 
+[Euclidean vs Cosine for text data - Stack Overflow](https://stackoverflow.com/questions/29901173/euclidean-vs-cosine-for-text-data)
 
-[3](https://github.com/jfelding/IMED): [IMage Euclidean Distance (IMED) - GitHub](https://github.com/jfelding/IMED)
+[3](https://github.com/jfelding/IMED): 
+[IMage Euclidean Distance (IMED) - GitHub](https://github.com/jfelding/IMED)
 
-[4](https://stackoverflow.com/questions/36985718/euclidean-distance-between-images): [Euclidean distance between images - Stack Overflow](https://stackoverflow.com/questions/36985718/euclidean-distance-between-images)
+[4](https://stackoverflow.com/questions/36985718/euclidean-distance-between-images): 
+[Euclidean distance between images - Stack Overflow](https://stackoverflow.com/questions/36985718/euclidean-distance-between-images)
 
 
 ### EOF (2025/04/03)
