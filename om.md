@@ -221,7 +221,26 @@ And that's it! You've set up a basic Node.js application using Redis-OM with ES6
 
 #### Step 8: Retrospection
 Regarding to our case, as of this writing, `redis-om` doesn't support `vector` type yet. Valid types are: `string`, `number`, `boolean`, `string[]`, `number[]`, `date`, `point` and `text`.
-![alt om-data-type](img/om-data-type.JPG)
+
+|  schema type   | RediSearch type | `indexed` | `sortable` | `normalized` | `stemming` | `matcher` | `weight` | `separator` | `caseSensitive` |
+| -------------- | :-------------: | :-------: | :--------: | :----------: | :--------: | :--------: | :------: | :---------: | :-------------: |
+| `string`       |       TAG       |    yes    |  HASH Only |   HASH Only  |      -     |      -     |     -    |     yes     |        yes      |
+| `number`       |     NUMERIC     |    yes    |    yes     |       -      |      -     |      -     |     -    |      -      |         -       |
+| `boolean`      |       TAG       |    yes    |  HASH Only |       -      |      -     |      -     |     -    |      -      |         -       |
+| `string[]`     |       TAG       |    yes    |  HASH Only |   HASH Only  |      -     |      -     |     -    |     yes     |        yes      |
+| `number[]`     |     NUMERIC     |    yes    |    yes     |       -      |      -     |      -     |     -    |      -      |         -       |
+| `date`         |     NUMERIC     |    yes    |    yes     |       -      |            |      -     |     -    |      -      |         -       |
+| `point`        |       GEO       |    yes    |     -      |       -      |            |      -     |     -    |      -      |         -       |
+| `text`         |       TEXT      |    yes    |    yes     |      yes     |     yes    |     yes    |    yes   |      -      |         -       |
+
+* `indexed`: true | false, whether this field is indexed by RediSearch (default true)
+* `sortable`: true | false, whether to create an additional index to optimize sorting (default false)
+* `normalized`: true | false, whether to apply normalization for sorting (default true)
+* `matcher`: string defining phonetic matcher which can be one of: 'dm:en' for English, 'dm:fr' for French, 'dm:pt' for Portugese, 'dm:es' for Spanish (default none)
+* `stemming`: true | false, whether word-stemming is applied to text fields (default true)
+* `weight`: number, the importance weighting to use when ranking results (default 1)
+* `separator`: string, the character to delimit multiple tags (default '|')
+* `caseSensitive`: true | false, whether original letter casing is kept for search (default false)
 
 Index `demo:writers:idx_vss` has to be maintained manually by ourself: 
 ```javascript
