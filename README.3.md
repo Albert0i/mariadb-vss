@@ -274,6 +274,11 @@ Short articles written by [copilot](https://copilot.microsoft.com/):
 - [Understanding and Using Probabilistic Data Structures in Redis](explain.md)
 - [Tutorial on Using Redis-OM in Node.js](om.md)
 
+And utilities: 
+- [FT.CREATE Helper](https://albert0i.github.io/src/FTCREATE.html): helps to create FT.CREATE command on given object model; 
+- [SQL Formatter](https://albert0i.github.io/src/SQLFormatter.html): as the name implied; 
+- [SQL Min](https://albert0i.github.io/src/SQLmin.html): the reverse of idempotent. 
+
 
 #### VI. Bibliography
 1. [What is a vector database?](https://youtu.be/Yhv19le0sBw)
