@@ -2,6 +2,8 @@
 
 
 #### I. Deterministic and Probabilistic
+![alt two-families-of-data-structure.](img/two-families-of-data-structure.JPG)
+
 **Definition:** Deterministic data structures provide precise and predictable results. Every operation on these data structures yields the same result every time, given the same input. They are used when exact data accuracy is required.
 
 **Examples in Redis:**
@@ -21,6 +23,7 @@
 - **T-digest:** Estimates percentiles and quantiles in a data stream.
 - **TopK:** Identifies the most frequent items in a data stream.
 
+![alt but-why](img/but-why.JPG)
 ---
 <span>&#10004;</span> <!-- ✔ -->  Available in Redis cloud
 
@@ -28,6 +31,9 @@
 
 
 #### II. Bloom Filter  <span>&#10004;</span> <!-- ✔ -->
+![alt step-1-bloom-filters](img/step-1-bloom-filters.JPG)
+![alt step-1-bloom-filters-redis-usage](img/step-1-bloom-filters-redis-usage.JPG)
+
 **Description:** A Bloom Filter is a space-efficient probabilistic data structure used to test whether an element is a member of a set. It can guarantee that an element is definitely not in the set, but it may produce false positives, meaning it might incorrectly indicate that an element is in the set when it is not. Bloom Filters are useful for applications like checking if a username is taken or if a user has seen an ad.
 
 **Example:** Imagine you have a list of email addresses and you want to quickly check if an email has already been seen before.
@@ -62,6 +68,9 @@ console.log(bloom.test('new@example.com'));      // Output: false (or true, but 
 
 
 #### III. Cuckoo Filter  <span>&#10004;</span> <!-- ✔ -->
+![alt step-3-cuckoo-filter](img/step-3-cuckoo-filter.JPG)
+![alt step-3-cuckoo-vs-bloom](img/step-3-cuckoo-vs-bloom.JPG)
+
 **Description:** A Cuckoo Filter is similar to a Bloom Filter but supports deletion of elements. It uses multiple hash functions and an array of buckets to store fingerprints of elements. This structure allows for efficient membership tests and deletions, making it suitable for applications like validating discount codes or managing targeted ad campaigns.
 
 **Example:** Suppose you have a list of discount codes and you want to check if a code is valid and also be able to remove expired codes.
@@ -104,6 +113,10 @@ console.log(cuckoo.contains('DISCOUNT2025'));  // Output: false
 
 
 #### IV. HyperLogLog  <span>&#10004;</span> <!-- ✔ -->
+![alt step-2-hyperloglog](img/step-2-hyperloglog.JPG)
+![alt step-2a-how-does-hyperloglog-work](img/step-2a-how-does-hyperloglog-work.JPG)
+![alt step-2-hyperloglog-redis-usage](img/step-2-hyperloglog-redis-usage.JPG)
+
 **Description:** HyperLogLog is used to estimate the cardinality (the number of unique elements) of a set. It is highly space-efficient and can provide an approximate count with a standard error of 0.81%. This makes it ideal for applications like counting unique visitors to a website or unique queries in a search engine.
 
 **Example:** You want to count the number of unique visitors to your website.
@@ -254,4 +267,4 @@ In Redis, the **sorted set** (`zset`) uses skip lists to maintain elements in a 
 3. [Understanding Probabilistic Data Structures with 112,092 UFO Sightings By Guy Royse](https://youtu.be/qMp6jlxC238)
 
 
-### EOF (2025/04/22)
+### EOF (2025/04/25)
