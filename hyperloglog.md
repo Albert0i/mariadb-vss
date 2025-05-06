@@ -307,3 +307,28 @@ If you’re dealing with **millions or more**, HyperLogLog provides **huge memor
 Would you like an example comparing HyperLogLog to exact counting methods? You can also check out [this explanation](https://stackoverflow.com/questions/12327004/how-does-the-hyperloglog-algorithm-work) for more details!
 
 
+
+The **harmonic mean** is a type of average that is particularly useful when dealing with rates or ratios. It is calculated as the reciprocal of the arithmetic mean of the reciprocals of a set of numbers.
+
+### Formula:
+For a set of \( n \) positive numbers \( x_1, x_2, ..., x_n \), the harmonic mean \( H \) is given by:
+
+\[
+H = \frac{n}{\sum \frac{1}{x_i}}
+\]
+
+### Example:
+If you have the numbers **1, 2, and 4**, the harmonic mean is calculated as:
+
+1. Compute the reciprocals: \( \frac{1}{1}, \frac{1}{2}, \frac{1}{4} \) → **1, 0.5, 0.25**
+2. Sum the reciprocals: **1 + 0.5 + 0.25 = 1.75**
+3. Divide by the number of values: \( \frac{3}{1.75} \approx 1.714 \)
+
+### Applications:
+- Used in **averaging speeds** when traveling different distances at different speeds.
+- Helps in **financial calculations**, such as averaging rates of return.
+- Useful in **data science** when dealing with weighted averages.
+
+You can find more details on [Wikipedia](https://en.wikipedia.org/wiki/Harmonic_mean) or [Math is Fun](https://www.mathsisfun.com/numbers/harmonic-mean.html). Let me know if you’d like a deeper dive into its applications!
+
+
