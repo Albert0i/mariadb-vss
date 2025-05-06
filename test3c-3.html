@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Column Input Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d3d3d3; /* Light silver background */
+        }
+        header {
+            background-color: #d3d3d3; /* Light silver background for the header */
+            color: black;
+            padding: 0.2rem; /* Smaller padding for a shorter header */
+            text-align: center;
+            margin-bottom: 5px; /* Reduced space below header */
+            font-size: 0.9rem; /* Smaller font size */
+        }
+        .button-container {
+            text-align: right; /* Align buttons to the right */
+            margin: 0px 20px; /* Space around buttons */
+        }
+        .print-button, .clear-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px; /* Space between buttons */
+        }
+        .print-button:hover, .clear-button:hover {
+            background-color: #45a049; /* Darker shade on hover */
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            padding: 0.5rem;
+        }
+        .column {
+            flex: 1; /* Equal width for all columns */
+            margin: 0 10px; /* Horizontal spacing */
+            background-color: #f4f4f4; /* Light background for columns */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem; /* Padding inside columns */
+            overflow-y: auto; /* Allow vertical scroll if content overflows */
+        }
+        .input-group {
+            display: flex; /* Use flexbox for inline alignment */
+            align-items: center; /* Center items vertically */
+            margin: 6px 0; /* Spacing between input groups */
+        }
+        label {
+            width: 150px; /* Fixed width for labels */
+            margin-right: 10px; /* Space between label and input */
+        }
+        .labelwide {
+            width: 400px; /* Fixed width for labels */
+            margin-right: 10px; /* Space between label and input */
+        }
+        input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .first-input {
+            width: 110px; /* Width for the first input fields */
+        }
+        .second-input {
+            width: 610px; /* Width for the second input fields */
+        }
+        .third-input {
+            width: 30px; /* Width for the third input fields */
+        }
+        .fourth-input {
+            width: 40px; /* Width for the fourth input fields */
+        }
+        .fifth-input {
+            width: 90px; /* Width for the fifth input fields */
+            margin-right: 10px;
+        }
+        .sixth-input { 
+            width: 100%; /* Full width for textarea */
+            height: 40px; /* Set height for textarea */
+            resize: vertical; /* Allow vertical resizing */        
+        }
+        h1 { 
+            margin-bottom: 0;
+        }
+        h2 {
+            text-align: center; /* Center titles */
+            margin: 0; 
+            padding: 0; 
+        }
+        .radio-group {
+            display: flex; /* Use flexbox for inline alignment */
+            align-items: flex-start; /* Align items to the top */
+        }
+        .radio-group label {
+            margin-right: 10px; /* Space between radio buttons and labels */
+            margin-left: 5px; /* Space on the left for readability */
+        }        
+    </style>
+    <script>
+        function printPage() {
+            window.print(); // Triggers the print dialog
+        }
+
+        function clearInputs() {
+            const inputs = document.querySelectorAll('input[type="text"]');
+            inputs.forEach(input => input.value = ''); // Clear all text inputs
+            const radios = document.querySelectorAll('input[type="radio"]');
+            radios.forEach(radio => radio.checked = false); // Clear all radio buttons
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => checkbox.checked = false); // Clear all checkboxes
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>生成退回鎖匙/截數單內部工作備註</h1>
+</header>
+
+<div class="button-container">
+    <button class="print-button" onclick="printPage()">生成內部工作備註</button>
+    <button class="clear-button" onclick="clearInputs()">清除資料</button>
+</div>
+
+<div class="container">
+
+    <div class="column">
+        <h2>1</h2>
+        <div class="input-group">
+            <label for="input1A">家團編號</label>
+            <input type="text" id="input1A" class="first-input" maxlength="10" autofocus required>
+        </div>
+        <div class="input-group">
+            <label for="input1B">家團代表姓名</label>
+            <input type="text" id="input1B" class="second-input" maxlength="60">
+        </div>
+        <div class="input-group">
+            <label for="input1C">地址代碼</label>
+            <input type="text" id="input1C" class="third-input" maxlength="2">
+            <input type="text" id="input1C" class="third-input" maxlength="2">
+            <input type="text" id="input1C" class="third-input" maxlength="2">
+            <input type="text" id="input1C" class="third-input" maxlength="2">
+            <input type="text" id="input1C" class="third-input" maxlength="3">
+        </div>
+        <div class="input-group">
+            <label for="input1D">間隔</label>
+            <input type="text" id="input1D" class="fourth-input" maxlength="3">
+        </div>
+
+        <div class="input-group">
+            <label for="input1E">收回鎖匙/門咭日期</label>
+            <input type="text" id="input1E" class="fifth-input" maxlength="8">
+        </div>        
+        <div class="input-group">
+            <label>鎖匙:</label>
+            <input type="radio" id="key" name="option" value="key">
+            <label for="key">鎖匙</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt">回執</label>
+        </div>
+        
+        <div class="input-group" style="margin-top: 25px;">
+            <label for="input1E">水費截數日期</label>
+            <input type="text" id="input1E" class="fifth-input" maxlength="8">
+            <input type="checkbox" id="afterSupplement" name="afterSupplement">
+            <label for="afterSupplement">後補</label>            
+        </div>
+        <div class="input-group">
+            <label>水錶:</label>
+            <input type="radio" id="key" name="option" value="key">
+            <label for="key" style="width: 200px;">不屬承租人</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 300px;">屬承租人，己取消</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 400px;">屬承租人，由DFHP代取消 </label>
+        </div>
+        <div class="input-group">
+            <label>水錶:</label>
+            <input type="radio" id="key" name="option" value="key">
+            <label for="key" style="width: 300px;">沒有自動轉賬</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 350px;">有自動轉賬，己取消</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 350px;">有自動轉賬，己通知</label>
+        </div>
+
+        <div class="input-group" style="margin-top: 25px;">
+            <label for="input1E">電費截數日期</label>
+            <input type="text" id="input1E" class="fifth-input" maxlength="8">
+            <input type="checkbox" id="afterSupplement" name="afterSupplement">
+            <label for="afterSupplement">後補</label>            
+        </div>
+        <div class="input-group">
+            <label>電錶:</label>
+            <input type="radio" id="key" name="option" value="key">
+            <label for="key" style="width: 200px;">不屬承租人</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 300px;">屬承租人，己取消</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 400px;">屬承租人，由DFHP代取消</label>
+        </div>
+        <div class="input-group">
+            <label>電錶:</label>
+            <input type="radio" id="key" name="option" value="key">
+            <label for="key" style="width: 300px;">沒有自動轉賬</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 350px;">有自動轉賬，己取消</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 350px;">有自動轉賬，己通知</label>
+        </div>
+
+        <div class="input-group" style="margin-top: 25px;">
+            <label for="input1E">燃氣費繳清日期</label>
+            <input type="text" id="input1E" class="fifth-input" maxlength="8">
+            <input type="checkbox" id="afterSupplement" name="afterSupplement">
+            <label for="afterSupplement">沒有申請</label>            
+        </div>        
+
+        <div class="input-group">
+            <label style="width: 900px;">承租人聲稱單位從未入住</label>
+            <input type="radio" id="executeYes1" name="execute1" value="yes">
+            <label for="executeYes1">是</label>
+            <input type="radio" id="executeNo1" name="execute1" value="no">
+            <label for="executeNo1">否</label>
+        </div>
+
+        <div class="input-group">
+            <label style="width: 900px;">合同己入機生效</label>
+            <input type="radio" id="executeYes1" name="execute1" value="yes">
+            <label for="executeYes1">是</label>
+            <input type="radio" id="executeNo1" name="execute1" value="no">
+            <label for="executeNo1">否</label>
+        </div>
+        <div class="input-group">
+            <label style="width: 900px;">經DOB或DFHP通知需維修</label>
+            <input type="radio" id="executeYes1" name="execute1" value="yes">
+            <label for="executeYes1">是</label>
+            <input type="radio" id="executeNo1" name="execute1" value="no">
+            <label for="executeNo1">否</label>
+        </div>
+        <div class="input-group">
+            <label style="width: 900px;">需執行勒遷程序</label>
+            <input type="radio" id="executeYes1" name="execute1" value="yes">
+            <label for="executeYes1">是</label>
+            <input type="radio" id="executeNo1" name="execute1" value="no">
+            <label for="executeNo1">否</label>
+        </div>
+        <div class="input-group" style="margin-top: 25px;">
+            <label for="input1F" style="width: 45px;">備註</label>
+            <textarea id="input1F" class="sixth-input"></textarea>
+        </div>        
+    </div>
+
+    <div class="column">
+        <h2>2</h2>
+        <div class="input-group">
+            <label for="input1A">家團編號</label>
+            <input type="text" id="input1A" class="first-input" maxlength="10">
+        </div>
+        <div class="input-group">
+            <label for="input1B">家團代表姓名</label>
+            <input type="text" id="input1B" class="second-input" maxlength="60">
+        </div>
+        <div class="input-group">
+            <label for="input1C">地址代碼</label>
+            <input type="text" id="input1C" class="third-input" maxlength="2">
+            <input type="text" id="input1C" class="third-input" maxlength="2">
+            <input type="text" id="input1C" class="third-input" maxlength="2">
+            <input type="text" id="input1C" class="third-input" maxlength="2">
+            <input type="text" id="input1C" class="third-input" maxlength="3">
+        </div>
+        <div class="input-group">
+            <label for="input1D">間隔</label>
+            <input type="text" id="input1D" class="fourth-input" maxlength="3">
+        </div>
+
+        <div class="input-group">
+            <label for="input1E">收回鎖匙/門咭日期</label>
+            <input type="text" id="input1E" class="fifth-input" maxlength="8">
+        </div>        
+        <div class="input-group">
+            <label>鎖匙:</label>
+            <input type="radio" id="key" name="option" value="key">
+            <label for="key">鎖匙</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt">回執</label>
+        </div>
+        
+        <div class="input-group" style="margin-top: 25px;">
+            <label for="input1E">水費截數日期</label>
+            <input type="text" id="input1E" class="fifth-input" maxlength="8">
+            <input type="checkbox" id="afterSupplement" name="afterSupplement">
+            <label for="afterSupplement">後補</label>            
+        </div>
+        <div class="input-group">
+            <label>水錶:</label>
+            <input type="radio" id="key" name="option" value="key">
+            <label for="key" style="width: 200px;">不屬承租人</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 300px;">屬承租人，己取消</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 400px;">屬承租人，由DFHP代取消 </label>
+        </div>
+        <div class="input-group">
+            <label>水錶:</label>
+            <input type="radio" id="key" name="option" value="key">
+            <label for="key" style="width: 300px;">沒有自動轉賬</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 350px;">有自動轉賬，己取消</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 350px;">有自動轉賬，己通知</label>
+        </div>
+
+        <div class="input-group" style="margin-top: 25px;">
+            <label for="input1E">電費截數日期</label>
+            <input type="text" id="input1E" class="fifth-input" maxlength="8">
+            <input type="checkbox" id="afterSupplement" name="afterSupplement">
+            <label for="afterSupplement">後補</label>            
+        </div>
+        <div class="input-group">
+            <label>電錶:</label>
+            <input type="radio" id="key" name="option" value="key">
+            <label for="key" style="width: 200px;">不屬承租人</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 300px;">屬承租人，己取消</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 400px;">屬承租人，由DFHP代取消</label>
+        </div>
+        <div class="input-group">
+            <label>電錶:</label>
+            <input type="radio" id="key" name="option" value="key">
+            <label for="key" style="width: 300px;">沒有自動轉賬</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 350px;">有自動轉賬，己取消</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 350px;">有自動轉賬，己通知</label>
+        </div>
+
+        <div class="input-group" style="margin-top: 25px;">
+            <label for="input1E">燃氣費繳清日期</label>
+            <input type="text" id="input1E" class="fifth-input" maxlength="8">
+            <input type="checkbox" id="afterSupplement" name="afterSupplement">
+            <label for="afterSupplement">沒有申請</label>            
+        </div>        
+
+        <div class="input-group">
+            <label style="width: 900px;">承租人聲稱單位從未入住</label>
+            <input type="radio" id="executeYes1" name="execute1" value="yes">
+            <label for="executeYes1">是</label>
+            <input type="radio" id="executeNo1" name="execute1" value="no">
+            <label for="executeNo1">否</label>
+        </div>
+
+        <div class="input-group">
+            <label style="width: 900px;">合同己入機生效</label>
+            <input type="radio" id="executeYes1" name="execute1" value="yes">
+            <label for="executeYes1">是</label>
+            <input type="radio" id="executeNo1" name="execute1" value="no">
+            <label for="executeNo1">否</label>
+        </div>
+        <div class="input-group">
+            <label style="width: 900px;">經DOB或DFHP通知需維修</label>
+            <input type="radio" id="executeYes1" name="execute1" value="yes">
+            <label for="executeYes1">是</label>
+            <input type="radio" id="executeNo1" name="execute1" value="no">
+            <label for="executeNo1">否</label>
+        </div>
+        <div class="input-group">
+            <label style="width: 900px;">需執行勒遷程序</label>
+            <input type="radio" id="executeYes1" name="execute1" value="yes">
+            <label for="executeYes1">是</label>
+            <input type="radio" id="executeNo1" name="execute1" value="no">
+            <label for="executeNo1">否</label>
+        </div>
+        <div class="input-group" style="margin-top: 25px;">
+            <label for="input1F" style="width: 45px;">備註</label>
+            <textarea id="input1F" class="sixth-input"></textarea>
+        </div>        
+    </div>
+
+    <div class="column">
+        <h2>3</h2>
+        <div class="input-group">
+            <label for="input1A">家團編號</label>
+            <input type="text" id="input1A" class="first-input" maxlength="10">
+        </div>
+        <div class="input-group">
+            <label for="input1B">家團代表姓名</label>
+            <input type="text" id="input1B" class="second-input" maxlength="60">
+        </div>
+        <div class="input-group">
+            <label for="input1C">地址代碼</label>
+            <input type="text" id="input1C" class="third-input" maxlength="2">
+            <input type="text" id="input1C" class="third-input" maxlength="2">
+            <input type="text" id="input1C" class="third-input" maxlength="2">
+            <input type="text" id="input1C" class="third-input" maxlength="2">
+            <input type="text" id="input1C" class="third-input" maxlength="3">
+        </div>
+        <div class="input-group">
+            <label for="input1D">間隔</label>
+            <input type="text" id="input1D" class="fourth-input" maxlength="3">
+        </div>
+
+        <div class="input-group">
+            <label for="input1E">收回鎖匙/門咭日期</label>
+            <input type="text" id="input1E" class="fifth-input" maxlength="8">
+        </div>        
+        <div class="input-group">
+            <label>鎖匙:</label>
+            <input type="radio" id="key" name="option" value="key">
+            <label for="key">鎖匙</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt">回執</label>
+        </div>
+        
+        <div class="input-group" style="margin-top: 25px;">
+            <label for="input1E">水費截數日期</label>
+            <input type="text" id="input1E" class="fifth-input" maxlength="8">
+            <input type="checkbox" id="afterSupplement" name="afterSupplement">
+            <label for="afterSupplement">後補</label>            
+        </div>
+        <div class="input-group">
+            <label>水錶:</label>
+            <input type="radio" id="key" name="option" value="key">
+            <label for="key" style="width: 200px;">不屬承租人</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 300px;">屬承租人，己取消</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 400px;">屬承租人，由DFHP代取消 </label>
+        </div>
+        <div class="input-group">
+            <label>水錶:</label>
+            <input type="radio" id="key" name="option" value="key">
+            <label for="key" style="width: 300px;">沒有自動轉賬</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 350px;">有自動轉賬，己取消</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 350px;">有自動轉賬，己通知</label>
+        </div>
+
+        <div class="input-group" style="margin-top: 25px;">
+            <label for="input1E">電費截數日期</label>
+            <input type="text" id="input1E" class="fifth-input" maxlength="8">
+            <input type="checkbox" id="afterSupplement" name="afterSupplement">
+            <label for="afterSupplement">後補</label>            
+        </div>
+        <div class="input-group">
+            <label>電錶:</label>
+            <input type="radio" id="key" name="option" value="key">
+            <label for="key" style="width: 200px;">不屬承租人</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 300px;">屬承租人，己取消</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 400px;">屬承租人，由DFHP代取消</label>
+        </div>
+        <div class="input-group">
+            <label>電錶:</label>
+            <input type="radio" id="key" name="option" value="key">
+            <label for="key" style="width: 300px;">沒有自動轉賬</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 350px;">有自動轉賬，己取消</label>
+            <input type="radio" id="receipt" name="option" value="receipt">
+            <label for="receipt" style="width: 350px;">有自動轉賬，己通知</label>
+        </div>
+
+        <div class="input-group" style="margin-top: 25px;">
+            <label for="input1E">燃氣費繳清日期</label>
+            <input type="text" id="input1E" class="fifth-input" maxlength="8">
+            <input type="checkbox" id="afterSupplement" name="afterSupplement">
+            <label for="afterSupplement">沒有申請</label>            
+        </div>        
+
+        <div class="input-group">
+            <label style="width: 900px;">承租人聲稱單位從未入住</label>
+            <input type="radio" id="executeYes1" name="execute1" value="yes">
+            <label for="executeYes1">是</label>
+            <input type="radio" id="executeNo1" name="execute1" value="no">
+            <label for="executeNo1">否</label>
+        </div>
+
+        <div class="input-group">
+            <label style="width: 900px;">合同己入機生效</label>
+            <input type="radio" id="executeYes1" name="execute1" value="yes">
+            <label for="executeYes1">是</label>
+            <input type="radio" id="executeNo1" name="execute1" value="no">
+            <label for="executeNo1">否</label>
+        </div>
+        <div class="input-group">
+            <label style="width: 900px;">經DOB或DFHP通知需維修</label>
+            <input type="radio" id="executeYes1" name="execute1" value="yes">
+            <label for="executeYes1">是</label>
+            <input type="radio" id="executeNo1" name="execute1" value="no">
+            <label for="executeNo1">否</label>
+        </div>
+        <div class="input-group">
+            <label style="width: 900px;">需執行勒遷程序</label>
+            <input type="radio" id="executeYes1" name="execute1" value="yes">
+            <label for="executeYes1">是</label>
+            <input type="radio" id="executeNo1" name="execute1" value="no">
+            <label for="executeNo1">否</label>
+        </div>
+        <div class="input-group" style="margin-top: 25px;">
+            <label for="input1F" style="width: 45px;">備註</label>
+            <textarea id="input1F" class="sixth-input"></textarea>
+        </div>        
+    </div>
+
+</body>
+</html>
